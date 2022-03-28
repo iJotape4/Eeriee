@@ -96,8 +96,13 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 			weapons = GameObject.FindGameObjectsWithTag("Weapon");
-			currentWeapon = weapons[0];
+			foreach (GameObject w in weapons)
+			{
+				w.SetActive(false);
+			}
 
+			currentWeapon = weapons[0];
+			currentWeapon.SetActive(true);
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
