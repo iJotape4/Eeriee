@@ -42,9 +42,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ChangeWeapon",
+                    "name": "Weapon1",
                     "type": "Button",
                     "id": "a95df4be-a7bc-4471-91eb-5f823fc1a60c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon2",
+                    "type": "Button",
+                    "id": "93653327-b696-40b4-8744-4cd75fdef981",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon3",
+                    "type": "Button",
+                    "id": "885db4c3-2650-490b-8103-6f9e9dffe429",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -163,6 +181,61 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "df14dbcf-b240-40c6-9956-c0cac88ef1b3",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "9630d329-e1e3-48ca-a162-3c015ee3de82",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e89c078e-f0bf-4c89-a8ba-f662ef334ca7",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "ee5f918f-7d8c-4022-810c-062581f04e80",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "4a3255cf-3b28-4899-9abc-6385d79a8f4c",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "ed66cbff-2900-4a62-8896-696503cfcd31",
                     "path": "<Pointer>/delta",
@@ -229,37 +302,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "83b4cf7a-4d0f-409b-bf65-ef671a26cf28",
-                    "path": "1DAxis(minValue=1,maxValue=2)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeWeapon",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "01dd2ae5-3525-4c67-8907-449be62f1a0b",
+                    "name": "",
+                    "id": "c28465eb-1ac0-4ce0-973d-21832fa3b46b",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ChangeWeapon",
+                    "groups": "",
+                    "action": "Weapon1",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "a3e16ed5-6acd-4136-8a24-47f528c7ffe3",
+                    "name": "",
+                    "id": "6728d385-c66a-4ad0-9c7a-c843978e471b",
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ChangeWeapon",
+                    "action": "Weapon2",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae3afcaa-08ae-4f75-b1c5-64895a8f80c8",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

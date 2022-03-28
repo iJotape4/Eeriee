@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public int  currentWeapon;
+		public bool changeWeapon;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -27,6 +28,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+			
 		}
 
 		public void OnLook(InputValue value)
@@ -47,11 +49,21 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
-		public void OnChangeWeapon(InputValue value)
+		public void OnWeapon1(InputValue value)
 		{
-			var current = value.Get<float>();
-			Debug.Log(current);
-			//ChangeWeaponInput(value.Get<int>());
+			Weapon1Input(value.isPressed);				
+
+		}
+
+		public void OnWeapon2(InputValue value)
+		{
+			Weapon2Input(value.isPressed);
+
+		}
+
+		public void OnWeapon3(InputValue value)
+		{
+			Weapon3Input(value.isPressed);
 
 		}
 #else
@@ -79,11 +91,23 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
-		public void ChangeWeaponInput(int newWeaponState)
+		public void Weapon1Input(bool newWeapon1State)
 		{
-			currentWeapon = newWeaponState;
+			if( newWeapon1State)
+			 currentWeapon = 0;
 		}
-      
+
+		public void Weapon2Input(bool newWeapon2State)
+		{
+			if (newWeapon2State)
+				currentWeapon = 1;
+		}
+
+		public void Weapon3Input(bool newWeapon3State)
+		{
+			if (newWeapon3State)
+				currentWeapon = 2;
+		}
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

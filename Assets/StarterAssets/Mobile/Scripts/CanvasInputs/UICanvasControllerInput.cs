@@ -30,7 +30,7 @@ namespace StarterAssets
 
         public void VirtualWeaponInput(int virtualWeaponState)
         {
-            starterAssetsInputs.ChangeWeaponInput(virtualWeaponState);
+         //   starterAssetsInputs.ChangeWeaponInput(virtualWeaponState);
         }
     }
 
