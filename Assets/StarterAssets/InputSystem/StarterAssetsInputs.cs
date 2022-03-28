@@ -51,20 +51,17 @@ namespace StarterAssets
 
 		public void OnWeapon1(InputValue value)
 		{
-			Weapon1Input(value.isPressed);				
-
+			WeaponChanger(value.isPressed, 0);				
 		}
 
 		public void OnWeapon2(InputValue value)
 		{
-			Weapon2Input(value.isPressed);
-
+			WeaponChanger(value.isPressed, 1);
 		}
 
 		public void OnWeapon3(InputValue value)
 		{
-			Weapon3Input(value.isPressed);
-
+			WeaponChanger(value.isPressed, 2);
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -91,7 +88,13 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 
-		public void Weapon1Input(bool newWeapon1State)
+		public void WeaponChanger(bool newWeaponState, int selectedWeapon)
+        {
+			if (newWeaponState)
+				currentWeapon = selectedWeapon;
+        }
+
+		/*public void Weapon1Input(bool newWeapon1State)
 		{
 			if( newWeapon1State)
 			 currentWeapon = 0;
@@ -107,7 +110,7 @@ namespace StarterAssets
 		{
 			if (newWeapon3State)
 				currentWeapon = 2;
-		}
+		}*/
 
 #if !UNITY_IOS || !UNITY_ANDROID
 
