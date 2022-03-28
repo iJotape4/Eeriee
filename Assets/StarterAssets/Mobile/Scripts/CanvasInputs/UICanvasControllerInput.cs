@@ -27,7 +27,11 @@ namespace StarterAssets
         {
             starterAssetsInputs.SprintInput(virtualSprintState);
         }
-        
+
+        public void VirtualWeaponInput(int virtualWeaponState)
+        {
+            starterAssetsInputs.ChangeWeaponInput(virtualWeaponState);
+        }
     }
 
 }
