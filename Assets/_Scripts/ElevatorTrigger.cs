@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ElevatorTrigger : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collisionInfo)
+    void Awake()
     {
-        Debug.Log(collisionInfo);
-        Debug.Log(collisionInfo.gameObject.tag);
+        Debug.Log("Holaaa");
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.name);
     }
 }
