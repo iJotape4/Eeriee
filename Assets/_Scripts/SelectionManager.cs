@@ -23,7 +23,6 @@ public class SelectionManager : MonoBehaviour
             {
                 case "downButton":
                 case "upButton":
-                    Debug.Log("Botón del Ascensor");
                     buttonObj = hit.transform.gameObject.GetComponent<ButtonController>();
                     StartCoroutine(buttonObj.OnPress(hit.transform.gameObject));
                     break;
