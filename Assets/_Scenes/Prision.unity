@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 111307467}
   - component: {fileID: 111307466}
   m_Layer: 0
-  m_Name: Puerta 2
+  m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179612728}
   m_Layer: 0
-  m_Name: BotonInterior2
+  m_Name: InternalButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +313,7 @@ Transform:
   - {fileID: 1071814502}
   - {fileID: 423270906}
   m_Father: {fileID: 2070712651}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 180}
 --- !u!1 &216076933
 GameObject:
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.238579
+      value: 10.38
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.y
@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.14142153
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276684545}
   m_Layer: 0
-  m_Name: BotonExterior2
+  m_Name: ExternalButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,7 +487,7 @@ Transform:
   - {fileID: 6838490117498323497}
   - {fileID: 7899099929222739476}
   m_Father: {fileID: 340657542094988646}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317625247
 GameObject:
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 317625250}
   - component: {fileID: 317625249}
   m_Layer: 0
-  m_Name: Puerta 1
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -694,7 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390961421}
   m_Layer: 0
-  m_Name: Marco Ascensor
+  m_Name: ElevatorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -717,7 +717,7 @@ Transform:
   - {fileID: 864242087}
   - {fileID: 953461507}
   m_Father: {fileID: 340657542094988646}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423270900
 GameObject:
@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 439783742}
   - component: {fileID: 439783741}
   m_Layer: 0
-  m_Name: Puerta 2
+  m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,7 +1066,7 @@ GameObject:
   - component: {fileID: 459493867}
   - component: {fileID: 459493866}
   m_Layer: 0
-  m_Name: Puerta 1
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 528277727}
   m_Layer: 0
-  m_Name: BotonExterior1
+  m_Name: ExternalButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1280,7 +1280,7 @@ Transform:
   - {fileID: 1258977346}
   - {fileID: 616910297}
   m_Father: {fileID: 340657542094988646}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &586319943
 GameObject:
@@ -1922,7 +1922,7 @@ GameObject:
   - component: {fileID: 784804508}
   - component: {fileID: 784804507}
   m_Layer: 0
-  m_Name: Marco R
+  m_Name: Frame R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 821266893}
   - component: {fileID: 821266892}
   m_Layer: 0
-  m_Name: Puerta 2
+  m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2197,7 +2197,7 @@ GameObject:
   - component: {fileID: 864242087}
   - component: {fileID: 864242086}
   m_Layer: 0
-  m_Name: Puertas Exteriores
+  m_Name: ExternalDoors 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2251,7 +2251,7 @@ GameObject:
   - component: {fileID: 953461507}
   - component: {fileID: 953461506}
   m_Layer: 0
-  m_Name: Puertas Exteriores (1)
+  m_Name: ExternalDoors2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2344,8 +2344,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
-  far clip plane: 500
+  near clip plane: 0.1
+  far clip plane: 5000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -2372,7 +2372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: -0.9238794, z: 0, w: -0.38268396}
-  m_LocalPosition: {x: 10.238579, y: 32.375, z: -0.14142153}
+  m_LocalPosition: {x: 10.38, y: 32.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2440,7 +2440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 988330683}
   m_Layer: 0
-  m_Name: BotonInterior1
+  m_Name: InternalButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2462,7 +2462,7 @@ Transform:
   - {fileID: 825749212}
   - {fileID: 1820233629}
   m_Father: {fileID: 2070712651}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1071814501
 GameObject:
@@ -2557,7 +2557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1147486505}
   m_Layer: 0
-  m_Name: BotonExterior3
+  m_Name: ExternalButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2579,7 +2579,7 @@ Transform:
   - {fileID: 784316193}
   - {fileID: 1200173407}
   m_Father: {fileID: 340657542094988646}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1171033458
 GameObject:
@@ -2591,7 +2591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1171033459}
   m_Layer: 0
-  m_Name: Helipuerto
+  m_Name: Heliport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3204,7 +3204,7 @@ GameObject:
   - component: {fileID: 1517376521}
   - component: {fileID: 1517376520}
   m_Layer: 0
-  m_Name: Puerta 1
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3604,7 +3604,7 @@ GameObject:
   - component: {fileID: 1850147308}
   - component: {fileID: 1850147309}
   m_Layer: 0
-  m_Name: Puertas 2
+  m_Name: InternalDoors2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3660,7 +3660,7 @@ GameObject:
   - component: {fileID: 1861511407}
   - component: {fileID: 1861511406}
   m_Layer: 0
-  m_Name: Marco L
+  m_Name: Frame L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3755,7 +3755,7 @@ GameObject:
   - component: {fileID: 1864170416}
   - component: {fileID: 1864170417}
   m_Layer: 0
-  m_Name: Puertas 1
+  m_Name: InternalDoors1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3811,7 +3811,7 @@ GameObject:
   - component: {fileID: 1954030622}
   - component: {fileID: 1954030621}
   m_Layer: 0
-  m_Name: Puerta 1
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3908,7 +3908,7 @@ GameObject:
   - component: {fileID: 1957497621}
   - component: {fileID: 1957497620}
   m_Layer: 0
-  m_Name: Puerta
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4012,7 +4012,7 @@ GameObject:
   - component: {fileID: 1960881387}
   - component: {fileID: 1960881386}
   m_Layer: 0
-  m_Name: Puerta 2
+  m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4107,7 +4107,7 @@ GameObject:
   - component: {fileID: 2070712651}
   - component: {fileID: 2070712652}
   m_Layer: 0
-  m_Name: Ascensor
+  m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4125,9 +4125,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4386015991515265457}
   - {fileID: 988330683}
   - {fileID: 179612728}
-  - {fileID: 4386015991515265457}
   - {fileID: 1864170416}
   - {fileID: 1850147308}
   m_Father: {fileID: 340657542094988646}
@@ -4208,10 +4208,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2070712651}
+  - {fileID: 390961421}
   - {fileID: 528277727}
   - {fileID: 276684545}
   - {fileID: 1147486505}
-  - {fileID: 390961421}
   - {fileID: 1171033459}
   - {fileID: 3294134698777969784}
   - {fileID: 7402554644587924063}
@@ -4392,7 +4392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 340657542094988646}
   m_Layer: 0
-  m_Name: Centro
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4461,7 +4461,7 @@ GameObject:
   - component: {fileID: 3926086508013839533}
   - component: {fileID: 3926086508013839534}
   m_Layer: 0
-  m_Name: Administracion
+  m_Name: Admin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 2031183261739783793}
   - component: {fileID: 6428118959033876565}
   m_Layer: 0
-  m_Name: Instalaciones
+  m_Name: Facilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4514,7 +4514,7 @@ GameObject:
   - component: {fileID: 2643849668700489783}
   - component: {fileID: 7049431717246078124}
   m_Layer: 0
-  m_Name: Servicios
+  m_Name: Services
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4659,7 +4659,7 @@ GameObject:
   - component: {fileID: 2928355913173089677}
   - component: {fileID: 7901264798083165097}
   m_Layer: 0
-  m_Name: Instalaciones
+  m_Name: Facilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4678,7 +4678,7 @@ GameObject:
   - component: {fileID: 1162910697656280011}
   - component: {fileID: 9051680630442260902}
   m_Layer: 0
-  m_Name: Servicios
+  m_Name: Services
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4728,7 +4728,7 @@ GameObject:
   - component: {fileID: 8988317902138814002}
   - component: {fileID: 8988317902138814003}
   m_Layer: 0
-  m_Name: Ascensor
+  m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4797,7 +4797,7 @@ GameObject:
   - component: {fileID: 211643595667459921}
   - component: {fileID: 2664032979515575654}
   m_Layer: 0
-  m_Name: Administracion
+  m_Name: Admin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5100,7 +5100,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2070712651}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4411781384204383834
 MeshFilter:
@@ -5123,7 +5123,7 @@ GameObject:
   - component: {fileID: 1008563130199418055}
   - component: {fileID: 4772137649159239853}
   m_Layer: 0
-  m_Name: Escalera 1
+  m_Name: Starway1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5264,7 +5264,7 @@ GameObject:
   - component: {fileID: 3959493419996300866}
   - component: {fileID: 7402554644587924064}
   m_Layer: 0
-  m_Name: Escalera 2
+  m_Name: Starway2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5337,7 +5337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6688126972944981069}
   m_Layer: 0
-  m_Name: Techo
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5464,7 +5464,7 @@ GameObject:
   - component: {fileID: 6519991964635534003}
   - component: {fileID: 6519991964635534004}
   m_Layer: 0
-  m_Name: Pasillos
+  m_Name: Circulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5539,7 +5539,7 @@ GameObject:
   - component: {fileID: 7380441203223397469}
   - component: {fileID: 7834528550716718782}
   m_Layer: 0
-  m_Name: Celdas
+  m_Name: Cells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5558,7 +5558,7 @@ GameObject:
   - component: {fileID: 8344037693570598582}
   - component: {fileID: 8459507833938860963}
   m_Layer: 0
-  m_Name: Helipuerto
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5698,7 +5698,7 @@ GameObject:
   - component: {fileID: 8866387719125704176}
   - component: {fileID: 8866387719125704177}
   m_Layer: 0
-  m_Name: Paredes
+  m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5751,7 +5751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7512754396937631665}
   m_Layer: 0
-  m_Name: Suelo
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6079,7 +6079,7 @@ GameObject:
   - component: {fileID: 7991638086773651791}
   - component: {fileID: 7991638086773651792}
   m_Layer: 0
-  m_Name: Pasillos
+  m_Name: Circulation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6154,7 +6154,7 @@ GameObject:
   - component: {fileID: 5980554294890934177}
   - component: {fileID: 8039850984421602015}
   m_Layer: 0
-  m_Name: Celdas
+  m_Name: Cells
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
