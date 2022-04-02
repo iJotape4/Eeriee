@@ -144,31 +144,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.64
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6900005
+      value: 1.2521
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.38268396
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9238794
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -225
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -442,11 +442,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ab18a6aa1115a4aa3b7738ac722e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevator: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  emissions: []
 --- !u!1001 &260708204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,15 +466,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7814214
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0650005
+      value: 2.6271
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.25857848
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -829,12 +831,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8ae588d1ddea04e92f8d2f6a6702b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 2070712652}
+  elevator: {fileID: 2604611052831671988}
+  elevator2: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  lightRings: []
 --- !u!64 &423270903
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1352,7 +1356,7 @@ GameObject:
   - component: {fileID: 586319945}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,7 +1396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1656,12 +1660,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8ae588d1ddea04e92f8d2f6a6702b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 2070712652}
+  elevator: {fileID: 2604611052831671988}
+  elevator2: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  lightRings:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &669623150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -1950,7 +1961,7 @@ GameObject:
   - component: {fileID: 784316194}
   m_Layer: 0
   m_Name: Light Ring
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1990,7 +2001,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2227,7 +2238,7 @@ GameObject:
   - component: {fileID: 825749213}
   m_Layer: 0
   m_Name: Light Ring
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2267,7 +2278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2455,8 +2466,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
-  far clip plane: 500
+  near clip plane: 0.1
+  far clip plane: 5000
   field of view: 40
   orthographic: 0
   orthographic size: 10
@@ -2482,8 +2493,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: -0.9238794, z: 0, w: -0.38268396}
-  m_LocalPosition: {x: -3.7814214, y: 3.0650005, z: 0.25857848}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -14, y: 2.6271, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2588,7 +2599,7 @@ GameObject:
   - component: {fileID: 1071814503}
   m_Layer: 0
   m_Name: Light Ring
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2628,7 +2639,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2785,11 +2796,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ab18a6aa1115a4aa3b7738ac722e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevator: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  emissions: []
 --- !u!1 &1147486504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2870,7 +2883,7 @@ GameObject:
   - component: {fileID: 1191997870}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2910,7 +2923,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2989,12 +3002,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8ae588d1ddea04e92f8d2f6a6702b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 2070712652}
+  elevator: {fileID: 2604611052831671988}
+  elevator2: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  lightRings: []
 --- !u!95 &1200173409
 Animator:
   serializedVersion: 4
@@ -3190,7 +3205,7 @@ GameObject:
   - component: {fileID: 1258977347}
   m_Layer: 0
   m_Name: Light Ring
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3202,9 +3217,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258977345}
-  m_LocalRotation: {x: 0.7071068, y: 0.7071067, z: -0.00000013767877, w: -0.00000013767878}
-  m_LocalPosition: {x: 0.049562216, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0.70710677, z: -0.00000014901161, w: -0.00000017881393}
+  m_LocalPosition: {x: 0.049562216, y: 0, z: 0.000000040978193}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 528277727}
@@ -3230,7 +3245,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3544,7 +3559,7 @@ GameObject:
   - component: {fileID: 1549804649}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3584,7 +3599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3764,12 +3779,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8ae588d1ddea04e92f8d2f6a6702b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 2070712652}
+  elevator: {fileID: 2604611052831671988}
+  elevator2: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  lightRings: []
 --- !u!64 &1820233626
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3863,7 +3880,7 @@ GameObject:
   - component: {fileID: 1839665037}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3903,7 +3920,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4246,6 +4263,7 @@ GameObject:
   - component: {fileID: 1957497619}
   - component: {fileID: 1957497622}
   - component: {fileID: 1957497621}
+  - component: {fileID: 1957497623}
   - component: {fileID: 1957497620}
   m_Layer: 0
   m_Name: Door
@@ -4338,6 +4356,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957497618}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1957497623
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957497618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1960881384
 GameObject:
@@ -4669,7 +4701,7 @@ GameObject:
   - component: {fileID: 5196841157039385013}
   m_Layer: 0
   m_Name: Label
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4755,7 +4787,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5610,7 +5642,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 90feedf6451ef2d47a4fcc9c6c761742, type: 2}
+  - {fileID: 2100000, guid: ad6d32dffbf3de640bcb67b8df7cbc07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6477,12 +6509,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8ae588d1ddea04e92f8d2f6a6702b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elevator: {fileID: 2070712652}
+  elevator: {fileID: 2604611052831671988}
+  elevator2: {fileID: 2070712652}
   externaldoors1: {fileID: 864242086}
   externaldoors2: {fileID: 953461506}
   externaldoors3: {fileID: 692351005}
   internaldoors1: {fileID: 1864170417}
   internaldoors2: {fileID: 1850147309}
+  lightRings: []
 --- !u!33 &7901264798083165096
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6712,7 +6746,7 @@ GameObject:
   - component: {fileID: 718607883635315480}
   m_Layer: 0
   m_Name: Light Ring
-  m_TagString: Untagged
+  m_TagString: emission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

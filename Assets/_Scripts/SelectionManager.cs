@@ -29,4 +29,9 @@ public class SelectionManager : MonoBehaviour
             }
         }
     }
+    //Provisional
+    private void OnCloseGame(InputValue value)
+    {
+        Application.Quit();
+    }
 }

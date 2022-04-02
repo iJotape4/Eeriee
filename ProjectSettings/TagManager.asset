@@ -7,6 +7,7 @@ TagManager:
   - upButton
   - downButton
   - CinemachineTarget
+  - emission
   layers:
   - Default
   - TransparentFX
