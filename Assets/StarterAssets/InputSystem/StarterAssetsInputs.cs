@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
 		public int  currentWeapon;
 		public bool changeWeapon;
+		public bool fire;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -63,6 +64,12 @@ namespace StarterAssets
 		{
 			WeaponChanger(value.isPressed, 2);
 		}
+
+		public void OnUseWeapon(InputValue value)
+		{
+			FireInput(value.isPressed);
+
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -94,23 +101,10 @@ namespace StarterAssets
 				currentWeapon = selectedWeapon;
         }
 
-		/*public void Weapon1Input(bool newWeapon1State)
-		{
-			if( newWeapon1State)
-			 currentWeapon = 0;
-		}
-
-		public void Weapon2Input(bool newWeapon2State)
-		{
-			if (newWeapon2State)
-				currentWeapon = 1;
-		}
-
-		public void Weapon3Input(bool newWeapon3State)
-		{
-			if (newWeapon3State)
-				currentWeapon = 2;
-		}*/
+		public void FireInput(bool newFireState)
+        {
+			fire = newFireState;
+        }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 
