@@ -12,6 +12,9 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public int  currentWeapon;
+		public bool changeWeapon;
+		public bool fire;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -26,6 +29,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+			
 		}
 
 		public void OnLook(InputValue value)
@@ -44,6 +48,27 @@ namespace StarterAssets
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
+		}
+
+		public void OnWeapon1(InputValue value)
+		{
+			WeaponChanger(value.isPressed, 0);				
+		}
+
+		public void OnWeapon2(InputValue value)
+		{
+			WeaponChanger(value.isPressed, 1);
+		}
+
+		public void OnWeapon3(InputValue value)
+		{
+			WeaponChanger(value.isPressed, 2);
+		}
+
+		public void OnUseWeapon(InputValue value)
+		{
+			FireInput(value.isPressed);
+
 		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
@@ -69,6 +94,17 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+
+		public void WeaponChanger(bool newWeaponState, int selectedWeapon)
+        {
+			if (newWeaponState)
+				currentWeapon = selectedWeapon;
+        }
+
+		public void FireInput(bool newFireState)
+        {
+			fire = newFireState;
+        }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

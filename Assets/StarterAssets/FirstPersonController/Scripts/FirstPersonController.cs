@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -36,6 +37,11 @@ namespace StarterAssets
 		[Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
 		public float FallTimeout = 0.15f;
 
+		[Space(10)]
+		[Tooltip("Time required to pass before being able to fire again. Set to 0f to instantly fire again")]
+		public float FireTimeout = 0.15f;
+
+
 		[Header("Player Grounded")]
 		[Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
 		public bool Grounded = true;
@@ -54,6 +60,12 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		[Header("Weapons")]
+		public int  _currentWeaponIndex;
+		private float _previousWeaponIndex;
+		public GameObject currentWeapon;
+		public GameObject[] weapons;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -63,9 +75,14 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
+		// Weapons
+		
+
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+
+		private float _fireTimeoutDelta;
 
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
@@ -79,24 +96,36 @@ namespace StarterAssets
 			if (_mainCamera == null)
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-			}
-		}
+            }
+        }
 
-		private void Start()
-		{
-			_controller = GetComponent<CharacterController>();
-			_input = GetComponent<StarterAssetsInputs>();
+        private void Start()
+        {
+            _controller = GetComponent<CharacterController>();
+            _input = GetComponent<StarterAssetsInputs>();
+            weapons = GameObject.FindGameObjectsWithTag("Weapon");
+            foreach (GameObject w in weapons)
+            {
+                w.SetActive(false);
+            }
 
-			// reset our timeouts on start
-			_jumpTimeoutDelta = JumpTimeout;
-			_fallTimeoutDelta = FallTimeout;
-		}
+            currentWeapon = weapons[0];
+            currentWeapon.SetActive(true);
 
-		private void Update()
+            // reset our timeouts on start
+            _jumpTimeoutDelta = JumpTimeout;
+            _fallTimeoutDelta = FallTimeout;
+
+			_fireTimeoutDelta = FireTimeout;
+        }
+
+        private void Update()
 		{
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			ChangeWeapon();
+			Fire();
 		}
 
 		private void LateUpdate()
@@ -129,8 +158,8 @@ namespace StarterAssets
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
-
-		private void Move()
+        #region Input Methods
+        private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -225,6 +254,75 @@ namespace StarterAssets
 			}
 		}
 
+		private void ChangeWeapon()
+        {
+			int  index = _input.currentWeapon;
+			if  (index != _currentWeaponIndex)
+            {
+				ShowWeapon(index);
+            }
+        }
+
+		private void Fire()
+        {		
+			// Hay que agregar un timeup delta como el del Jump
+			 GameObject arm = GameObject.Find("Arm");
+			if (_input.fire)
+			{
+				if (currentWeapon.name == "Bible")
+					StartCoroutine(BibleHit(arm));				
+				Debug.Log(currentWeapon.name);			
+            }
+
+		}
+
+        #endregion
+
+        private void ShowWeapon(int index)
+		{
+			currentWeapon.SetActive(false);
+			currentWeapon = weapons[index];
+			currentWeapon.SetActive(true);
+			_currentWeaponIndex = index;
+		}
+
+
+		#region Weapons Hits
+		public IEnumerator BibleHit( GameObject arm)
+        {
+
+            #region Bible Movement
+            int count = 5;
+			while (count > 0)
+            {
+				arm.transform.Rotate(-1, 0, 0);
+				yield return new WaitForSeconds(0.05f);
+				count--;
+			}
+
+			count = 5;
+			while (count > 0)
+			{
+				arm.transform.Rotate(1, 0, 0);
+				yield return new WaitForSeconds(0.05f);
+				count--;
+			}
+            #endregion
+
+            #region  EnemyDetection
+
+			//Aqui va la detección de enemigos y su deteccion
+            #endregion
+        }
+
+        public IEnumerator HolyWaterHit()
+        {
+			yield return null;
+        }
+
+        #endregion
+
+     
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
