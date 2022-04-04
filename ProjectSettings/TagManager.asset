@@ -8,6 +8,7 @@ TagManager:
   - downButton
   - CinemachineTarget
   - emission
+  - Weapon
   layers:
   - Default
   - TransparentFX
