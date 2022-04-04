@@ -54,6 +54,12 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		[Header("Weapons")]
+		public int  _currentWeaponIndex;
+		private float _previousWeaponIndex;
+		public GameObject currentWeapon;
+		public GameObject[] weapons;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -62,6 +68,9 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+
+		// Weapons
+		
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -86,6 +95,14 @@ namespace StarterAssets
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+			weapons = GameObject.FindGameObjectsWithTag("Weapon");
+			foreach (GameObject w in weapons)
+			{
+				w.SetActive(false);
+			}
+
+			currentWeapon = weapons[0];
+			currentWeapon.SetActive(true);
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -97,6 +114,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			ChangeWeapon();
 		}
 
 		private void LateUpdate()
@@ -224,6 +242,27 @@ namespace StarterAssets
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
 		}
+
+		private void ChangeWeapon()
+        {
+				 int  index = _input.currentWeapon;
+			if  (index != _currentWeaponIndex)
+            {
+				currentWeapon.SetActive(false);
+				currentWeapon = weapons[index];
+				currentWeapon.SetActive(true);
+
+				//currentWeapon.showWeapon();
+
+				_currentWeaponIndex = index;
+
+            }
+        }
+
+		private void ShowWeapon()
+        {
+
+        }
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
