@@ -12,9 +12,9 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
-
+		[Header ("Important Systems")]
 		private UIManager uimanager;
-		private Healthbar healthbar;
+
 
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
@@ -52,6 +52,7 @@ namespace StarterAssets
 		public float GroundedRadius = 0.5f;
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
+		public CapsuleCollider _collider;
 
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -122,6 +123,7 @@ namespace StarterAssets
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
             weapons = GameObject.FindGameObjectsWithTag("Weapon");
+			_collider = GetComponentInChildren<CapsuleCollider>();
             foreach (GameObject w in weapons)
             {
                 w.SetActive(false);
@@ -339,6 +341,8 @@ namespace StarterAssets
 			}
             #endregion
 
+
+
             #region  EnemyDetection
 
 			//Aqui va la detección de enemigos y su deteccion
@@ -348,18 +352,6 @@ namespace StarterAssets
         public IEnumerator HolyWaterHit()
         {
 			yield return null;
-        }
-
-        #endregion
-
-        #region EnemiesInteraction
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.tag == "Enemy")
-            {
-				uimanager.UpdateHealth(10);			
-            }
         }
 
         #endregion
