@@ -10,8 +10,8 @@ public class Healthbar : MonoBehaviour
 {
 
     public Image healthbar;
-    public float actualHealth;
-    public float MaximHealth;
+    public float actualHealth =100f;
+    public float MaximHealth = 100f;
 
 
     // Start is called before the first frame update
@@ -25,4 +25,11 @@ public class Healthbar : MonoBehaviour
     {
         healthbar.fillAmount = actualHealth / MaximHealth;   
     }
+
+    public void LooseHealth(float damage)
+    {
+        actualHealth -= damage;
+    }
+
+    
 }

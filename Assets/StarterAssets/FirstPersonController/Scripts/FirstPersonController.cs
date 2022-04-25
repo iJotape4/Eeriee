@@ -6,12 +6,16 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-	[RequireComponent(typeof(CharacterController))]
+		
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+
+		private UIManager uimanager;
+		private Healthbar healthbar;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -109,6 +113,8 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+			uimanager = UIManager.Instance;
         }
 
         private void Start()
@@ -147,6 +153,11 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
+		private void InputTestsMethod()
+        {
+			
+        }
+
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
@@ -164,7 +175,7 @@ namespace StarterAssets
 				
 				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
-
+				
 				// clamp our pitch rotation
 				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
@@ -255,6 +266,7 @@ namespace StarterAssets
 				_jumpTimeoutDelta = JumpTimeout;
 
 				// fall timeout
+
 				if (_fallTimeoutDelta >= 0.0f)
 				{
 					_fallTimeoutDelta -= Time.deltaTime;
@@ -286,13 +298,14 @@ namespace StarterAssets
 			 GameObject arm = GameObject.Find("Arm");
 			if (_input.fire)
 			{
+				
 				if (currentWeapon.name == "Bible")
 					StartCoroutine(BibleHit(arm));				
-				Debug.Log(currentWeapon.name);			
+				Debug.Log(currentWeapon.name);
+			
             }
 
 		}
-
         #endregion
 
         private void ShowWeapon(int index)
@@ -339,8 +352,20 @@ namespace StarterAssets
 
         #endregion
 
-     
-		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+        #region EnemiesInteraction
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+				uimanager.UpdateHealth(10);			
+            }
+        }
+
+        #endregion
+
+
+        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
 			if (lfAngle > 360f) lfAngle -= 360f;
