@@ -19,11 +19,9 @@ namespace StarterAssets
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
-#if !UNITY_IOS || !UNITY_ANDROID
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
-#endif
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
@@ -106,8 +104,6 @@ namespace StarterAssets
 			fire = newFireState;
         }
 
-#if !UNITY_IOS || !UNITY_ANDROID
-
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
@@ -117,8 +113,6 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-
-#endif
 
 	}
 	
