@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class UIManager : MonoBehaviour
 
 
     #region Inspector Properties
-    [SerializeField] Healthbar healthbar;
+    [SerializeField] Healthbar _healthbar;
+    [SerializeField] GameObject _pausePanel;
+    [SerializeField] GameObject _dmgImage;
     #endregion
     private void Awake()
     {
@@ -25,15 +28,17 @@ public class UIManager : MonoBehaviour
         }
         DontDestroyOnLoad(this);
 
-       // pausePanel = GameObject.Find("PausePanel"); pausePanel.SetActive(false);
+    
 
     }
 
     private void Start()
     {
-        healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
-    }
+        _pausePanel = GameObject.Find("PausePanel"); _pausePanel.SetActive(false);
+        _healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
+        _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
 
+    }
     /*  public void ShowGameOver()
       {
           gameOverText.gameObject.SetActive(true);
@@ -62,20 +67,28 @@ public class UIManager : MonoBehaviour
 
     public void UpdateHealth(float damage)
     {
-        healthbar.LooseHealth(damage); 
+        _healthbar.LooseHealth(damage);
+        StartCoroutine("DmgFlash");
 
     }
 
-    /* public void Pause()
+    public IEnumerator DmgFlash()
+    {
+        _dmgImage.SetActive(true);
+      yield return new WaitForSeconds(0.08f);
+        _dmgImage.SetActive(false);
+    }
+
+     public void Pause()
      {
-         if (pausePanel.activeSelf)
-             pausePanel.SetActive(false);
+         if (_pausePanel.activeSelf)
+             _pausePanel.SetActive(false);
          else
-             pausePanel.SetActive(true);
+             _pausePanel.SetActive(true);
 
-         Time.timeScale = (pausePanel.activeSelf) ? 0 : 1;
+         Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
      }
-
+    /*
      public void ActivateTutIcon(string IconName)
      {
 
