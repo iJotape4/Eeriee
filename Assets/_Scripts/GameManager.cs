@@ -18,14 +18,15 @@ public class GameManager : MonoBehaviour
 
     // int _scoreCount = 0;
     //int _currentLevel = 0;
-    bool _isGameOver = false;
+    [SerializeField] bool _isGameOver = false;
     public bool IsGameOver { get => _isGameOver; }
-    bool _isPaused = false;
+    [SerializeField] bool __isPaused = false;
+    public bool Ispaused { get => __isPaused; }
 
     #endregion
 
     #region Player
-   FirstPersonController _player = new FirstPersonController();
+    FirstPersonController _player = new FirstPersonController();
     #endregion
 
     private void Awake()
@@ -59,7 +60,9 @@ public class GameManager : MonoBehaviour
     {
         if (_healthCount <= 0)
         {
+            _isGameOver = true;
             UIManager.Instance.ShowGameOver();
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

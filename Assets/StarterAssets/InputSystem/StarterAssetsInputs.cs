@@ -104,14 +104,19 @@ namespace StarterAssets
 			fire = newFireState;
         }
 
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(cursorLocked);
+			if(!GameManager.Instance.IsGameOver || !GameManager.Instance.Ispaused)
+            {
+				SetCursorState(cursorLocked);
+			}
+           
+		
 		}
-
 		private void SetCursorState(bool newState)
 		{
-			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 
 	}
