@@ -6,12 +6,72 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Body_diffuse
+    second: {fileID: 2800000, guid: c002f68aaa3dfe845a550ada980c7839, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Body_gloss
+    second: {fileID: 2800000, guid: bc4b761ca2259db4fa8192b182de0f9f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Body_normal
+    second: {fileID: 2800000, guid: 9e03831f5e58a66419fab05803bf9745, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Body_specular
+    second: {fileID: 2800000, guid: b9f34c5f24041c34b918a28d80dd6817, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Bottom_diffuse
+    second: {fileID: 2800000, guid: 5f74ed15aa021c144ae94f4332379ed8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Bottom_gloss
+    second: {fileID: 2800000, guid: b182d4ff1a7844c46b5fd8abcba053db, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Bottom_normal
+    second: {fileID: 2800000, guid: 7d9a287c2209ea34698aad5004ef8097, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Bottom_specular
+    second: {fileID: 2800000, guid: 3c379f4c71add404a8469a7b6ac8a909, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Top_diffuse
+    second: {fileID: 2800000, guid: 14e5c8ade36af5244b4552ab9635c64e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Top_gloss
+    second: {fileID: 2800000, guid: 35a811940d401de4f8e267ceefba4dad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Top_normal
+    second: {fileID: 2800000, guid: e04bb7a725a45314ea1cc3d4bd457b29, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Zombi_Top_specular
+    second: {fileID: 2800000, guid: 51fb8c8865a36fe47870f585e8c31974, type: 3}
   materials:
     materialImportMode: 1
     materialName: 1
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
