@@ -303,7 +303,6 @@ namespace StarterAssets
 				
 				if (currentWeapon.name == "Bible")
 					StartCoroutine(BibleHit(arm));				
-				Debug.Log(currentWeapon.name);
 			
             }
 
