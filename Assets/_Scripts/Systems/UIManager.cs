@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    private GameManager _gameManager;
 
     #region Inspector Properties
     [SerializeField] Healthbar _healthbar;
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _dmgImage;
+
+    [SerializeField] GameObject _gameOverPanel;
+   
+
+#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
+    [SerializeField] PlayerInput _playerInput;
+#endif
+
     #endregion
     private void Awake()
     {
@@ -34,40 +44,30 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        _gameManager = GameManager.Instance;
         _pausePanel = GameObject.Find("PausePanel"); _pausePanel.SetActive(false);
         _healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
         _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
+        _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
+      
 
     }
-    /*  public void ShowGameOver()
+    public void ShowGameOver()
       {
-          gameOverText.gameObject.SetActive(true);
-          playAgainButton.gameObject.SetActive(true);
+          _gameOverPanel.gameObject.SetActive(true);
+        
       }
 
       // Update is called once per frame
       void Update()
       {
-          if (Input.GetButtonDown("Pause"))
-              Pause();
+       
       }
-
-      public void UpdateLives(int lives)
-      {
-
-          if (lives < 0)
-          {
-              livesText.text = "";
-              return;
-          }
-          livesText.text = "x" + lives;
-          Cora1.enabled = true;
-          Cora2.enabled = true;
-      } */
 
     public void UpdateHealth(float damage)
     {
-        _healthbar.LooseHealth(damage);
+        GameManager.Instance.updateHealth(damage);    
+        _healthbar.updateHealthBar(damage);
         StartCoroutine("DmgFlash");
 
     }
@@ -88,6 +88,8 @@ public class UIManager : MonoBehaviour
 
          Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
      }
+
+
     /*
      public void ActivateTutIcon(string IconName)
      {

@@ -26,9 +26,9 @@ public class Healthbar : MonoBehaviour
         healthbar.fillAmount = actualHealth / MaximHealth;   
     }
 
-    public void LooseHealth(float damage)
+    public void updateHealthBar(float damage)
     {
-        actualHealth -= damage;
+        actualHealth += damage;
     }
 
 
