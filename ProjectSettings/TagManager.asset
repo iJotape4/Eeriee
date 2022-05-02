@@ -10,6 +10,7 @@ TagManager:
   - emission
   - Weapon
   - Enemy
+  - PlayerArms
   layers:
   - Default
   - TransparentFX

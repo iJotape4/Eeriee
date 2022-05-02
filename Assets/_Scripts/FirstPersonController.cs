@@ -12,7 +12,7 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
-		[Header ("Important Systems")]
+		[Header("Important Systems")]
 		private UIManager uimanager;
 
 
@@ -63,7 +63,7 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 
 		[Header("Weapons")]
-		public int  _currentWeaponIndex;
+		public int _currentWeaponIndex;
 		private float _previousWeaponIndex;
 		public GameObject currentWeapon;
 		public GameObject[] weapons;
@@ -78,20 +78,21 @@ namespace StarterAssets
 		private float _terminalVelocity = 53.0f;
 
 		// Weapons
-		
+
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
 		private float _fireTimeoutDelta;
-	
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private GameObject _arms;
 
 		private const float _threshold = 0.01f;
 
@@ -124,6 +125,8 @@ namespace StarterAssets
             _input = GetComponent<StarterAssetsInputs>();
             weapons = GameObject.FindGameObjectsWithTag("Weapon");
 			_collider = GetComponentInChildren<CapsuleCollider>();
+			_arms = GameObject.FindGameObjectWithTag("PlayerArms");
+			_arms.transform.SetParent(_mainCamera.transform);
             foreach (GameObject w in weapons)
             {
                 w.SetActive(false);
