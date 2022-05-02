@@ -19,7 +19,7 @@ public class UIButtonController : MonoBehaviour
     
     public void ResumeGame()
     {
-
+        UIManager.Instance.Pause();
     }
 
     public void GOMainMenu()
