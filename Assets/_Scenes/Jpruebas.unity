@@ -5362,6 +5362,8 @@ MonoBehaviour:
   _healthCount: 100
   _holyWaterCount: 10
   _saltCount: 10
+  _isGameOver: 0
+  __isPaused: 0
 --- !u!1 &562014634
 GameObject:
   m_ObjectHideFlags: 0

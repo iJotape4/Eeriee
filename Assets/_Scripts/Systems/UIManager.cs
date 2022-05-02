@@ -16,7 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _dmgImage;
 
     [SerializeField] GameObject _gameOverPanel;
-   
+
+    StarterAssets.StarterAssetsInputs _input;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
     [SerializeField] PlayerInput _playerInput;
@@ -79,14 +80,16 @@ public class UIManager : MonoBehaviour
         _dmgImage.SetActive(false);
     }
 
-     public void Pause()
+     public  void Pause()
      {
+       
          if (_pausePanel.activeSelf)
              _pausePanel.SetActive(false);
          else
              _pausePanel.SetActive(true);
 
-         Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
+        GameManager.Instance.PauseGame(_pausePanel.activeSelf);
+        Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
      }
 
 

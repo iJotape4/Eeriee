@@ -148,6 +148,7 @@ namespace StarterAssets
 			Move();
 			ChangeWeapon();
 			Fire();
+			Pause();
 		}
 
 		private void LateUpdate()
@@ -355,6 +356,19 @@ namespace StarterAssets
 
         #endregion
 
+
+        #region UI Input
+
+		private void Pause()
+        {
+			if (_input.PauseButtonDown)
+            {
+				_input.PauseButtonDown = false;
+				UIManager.Instance.Pause();			
+            }
+        }
+
+        #endregion
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{

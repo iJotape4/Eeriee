@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour
         PlayerDead();
     }
 
+    public void PauseGame(bool isPaused)
+    {
+        __isPaused = (isPaused) ? true : false;
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+
     public void PlayerDead()
     {
         if (_healthCount <= 0)

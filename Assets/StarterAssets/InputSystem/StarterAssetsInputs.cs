@@ -23,6 +23,10 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		[Header("UI Values")]
+		public bool PauseButtonDown = false;
+		
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		public void OnMove(InputValue value)
 		{
@@ -68,12 +72,21 @@ namespace StarterAssets
 			FireInput(value.isPressed);
 
 		}
+
+        public void OnPause(InputValue value) 
+		{
+			PauseInput (value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
+		public void PauseInput(bool newPauseState)
+        {
+			PauseButtonDown = newPauseState;
+        }
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
