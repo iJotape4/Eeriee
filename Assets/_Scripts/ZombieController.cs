@@ -10,14 +10,13 @@ public class ZombieController : MonoBehaviour
     private Animator _anim;
     private Rigidbody _rb;
 
-    public Transform[] points;
-    private int destPoint = 0;
     private NavMeshAgent _zombie;
     public Transform _player;
-    public float _range= 20f;
+    public float _range = 20f;
     public float _speed = 1f;
     public bool _zombieRun = false;
 
+    public Transform[] points;
     public int actualPatrolPoint = 0;
 
     #region  Animations Dictionary
@@ -46,6 +45,22 @@ public class ZombieController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+
+        foreach (Transform GO  in GetComponentsInChildren<Transform>())
+        { 
+            if(GO.gameObject.name == "PatrolPoints")
+            {
+                points = GO.GetComponentsInChildren<Transform>();
+
+                for ( int i = 0; i < points.Length-1; i++)
+                {
+                    points[i] = points[i + 1];
+                }
+                GO.SetParent(null);
+            }
+        }
+        
         _zombie.autoBraking = false;
        
     }
