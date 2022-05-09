@@ -28,12 +28,5 @@ public class ZombieController : MonoBehaviour
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            UIManager.Instance.UpdateHealth(-10);
-            
-        }
-    }
+
 }

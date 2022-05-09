@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 namespace StarterAssets
 {
-		
+
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 	[RequireComponent(typeof(PlayerInput))]
 #endif
@@ -372,6 +372,17 @@ namespace StarterAssets
         }
 
         #endregion
+
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                UIManager.Instance.UpdateHealth(-10);
+
+            }
+        }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
