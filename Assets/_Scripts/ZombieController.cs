@@ -123,6 +123,9 @@ public class ZombieController : MonoBehaviour
     }
     void PursuitPlayer()
     {
+
+        transform.LookAt(_player.position);
+
         if (_zombieRun)
         {
             _speed = 5f;
