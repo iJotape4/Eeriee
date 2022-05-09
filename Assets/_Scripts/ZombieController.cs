@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-
+using StarterAssets;
 
 public class ZombieController : MonoBehaviour
 {
@@ -11,13 +10,13 @@ public class ZombieController : MonoBehaviour
     private Rigidbody _rb;
 
     private NavMeshAgent _zombie;
-    public Transform _player;
+    public FirstPersonController _player;
     public float _range = 20f;
     public float _speed = 1f;
-    public bool _zombieRun = false;
+    public bool _zombieRunner = false;
 
-    public Transform[] points;
-    public int actualPatrolPoint = 0;
+    private Transform[] points;
+    private int actualPatrolPoint = 0;
 
     #region  Animations Dictionary
     [Header("Animations Dictionary")]
@@ -44,7 +43,7 @@ public class ZombieController : MonoBehaviour
         _zombie = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
 
 
         foreach (Transform GO  in GetComponentsInChildren<Transform>())
@@ -110,33 +109,46 @@ public class ZombieController : MonoBehaviour
 
     void PlayerDetection()
     {
-        if (Vector3.Distance(_player.position, transform.position) <= _range)
+        if (Vector3.Distance(_player.transform.position, transform.position) <= _range)
 
         {
+            _anim.SetBool("PlayerDectected", true);
             PursuitPlayer();
         }
         else
         {
-            Patrol();
-            
+            _anim.SetBool("PlayerDectected", false);
+            Patrol();         
         }
     }
     void PursuitPlayer()
     {
+        if (!_player.Grounded)
+            return;
 
-        transform.LookAt(_player.position);
-
-        if (_zombieRun)
+        if ( Vector3.Distance ( _player.transform.position, transform.position) < 1.2f)
         {
-            _speed = 5f;
-            _anim.Play(animZombieRun);
+            _anim.SetBool("AttackZone", true);
         }
         else
         {
-            _speed = 0.2f;
-            _anim.Play(animZombieWalk);
+            transform.LookAt(_player.transform.position);
+
+            if (_zombieRunner)
+            {
+                _speed = 5f;
+                _anim.Play(animZombieRun);
+            }
+            else
+            {
+                _speed = 0.2f;
+                _anim.Play(animZombieWalk);
+            }
+            _anim.SetBool("AttackZone", false);
+            transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
+
         }
-        transform.position = Vector3.MoveTowards(transform.position, _player.position, _speed * Time.deltaTime);
+
     }
 
 
