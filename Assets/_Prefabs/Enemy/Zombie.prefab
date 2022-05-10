@@ -1385,58 +1385,6 @@ CapsuleCollider:
   m_Height: 0.13979164
   m_Direction: 1
   m_Center: {x: -0.019360173, y: 0.009308045, z: 0.030544616}
---- !u!1 &6148841436724165875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2927654377397518970}
-  - component: {fileID: 7519035319958753749}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Enemy
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2927654377397518970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148841436724165875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6947145961150468335}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7519035319958753749
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6148841436724165875}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6449928967761575624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1755,6 @@ Transform:
   - {fileID: 2996819427713484799}
   - {fileID: 3186695571505655931}
   - {fileID: 585254636015181038}
-  - {fileID: 2927654377397518970}
   - {fileID: 1701079694242329473}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1824,12 +1771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74868c924129743b5e39f76e653696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: []
   _player: {fileID: 0}
   _range: 20
   _speed: 2
-  _zombieRun: 0
-  actualPatrolPoint: 0
+  _zombieRunner: 0
 --- !u!95 &7719988747883350610
 Animator:
   serializedVersion: 4
@@ -1898,7 +1843,7 @@ Transform:
   - {fileID: 8640554760356519549}
   - {fileID: 9023409545763197248}
   m_Father: {fileID: 6947145961150468335}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8012583468995171180
 GameObject:
