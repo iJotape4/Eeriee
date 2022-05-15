@@ -1771,10 +1771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74868c924129743b5e39f76e653696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _range: 20
   _speed: 2
   _zombieRunner: 0
+  _player: {fileID: 0}
 --- !u!95 &7719988747883350610
 Animator:
   serializedVersion: 4
@@ -1803,7 +1803,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7719988747883350613}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 500
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
