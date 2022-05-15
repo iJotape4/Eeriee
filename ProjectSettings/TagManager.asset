@@ -11,6 +11,9 @@ TagManager:
   - Weapon
   - Enemy
   - PlayerArms
+  - PlayerLeftArm
+  - PlayerRightArm
+  - Arms
   layers:
   - Default
   - TransparentFX
