@@ -341,16 +341,15 @@ namespace StarterAssets
 				if (currentWeapon.name == "HolyWater")
 					StartCoroutine(HolyWaterHit());
 			}
-
 		}
         #endregion
 
         private IEnumerator ShowWeapon(int index)
 		{
 			_anim.SetTrigger(_animChangeWeaponTrigger);
-
 			yield return new WaitForSeconds(0.5f);
 			_anim.ResetTrigger(_animChangeWeaponTrigger);
+
 			currentWeapon.SetActive(false);
 			currentWeapon = weapons[index];
 			currentWeapon.SetActive(true);
@@ -363,12 +362,9 @@ namespace StarterAssets
         {
 
 			#region Bible Movement
-			
 
-			yield return new WaitForSeconds(1f);
-
-			if (_anim.GetCurrentAnimatorStateInfo(0).IsName(_animationBibleHit))
-				_anim.SetBool(_animAttackTrigger, false);
+			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+			yield return null;
 
 			#endregion
 
@@ -381,17 +377,27 @@ namespace StarterAssets
 
         public IEnumerator HolyWaterHit()
         {
+			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+			yield return null;
+
+			#region  EnemyDetection
+
+			//Aqui va la detección de enemigos y su deteccion
+			#endregion
+
+		}
+		private IEnumerator AnimatorTriggersController(string animatorTrigger)
+		{
+			_anim.SetTrigger(animatorTrigger);
 			yield return new WaitForSeconds(0.5f);
-
-			if (_anim.GetCurrentAnimatorStateInfo(0).IsName(_animationHolyWater))
-				_anim.SetBool(_animAttackTrigger, false);
-		
-        }
-
-        #endregion
+			_anim.ResetTrigger(animatorTrigger);
+		}
 
 
-        #region UI Input
+		#endregion
+
+
+		#region UI Input
 
 		private void Pause()
         {
