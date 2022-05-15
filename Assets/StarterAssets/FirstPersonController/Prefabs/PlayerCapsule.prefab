@@ -459,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 4135013735270702856}
     - target: {fileID: 8762286023885395323, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.7773654
+      value: 1.778
       objectReference: {fileID: 0}
     - target: {fileID: 8762286024517199034, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: CameraSide
@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5449280597207485883, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.103
+      value: 0.023
       objectReference: {fileID: 0}
     - target: {fileID: 5449280597207485883, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
       propertyPath: m_LocalPosition.y
