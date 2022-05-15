@@ -10,7 +10,6 @@ TagManager:
   - emission
   - Weapon
   - Enemy
-  - PlayerArms
   - PlayerLeftArm
   - PlayerRightArm
   - Arms
