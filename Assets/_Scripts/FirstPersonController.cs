@@ -380,6 +380,8 @@ namespace StarterAssets
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			yield return null;
 
+			WaterController.Instance.LaunchWater();
+
 			#region  EnemyDetection
 
 			//Aqui va la detección de enemigos y su deteccion
