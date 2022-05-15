@@ -96,8 +96,6 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
-		private float _fireTimeoutDelta;
-
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 		private PlayerInput _playerInput;
 #endif
@@ -155,7 +153,7 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
-			_fireTimeoutDelta = FireTimeout;
+
         }
 
 		private void Update()
@@ -328,10 +326,10 @@ namespace StarterAssets
 
 
 		private void Fire()
-        {		
-			// Hay que agregar un timeup delta como el del Jump
-			 
-			if (_input.fire)
+        {
+
+			InputAction _fire = _playerInput.actions["UseWeapon"];
+			if (_fire.WasPressedThisFrame())
 			{
 				_anim.SetBool(_animAttackTrigger, true);
 
