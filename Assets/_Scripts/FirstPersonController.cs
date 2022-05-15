@@ -333,10 +333,14 @@ namespace StarterAssets
 			 
 			if (_input.fire)
 			{
+				_anim.SetBool(_animAttackTrigger, true);
+
 				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
 				if (currentWeapon.name == "Bible")
-					StartCoroutine(BibleHit());							
-            }
+					StartCoroutine(BibleHit());
+				if (currentWeapon.name == "HolyWater")
+					StartCoroutine(HolyWaterHit());
+			}
 
 		}
         #endregion
@@ -359,7 +363,7 @@ namespace StarterAssets
         {
 
 			#region Bible Movement
-			_anim.SetBool(_animAttackTrigger, true);
+			
 
 			yield return new WaitForSeconds(1f);
 
@@ -377,7 +381,11 @@ namespace StarterAssets
 
         public IEnumerator HolyWaterHit()
         {
-			yield return null;
+			yield return new WaitForSeconds(0.5f);
+
+			if (_anim.GetCurrentAnimatorStateInfo(0).IsName(_animationHolyWater))
+				_anim.SetBool(_animAttackTrigger, false);
+		
         }
 
         #endregion
