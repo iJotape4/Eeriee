@@ -62,8 +62,19 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		[Header("Animation")]
+		private Animator _anim;
+		private string _animAttackTrigger = "Attack";
+		private string _animWeaponInt = "CurrentWeapon";
+
+		[Header("AnimationsDictionary")]
+		private string _animationIdle = "Anim_Arms_Idle";
+		private string _animationBibleHit = "Anim_Arms_BibleHit";
+		private string _animationHolyWater = "Anim_Arms_HolyWater";
+
+
 		[Header("Weapons")]
-		public int _currentWeaponIndex;
+		public int _currentWeaponIndex =0;
 		private float _previousWeaponIndex;
 		public GameObject currentWeapon;
 		public GameObject[] weapons;
@@ -92,7 +103,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
-		private GameObject _arms;
+		public GameObject _arms;
 
 		private const float _threshold = 0.01f;
 
@@ -125,12 +136,14 @@ namespace StarterAssets
             _input = GetComponent<StarterAssetsInputs>();
             weapons = GameObject.FindGameObjectsWithTag("Weapon");
 			_collider = GetComponentInChildren<CapsuleCollider>();
-			_arms = GameObject.FindGameObjectWithTag("PlayerArms");
+			_arms = GameObject.FindGameObjectWithTag("Arms");
 			_arms.transform.SetParent(_mainCamera.transform);
             foreach (GameObject w in weapons)
             {
                 w.SetActive(false);
             }
+
+			_anim = GameObject.FindGameObjectWithTag("Arms").GetComponent<Animator>();
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
             _playerInput = GetComponent<PlayerInput>();
 #else
@@ -292,21 +305,36 @@ namespace StarterAssets
 		private void ChangeWeapon()
         {
 			int  index = _input.currentWeapon;
-			if  (index != _currentWeaponIndex)
+			if  (index != _currentWeaponIndex && verifyAnimator()) 
             {
 				ShowWeapon(index);
             }
         }
 
+		public bool verifyAnimator()
+        {
+			AnimatorStateInfo animState = _anim.GetCurrentAnimatorStateInfo(0);
+
+			if (animState.IsName(_animationBibleHit) || animState.IsName(_animationHolyWater)){
+				return false;
+
+            }
+            else
+            {
+				return true;
+			}					
+        }
+
+
 		private void Fire()
         {		
 			// Hay que agregar un timeup delta como el del Jump
-			 GameObject arm = GameObject.Find("Arm");
+			 
 			if (_input.fire)
 			{
-				
+				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
 				if (currentWeapon.name == "Bible")
-					StartCoroutine(BibleHit(arm));				
+					StartCoroutine(BibleHit());				
 			
             }
 
@@ -323,34 +351,25 @@ namespace StarterAssets
 
 
 		#region Weapons Hits
-		public IEnumerator BibleHit( GameObject arm)
+		public IEnumerator BibleHit()
         {
 
-            #region Bible Movement
-            int count = 5;
-			while (count > 0)
-            {
-				arm.transform.Rotate(-1, 0, 0);
-				yield return new WaitForSeconds(0.05f);
-				count--;
-			}
+			#region Bible Movement
+			_anim.SetBool(_animAttackTrigger, true);
 
-			count = 5;
-			while (count > 0)
-			{
-				arm.transform.Rotate(1, 0, 0);
-				yield return new WaitForSeconds(0.05f);
-				count--;
-			}
-            #endregion
+			yield return new WaitForSeconds(1f);
+
+			if (_anim.GetCurrentAnimatorStateInfo(0).IsName(_animationBibleHit))
+				_anim.SetBool(_animAttackTrigger, false);
+
+			#endregion
 
 
-
-            #region  EnemyDetection
+			#region  EnemyDetection
 
 			//Aqui va la detección de enemigos y su deteccion
-            #endregion
-        }
+			#endregion
+		}
 
         public IEnumerator HolyWaterHit()
         {
