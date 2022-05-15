@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 34d59c31e177be242ae3e7975df699e2
+guid: a17e70a62c2784a4386031410e6047af
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
       74: -623603649343465320
-    second: Anim_Arms_BibleHit
+    second: Anim_Arms_ChangeWeapon
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Anim_Arms_BibleHit
+      name: Anim_Arms_ChangeWeapon
       takeName: Scene
       internalID: 0
       firstFrame: 1
-      lastFrame: 40
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

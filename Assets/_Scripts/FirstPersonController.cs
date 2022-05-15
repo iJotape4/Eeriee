@@ -66,6 +66,7 @@ namespace StarterAssets
 		private Animator _anim;
 		private string _animAttackTrigger = "Attack";
 		private string _animWeaponInt = "CurrentWeapon";
+		private string _animChangeWeaponTrigger = "WeaponChange";
 
 		[Header("AnimationsDictionary")]
 		private string _animationIdle = "Anim_Arms_Idle";
@@ -307,7 +308,7 @@ namespace StarterAssets
 			int  index = _input.currentWeapon;
 			if  (index != _currentWeaponIndex && verifyAnimator()) 
             {
-				ShowWeapon(index);
+				StartCoroutine(ShowWeapon(index));
             }
         }
 
@@ -334,15 +335,18 @@ namespace StarterAssets
 			{
 				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
 				if (currentWeapon.name == "Bible")
-					StartCoroutine(BibleHit());				
-			
+					StartCoroutine(BibleHit());							
             }
 
 		}
         #endregion
 
-        private void ShowWeapon(int index)
+        private IEnumerator ShowWeapon(int index)
 		{
+			_anim.SetTrigger(_animChangeWeaponTrigger);
+
+			yield return new WaitForSeconds(0.5f);
+			_anim.ResetTrigger(_animChangeWeaponTrigger);
 			currentWeapon.SetActive(false);
 			currentWeapon = weapons[index];
 			currentWeapon.SetActive(true);
