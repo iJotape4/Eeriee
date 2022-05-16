@@ -67,12 +67,13 @@ namespace StarterAssets
 		private string _animAttackTrigger = "Attack";
 		private string _animWeaponInt = "CurrentWeapon";
 		private string _animChangeWeaponTrigger = "WeaponChange";
+		private string _animSkillInt = "Skill";
 
 		[Header("AnimationsDictionary")]
 		private string _animationIdle = "Anim_Arms_Idle";
 		private string _animationBibleHit = "Anim_Arms_BibleHit";
 		private string _animationHolyWater = "Anim_Arms_HolyWater";
-
+		private string _animationBibloomerang = "Anim_Arms_Bibloomerang";
 
 		[Header("Weapons")]
 		public int _currentWeaponIndex =0;
@@ -163,6 +164,7 @@ namespace StarterAssets
 			Move();
 			ChangeWeapon();
 			Fire();
+			Fire2();
 			Pause();
 		}
 
@@ -327,22 +329,38 @@ namespace StarterAssets
 
 		private void Fire()
         {
-
 			InputAction _fire = _playerInput.actions["UseWeapon"];
 			if (_fire.WasPressedThisFrame())
 			{
 				_anim.SetBool(_animAttackTrigger, true);
-
 				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
+				_anim.SetInteger(_animSkillInt, 1);
+
 				if (currentWeapon.name == "Bible")
 					StartCoroutine(BibleHit());
 				if (currentWeapon.name == "HolyWater")
 					StartCoroutine(HolyWaterHit());
 			}
 		}
-        #endregion
 
-        private IEnumerator ShowWeapon(int index)
+		private void Fire2()
+		{
+			InputAction _fire2 = _playerInput.actions["Fire2"];
+			if (_fire2.WasPressedThisFrame())
+			{
+				_anim.SetBool(_animAttackTrigger, true);
+				_anim.SetInteger(_animSkillInt, 2);
+				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
+
+				if (currentWeapon.name == "Bible")
+					StartCoroutine(Bibloomerang());
+				if (currentWeapon.name == "HolyWater")
+					StartCoroutine(HolyWaterHit());
+			}
+		}
+		#endregion
+
+		private IEnumerator ShowWeapon(int index)
 		{
 			_anim.SetTrigger(_animChangeWeaponTrigger);
 			yield return new WaitForSeconds(0.5f);
@@ -366,6 +384,46 @@ namespace StarterAssets
 
 			#endregion
 
+			#region  EnemyDetection
+
+			//Aqui va la detección de enemigos y su deteccion
+			#endregion
+		}
+
+		public IEnumerator Bibloomerang()
+		{
+			#region Bible Movement
+
+			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+
+			GameObject OriginalPosition = GameObject.Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
+			OriginalPosition.transform.localPosition = currentWeapon.transform.localPosition ;
+			OriginalPosition.transform.localRotation = currentWeapon.transform.localRotation ;
+
+			currentWeapon.transform.SetParent(null);
+			currentWeapon.layer = 12;
+
+			float shotForce = 120f;
+			Rigidbody bibleRigidbody = currentWeapon.GetComponent<Rigidbody>();
+			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
+			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
+
+			yield return new WaitForSeconds(3f);
+
+			currentWeapon.transform.SetParent(OriginalPosition.transform.parent);
+			currentWeapon.layer = 9;
+			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
+
+			while (currentWeapon.transform.position != OriginalPosition.transform.position)
+            {
+				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, shotForce * Time.deltaTime);		
+			}
+			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
+			Destroy(OriginalPosition);
+
+			yield return null;
+
+			#endregion
 
 			#region  EnemyDetection
 
@@ -373,7 +431,7 @@ namespace StarterAssets
 			#endregion
 		}
 
-        public IEnumerator HolyWaterHit()
+		public IEnumerator HolyWaterHit()
         {
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			yield return null;

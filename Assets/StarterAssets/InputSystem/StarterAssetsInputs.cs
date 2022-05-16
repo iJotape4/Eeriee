@@ -15,6 +15,7 @@ namespace StarterAssets
 		public int  currentWeapon;
 		public bool changeWeapon;
 		public bool fire;
+		public bool fire2;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -73,7 +74,13 @@ namespace StarterAssets
 
 		}
 
-        public void OnPause(InputValue value) 
+		public void OnFire2(InputValue value)
+		{
+			FireInput2(value.isPressed);
+
+		}
+
+		public void OnPause(InputValue value) 
 		{
 			PauseInput (value.isPressed);
 		}
@@ -117,14 +124,18 @@ namespace StarterAssets
 			fire = newFireState;
         }
 
+		public void FireInput2(bool newFire2State)
+		{
+			fire2 = newFire2State;
+		}
+
 
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			if(!GameManager.Instance.IsGameOver || !GameManager.Instance.Ispaused)
             {
 				SetCursorState(cursorLocked);
-			}
-           
+			}          
 		
 		}
 		private void SetCursorState(bool newState)
