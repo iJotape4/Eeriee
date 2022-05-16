@@ -9,6 +9,7 @@ public class WaterController : MonoBehaviour
     public Rigidbody _waterRB;
     public Transform _bottleCap;
 
+    [SerializeField] private float shotForce =2000f;
 
     private void Awake()
     {
@@ -26,6 +27,6 @@ public class WaterController : MonoBehaviour
     {
         Rigidbody _waterInstance;
         _waterInstance = Instantiate(_waterRB, _bottleCap.position, _bottleCap.rotation) as Rigidbody;
-        _waterInstance.AddForce(new Vector3(0f, 10f, 20f), ForceMode.Impulse);
+        _waterInstance.AddForce(_bottleCap.forward* shotForce);
     }
 }

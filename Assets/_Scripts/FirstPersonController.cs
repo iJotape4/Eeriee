@@ -378,8 +378,6 @@ namespace StarterAssets
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			yield return null;
 
-			WaterController.Instance.LaunchWater();
-
 			#region  EnemyDetection
 
 			//Aqui va la detección de enemigos y su deteccion
@@ -392,10 +390,7 @@ namespace StarterAssets
 			yield return new WaitForSeconds(0.5f);
 			_anim.ResetTrigger(animatorTrigger);
 		}
-
-
 		#endregion
-
 
 		#region UI Input
 
