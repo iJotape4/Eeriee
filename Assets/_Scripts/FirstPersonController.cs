@@ -408,8 +408,9 @@ namespace StarterAssets
 			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
 			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
 
-			yield return new WaitForSeconds(3f);
+			yield return new WaitForSeconds(1f);
 
+			bibleRigidbody.velocity = new Vector3(0f, 0f, 0f);
 			currentWeapon.layer = 9;
 			currentWeapon.transform.SetParent(OriginalPosition.transform.parent);
 			while (currentWeapon.transform.position != OriginalPosition.transform.position)
