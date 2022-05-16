@@ -404,29 +404,30 @@ namespace StarterAssets
 			currentWeapon.transform.SetParent(null);
 			currentWeapon.layer = 12;
 
-			float shotForce = 120f;
+			float shotForce = 5f;
 			Rigidbody bibleRigidbody = currentWeapon.GetComponent<Rigidbody>();
 			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
 			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
+			
 			_inBiblioomerang = true;
 
 			yield return new WaitForSeconds(1f);
 
 			bibleRigidbody.velocity = new Vector3(0f, 0f, 0f);
+			
 			currentWeapon.layer = 9;
 			currentWeapon.transform.SetParent(OriginalPosition.transform.parent);
 			while (currentWeapon.transform.position != OriginalPosition.transform.position)
             {
-				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, (shotForce/6)*Time.deltaTime);
+				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, (shotForce*4)*Time.deltaTime);
 				yield return new WaitForEndOfFrame();
 			}
-
-			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
-			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
 			
+			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
+			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;			
 			Destroy(OriginalPosition);
 			_inBiblioomerang = false;
-
+			
 			yield return null;
 
 			#endregion
@@ -436,6 +437,7 @@ namespace StarterAssets
 			//Aqui va la detección de enemigos y su deteccion
 			#endregion
 		}
+
 
 		public IEnumerator HolyWaterHit()
         {

@@ -11,6 +11,7 @@ public class ZombieController : MonoBehaviour
 
     public float _health = 100f;
     public bool _stunned;
+    public bool _hitted;
 
     public float _range = 20f;
     public float _speed = 1f;
@@ -184,6 +185,19 @@ public class ZombieController : MonoBehaviour
         {
             HolyWaterHit();
             Destroy(collision.gameObject);
+        }
+        if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted)
+        {
+            _hitted = true;
+            _health -= 10;        
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile")
+        {
+            _hitted = false;           
         }
     }
 
