@@ -80,6 +80,7 @@ namespace StarterAssets
 		private float _previousWeaponIndex;
 		public GameObject currentWeapon;
 		public GameObject[] weapons;
+		public bool _inBiblioomerang;
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
@@ -346,7 +347,7 @@ namespace StarterAssets
 		private void Fire2()
 		{
 			InputAction _fire2 = _playerInput.actions["Fire2"];
-			if (_fire2.WasPressedThisFrame())
+			if (_fire2.WasPressedThisFrame() && !_inBiblioomerang)
 			{
 				_anim.SetBool(_animAttackTrigger, true);
 				_anim.SetInteger(_animSkillInt, 2);
@@ -407,6 +408,7 @@ namespace StarterAssets
 			Rigidbody bibleRigidbody = currentWeapon.GetComponent<Rigidbody>();
 			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
 			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
+			_inBiblioomerang = true;
 
 			yield return new WaitForSeconds(1f);
 
@@ -423,6 +425,7 @@ namespace StarterAssets
 			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
 			
 			Destroy(OriginalPosition);
+			_inBiblioomerang = false;
 
 			yield return null;
 
