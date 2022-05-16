@@ -381,6 +381,8 @@ namespace StarterAssets
 			#region Bible Movement
 
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+			
 			yield return null;
 
 			#endregion
@@ -394,7 +396,7 @@ namespace StarterAssets
 		public IEnumerator Bibloomerang()
 		{
 			#region Bible Movement
-
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None - RigidbodyConstraints.FreezeRotationX - RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 
 			GameObject OriginalPosition = GameObject.Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
