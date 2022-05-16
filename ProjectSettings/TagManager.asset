@@ -13,6 +13,7 @@ TagManager:
   - PlayerLeftArm
   - PlayerRightArm
   - Arms
+  - HolyWater
   layers:
   - Default
   - TransparentFX

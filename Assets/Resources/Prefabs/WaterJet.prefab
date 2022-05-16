@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5952503164696174822}
   - component: {fileID: 5952503164696174821}
   - component: {fileID: 5952503164696174823}
-  m_Layer: 0
+  - component: {fileID: 7599016485236371608}
+  m_Layer: 9
   m_Name: WaterJet
-  m_TagString: Untagged
+  m_TagString: HolyWater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,3 +101,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &7599016485236371608
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952503164696174819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.62
+  m_Height: 2.91
+  m_Direction: 2
+  m_Center: {x: 0, y: 8.881784e-15, z: -0.06}

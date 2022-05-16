@@ -62,7 +62,7 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		[Header("Animation")]
+		[Header("Animation Parameters")]
 		private Animator _anim;
 		private string _animAttackTrigger = "Attack";
 		private string _animWeaponInt = "CurrentWeapon";

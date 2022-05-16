@@ -6,8 +6,11 @@ using StarterAssets;
 
 public class ZombieController : MonoBehaviour
 {
-    private Animator _anim;
+
     private Rigidbody _rb;
+
+    public float _health = 100f;
+    public bool _stunned;
 
     public float _range = 20f;
     public float _speed = 1f;
@@ -20,6 +23,15 @@ public class ZombieController : MonoBehaviour
 
     public FirstPersonController _player;
     #region  Animations Dictionary
+    [Header("Animation Parameters")]
+    private Animator _anim;
+    private string _animPatrollingBool = "Patrolling";
+    private string _animPlayerDetectedBool = "PlayerDetected";
+    private string _animIdleBool = "Idle";
+    private string _animAttackZoneBool = "AttackZone";
+    private string _animRunnerZombieBool = "RunnerZombie";
+    private string _animStunnedBool = "Stunned";
+
     [Header("Animations Dictionary")]
     private string animZombieWalk = "Anim_ZombieWalk";
     private string animZombieAttack = "Anim_ZombieAttack";
@@ -35,6 +47,7 @@ public class ZombieController : MonoBehaviour
     private string animZombieRun = "Anim_ZombieRun";
 
 
+
     #endregion
 
 
@@ -47,7 +60,7 @@ public class ZombieController : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
 
 
-        _anim.SetBool("RunnerZombie", _zombieRunner) ;
+        _anim.SetBool(_animRunnerZombieBool, _zombieRunner) ;
 
         foreach (Transform GO  in GetComponentsInChildren<Transform>())
         { 
@@ -69,9 +82,9 @@ public class ZombieController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-     
+    {   
         PlayerDetection();
+        _anim.SetBool(_animStunnedBool, _stunned);
     }
     public IEnumerator GotoNextPoint(int patrolPoint)
     {
@@ -115,29 +128,28 @@ public class ZombieController : MonoBehaviour
         if (Vector3.Distance(_player.transform.position, transform.position) <= _range)
 
         {
-            _anim.SetBool("PlayerDetected", true);
+            _anim.SetBool(_animPlayerDetectedBool, true);
 
-            if (!_player.Grounded)
+            if (!_player.Grounded || _stunned)
                 return;
             PursuitPlayer();
         }
         else
         {
-            _anim.SetBool("PlayerDetected", false);
+            _anim.SetBool(_animPlayerDetectedBool, false);
             Patrol();         
         }
     }
     public void PursuitPlayer()
-    {        
-
+    {
         if (Vector3.Distance(_player.transform.position, transform.position) < 1.3f)
         {
-            _anim.SetBool("AttackZone", true);
+            _anim.SetBool(_animAttackZoneBool, true);
 
         }
         else
         {
-            _anim.SetBool("AttackZone", false);
+            _anim.SetBool(_animAttackZoneBool, false);
 
             if (!_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombieAttack))
             {
@@ -147,17 +159,34 @@ public class ZombieController : MonoBehaviour
             transform.LookAt(_player.transform.position);
             }
         }
-
         if (_zombieRunner)
         {
             _speed = 5f;
-            //_anim.Play(animZombieRun);
         }
         else
         {
             _speed = 2f;
-            //_anim.Play(animZombieWalk);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "HolyWater")
+        {
+            HolyWaterHit();
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public void HolyWaterHit()
+    {
+        _health -= 10;
+        _stunned = true;       
+    }
+
+    public void StunEnds()
+    {
+        _stunned = false;
     }
 
 }
