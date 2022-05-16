@@ -31,6 +31,7 @@ public class ZombieController : MonoBehaviour
     private string _animAttackZoneBool = "AttackZone";
     private string _animRunnerZombieBool = "RunnerZombie";
     private string _animStunnedBool = "Stunned";
+    private string _animDeathTrigger = "Death";
 
     [Header("Animations Dictionary")]
     private string animZombieWalk = "Anim_ZombieWalk";
@@ -85,6 +86,15 @@ public class ZombieController : MonoBehaviour
     {   
         PlayerDetection();
         _anim.SetBool(_animStunnedBool, _stunned);
+        if (_health<=0)
+        {
+            _stunned = false;
+          foreach(CapsuleCollider col in GetComponentsInChildren<CapsuleCollider>())
+            {
+                col.enabled = false;
+            }
+            _anim.SetTrigger(_animDeathTrigger);           
+        }
     }
     public IEnumerator GotoNextPoint(int patrolPoint)
     {
@@ -109,7 +119,6 @@ public class ZombieController : MonoBehaviour
         */
     }
 
-
     void Patrol()
     {
 
@@ -130,7 +139,7 @@ public class ZombieController : MonoBehaviour
         {
             _anim.SetBool(_animPlayerDetectedBool, true);
 
-            if (!_player.Grounded || _stunned)
+            if (!_player.Grounded || _stunned || _health<=0)
                 return;
             PursuitPlayer();
         }
@@ -187,6 +196,11 @@ public class ZombieController : MonoBehaviour
     public void StunEnds()
     {
         _stunned = false;
+    }
+
+    protected void OnDeath()
+    {
+        Destroy(this.gameObject);
     }
 
 }

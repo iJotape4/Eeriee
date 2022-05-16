@@ -18,13 +18,15 @@ public class WaterController : MonoBehaviour
 
     private void Start()
     {
-       _bottleCap = GameObject.Find("BottleCap").GetComponent<Transform>();
-        _waterRB = Resources.Load<GameObject>("Prefabs/WaterJet").GetComponent<Rigidbody>();
+       
     }
 
 
     public void LaunchWater()
     {
+        _bottleCap = GameObject.Find("BottleCap").GetComponent<Transform>();
+        _waterRB = Resources.Load<GameObject>("Prefabs/WaterJet").GetComponent<Rigidbody>();
+
         Rigidbody _waterInstance;
         _waterInstance = Instantiate(_waterRB, _bottleCap.position, _bottleCap.rotation) as Rigidbody;
         _waterInstance.AddForce(_bottleCap.forward* shotForce);
