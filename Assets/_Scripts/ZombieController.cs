@@ -12,6 +12,7 @@ public class ZombieController : MonoBehaviour
     public float _health = 100f;
     public bool _stunned;
     public bool _hitted;
+    public bool _canPursuit = true;
 
     public float _range = 20f;
     public float _speed = 1f;
@@ -32,6 +33,7 @@ public class ZombieController : MonoBehaviour
     private string _animAttackZoneBool = "AttackZone";
     private string _animRunnerZombieBool = "RunnerZombie";
     private string _animStunnedBool = "Stunned";
+    private string _animHittedTrigger = "Hitted";
     private string _animDeathTrigger = "Death";
 
     [Header("Animations Dictionary")]
@@ -61,9 +63,6 @@ public class ZombieController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
 
-
-        _anim.SetBool(_animRunnerZombieBool, _zombieRunner) ;
-
         foreach (Transform GO  in GetComponentsInChildren<Transform>())
         { 
             if(GO.gameObject.name == "PatrolPoints")
@@ -87,9 +86,12 @@ public class ZombieController : MonoBehaviour
     {   
         PlayerDetection();
         _anim.SetBool(_animStunnedBool, _stunned);
+        _anim.SetBool(_animRunnerZombieBool, _zombieRunner);
+
         if (_health<=0)
         {
             _stunned = false;
+            _canPursuit = false;
           foreach(CapsuleCollider col in GetComponentsInChildren<CapsuleCollider>())
             {
                 col.enabled = false;
@@ -140,7 +142,7 @@ public class ZombieController : MonoBehaviour
         {
             _anim.SetBool(_animPlayerDetectedBool, true);
 
-            if (!_player.Grounded || _stunned || _health<=0)
+            if (!_player.Grounded || !_canPursuit)
                 return;
             PursuitPlayer();
         }
@@ -188,8 +190,10 @@ public class ZombieController : MonoBehaviour
         }
         if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted)
         {
-            _hitted = true;
-            _health -= 10;        
+        _hitted = true;
+        _canPursuit = false;
+        _health -= 10;     
+            
         }
     }
 
@@ -197,19 +201,22 @@ public class ZombieController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile")
         {
-            _hitted = false;           
+            _hitted = false;
+            _anim.SetTrigger(_animHittedTrigger);          
         }
     }
 
     public void HolyWaterHit()
     {
         _health -= 10;
-        _stunned = true;       
+        _stunned = true;
+        _canPursuit = false;
     }
 
     public void StunEnds()
     {
         _stunned = false;
+        _canPursuit = true;
     }
 
     protected void OnDeath()
