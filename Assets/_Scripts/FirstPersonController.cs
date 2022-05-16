@@ -410,15 +410,17 @@ namespace StarterAssets
 
 			yield return new WaitForSeconds(3f);
 
-			currentWeapon.transform.SetParent(OriginalPosition.transform.parent);
 			currentWeapon.layer = 9;
-			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
-
+			currentWeapon.transform.SetParent(OriginalPosition.transform.parent);
 			while (currentWeapon.transform.position != OriginalPosition.transform.position)
             {
-				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, shotForce * Time.deltaTime);		
+				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, (shotForce/6)*Time.deltaTime);
+				yield return new WaitForEndOfFrame();
 			}
+
+			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
 			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
+			
 			Destroy(OriginalPosition);
 
 			yield return null;
