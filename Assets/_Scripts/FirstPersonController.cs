@@ -68,12 +68,14 @@ namespace StarterAssets
 		private string _animWeaponInt = "CurrentWeapon";
 		private string _animChangeWeaponTrigger = "WeaponChange";
 		private string _animSkillInt = "Skill";
+		private string _animSmartWatchBool = "SmartWatch";
 
 		[Header("AnimationsDictionary")]
 		public string _animationIdle = "Anim_Arms_Idle";
 		private string _animationBibleHit = "Anim_Arms_BibleHit";
 		private string _animationHolyWater = "Anim_Arms_HolyWater";
 		private string _animationBibloomerang = "Anim_Arms_Bibloomerang";
+		private string _animationSmartWatch = "Anim_Arms_SmartWatch";
 
 		[Header("Weapons")]
 		public int _currentWeaponIndex =0;
@@ -166,7 +168,8 @@ namespace StarterAssets
 			ChangeWeapon();
 			Fire();
 			Fire2();
-			Pause();
+			//Pause();
+			Map();
 		}
 
 		private void LateUpdate()
@@ -482,6 +485,16 @@ namespace StarterAssets
 				_input.PauseButtonDown = false;
 				UIManager.Instance.Pause();			
             }
+        }
+
+		private void Map()
+        {
+			InputAction _map = _playerInput.actions["Map"];
+			if (_map.WasPressedThisFrame())
+            {
+			 _anim.SetBool(_animSmartWatchBool,	_anim.GetBool(_animSmartWatchBool) ? false : true);
+			}
+			
         }
 
         #endregion

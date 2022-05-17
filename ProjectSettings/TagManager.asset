@@ -15,6 +15,7 @@ TagManager:
   - Arms
   - HolyWater
   - Eerie
+  - SmartWatch
   layers:
   - Default
   - TransparentFX

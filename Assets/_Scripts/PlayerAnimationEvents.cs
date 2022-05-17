@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimationEvent : MonoBehaviour
+public class PlayerAnimationEvents : MonoBehaviour
 {
     public Rigidbody _waterRB;
     public Transform _bottleCap;
@@ -25,4 +25,13 @@ public class PlayerAnimationEvent : MonoBehaviour
     {
         UIManager.Instance.SmartWatch();
     }
+
+    public void DisableSmartWatchCamera()
+    {
+
+    }
+
+
+
+
     }
