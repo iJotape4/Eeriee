@@ -591,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8482474225638712182}
   - component: {fileID: 5561286051040170127}
-  - component: {fileID: 4231342728427233221}
+  - component: {fileID: 3438408659018621946}
   m_Layer: 10
   m_Name: Bottoms
   m_TagString: Enemy
@@ -634,7 +634,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8649067456426579410, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  - {fileID: 2100000, guid: 6519b74076656b04f85cc03f92e97dd1, type: 2}
+  - {fileID: 2100000, guid: 6519b74076656b04f85cc03f92e97dd1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -694,20 +695,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00024551153, y: -0.4882369, z: -0.012937516}
     m_Extent: {x: 0.1851126, y: 0.5457492, z: 0.28316778}
   m_DirtyAABB: 0
---- !u!64 &4231342728427233221
-MeshCollider:
+--- !u!114 &3438408659018621946
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4231342728427233220}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6475887002624815441, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4289650768058107026
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +717,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2996819427713484799}
   - component: {fileID: 5175819650555819346}
+  - component: {fileID: 4855313792975540430}
   m_Layer: 10
   m_Name: Eyes
   m_TagString: Enemy
@@ -760,7 +760,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -981239780133533289, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -820,6 +821,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0009982064, y: 0.657461, z: 0.070775025}
     m_Extent: {x: 0.046595424, y: 0.016954482, z: 0.017085873}
   m_DirtyAABB: 0
+--- !u!114 &4855313792975540430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4289650768058107026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4518121298874055083
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 585254636015181038}
   - component: {fileID: 6835330864286017598}
+  - component: {fileID: 8768827318148675718}
   m_Layer: 10
   m_Name: Tops
   m_TagString: Enemy
@@ -1028,7 +1042,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 631632248785663895, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  - {fileID: 2100000, guid: 54f3b5e42b5d5084d9daa4b3b415ec69, type: 2}
+  - {fileID: 2100000, guid: 54f3b5e42b5d5084d9daa4b3b415ec69, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1088,6 +1103,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0032791197, y: 0.21078062, z: -0.059176452}
     m_Extent: {x: 0.3982515, y: 0.31964105, z: 0.22431186}
   m_DirtyAABB: 0
+--- !u!114 &8768827318148675718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4959227894581884322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5153934870209088777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1667615833992883832}
   - component: {fileID: 6321007844026452795}
+  - component: {fileID: 6324228029916074606}
   m_Layer: 10
   m_Name: Eyelashes
   m_TagString: Enemy
@@ -1577,7 +1605,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -981239780133533289, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1637,6 +1666,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0008045994, y: 0.65433806, z: 0.08862172}
     m_Extent: {x: 0.05197411, y: 0.009816289, z: 0.011419192}
   m_DirtyAABB: 0
+--- !u!114 &6324228029916074606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471973598414041466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7476841925200148989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1821,7 @@ MonoBehaviour:
   _range: 20
   _speed: 2
   _zombieRunner: 0
+  meshRenderers: []
   _player: {fileID: 0}
 --- !u!95 &7719988747883350610
 Animator:
@@ -1897,7 +1939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6788796887887199550}
   - component: {fileID: 8161154124992375382}
-  - component: {fileID: 6788796887887199551}
+  - component: {fileID: 1378026163359848178}
   m_Layer: 10
   m_Name: Body
   m_TagString: Enemy
@@ -1940,7 +1982,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -981239780133533289, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
+  - {fileID: 2100000, guid: 310fad2a3c1474145822a1d11c779793, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2000,20 +2043,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0008327365, y: -0.18362659, z: -0.025315613}
     m_Extent: {x: 0.9372468, y: 0.9526685, z: 0.2131415}
   m_DirtyAABB: 0
---- !u!64 &6788796887887199551
-MeshCollider:
+--- !u!114 &1378026163359848178
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8012583468995171180}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2959467708922500008, guid: 869cc393fef1def47896f3776e373d5c, type: 3}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8240161123421412287
 GameObject:
   m_ObjectHideFlags: 0

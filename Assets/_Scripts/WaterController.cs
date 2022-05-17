@@ -2,25 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterController : MonoBehaviour
+public class PlayerAnimationEvent : MonoBehaviour
 {
-
-    public static WaterController Instance;
     public Rigidbody _waterRB;
     public Transform _bottleCap;
 
-    [SerializeField] private float shotForce =2000f;
+    public GameObject _smartWatch;
 
-    private void Awake()
-    {
-        WaterController.Instance = this.GetComponent<WaterController>();
-    }
-
-    private void Start()
-    {
-       
-    }
-
+    [SerializeField] private float shotForce = 2000f;
 
     public void LaunchWater()
     {
@@ -29,6 +18,11 @@ public class WaterController : MonoBehaviour
 
         Rigidbody _waterInstance;
         _waterInstance = Instantiate(_waterRB, _bottleCap.position, _bottleCap.rotation) as Rigidbody;
-        _waterInstance.AddForce(_bottleCap.forward* shotForce);
+        _waterInstance.AddForce(_bottleCap.forward * shotForce);
     }
-}
+
+    public void SmartWatch()
+    {
+        UIManager.Instance.SmartWatch();
+    }
+    }

@@ -20,6 +20,7 @@ public class ZombieController : MonoBehaviour
 
     private Transform[] points;
     private int actualPatrolPoint = 0;
+    public SkinnedMeshRenderer[] meshRenderers;
 
     private NavMeshAgent _zombie;
 
@@ -62,6 +63,8 @@ public class ZombieController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
+
+        meshRenderers= GetComponentsInChildren<SkinnedMeshRenderer>();
 
         foreach (Transform GO  in GetComponentsInChildren<Transform>())
         { 
@@ -188,7 +191,7 @@ public class ZombieController : MonoBehaviour
             HolyWaterHit();
             Destroy(collision.gameObject);
         }
-        if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted)
+        if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted && !_player._anim.GetCurrentAnimatorStateInfo(0).IsName(_player._animationIdle))
         {
         _hitted = true;
         _canPursuit = false;
@@ -199,7 +202,7 @@ public class ZombieController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile")
+        if ((collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile") && !_player._anim.GetCurrentAnimatorStateInfo(0).IsName(_player._animationIdle)) 
         {
             _hitted = false;
             _anim.SetTrigger(_animHittedTrigger);          
@@ -221,8 +224,19 @@ public class ZombieController : MonoBehaviour
 
     protected void OnDeath()
     {
-        Destroy(this.gameObject);
+        Dispel();
+        //   
+
     }
 
+    public void Dispel()
+    {
+        foreach ( EnemyDispeler ED in GetComponentsInChildren<EnemyDispeler>())
+        {
+            ED.UpdateMaterialsArray();
+        }
+    }
 }
+
+
 

@@ -16,6 +16,7 @@ namespace StarterAssets
 		public bool changeWeapon;
 		public bool fire;
 		public bool fire2;
+		public bool map;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -84,9 +85,19 @@ namespace StarterAssets
 		{
 			PauseInput (value.isPressed);
 		}
+
+		public void OnMap(InputValue value)
+		{
+			PauseInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
+		public void MapInput(bool newMapState)
+		{
+			map = newMapState;
+		}
+
 		public void PauseInput(bool newPauseState)
         {
 			PauseButtonDown = newPauseState;

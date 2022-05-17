@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
     }
 
 
@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
             _isGameOver = true;
             UIManager.Instance.ShowGameOver();
             Cursor.lockState = CursorLockMode.None;
+          
         }
     }
 

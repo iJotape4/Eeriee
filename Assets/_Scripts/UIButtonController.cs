@@ -24,8 +24,10 @@ public class UIButtonController : MonoBehaviour
 
     public void GOMainMenu()
     {
-
+        //DestroyImmediate(GameManager.Instance);
+        //DestroyImmediate(UIManager.Instance);
         SceneManager.LoadScene(_mainmenu);
+        
     }
 
 }

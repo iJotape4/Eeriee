@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
             return;
 
         }
-        DontDestroyOnLoad(this);
+      //  DontDestroyOnLoad(this);
 
     
 
@@ -82,16 +82,15 @@ public class UIManager : MonoBehaviour
 
      public  void Pause()
      {
-       
-         if (_pausePanel.activeSelf)
-             _pausePanel.SetActive(false);
-         else
-             _pausePanel.SetActive(true);
-
+        _pausePanel.SetActive(_pausePanel.activeSelf ? false : true);
         GameManager.Instance.PauseGame(_pausePanel.activeSelf);
         Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
      }
 
+    public void SmartWatch()
+    {
+        _pausePanel.SetActive(_pausePanel.activeSelf ? false : true);
+    }
 
     /*
      public void ActivateTutIcon(string IconName)

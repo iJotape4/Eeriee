@@ -63,17 +63,19 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 
 		[Header("Animation Parameters")]
-		private Animator _anim;
+		public Animator _anim;
 		private string _animAttackTrigger = "Attack";
 		private string _animWeaponInt = "CurrentWeapon";
 		private string _animChangeWeaponTrigger = "WeaponChange";
 		private string _animSkillInt = "Skill";
+		private string _animSmartWatchBool = "SmartWatch";
 
 		[Header("AnimationsDictionary")]
-		private string _animationIdle = "Anim_Arms_Idle";
+		public string _animationIdle = "Anim_Arms_Idle";
 		private string _animationBibleHit = "Anim_Arms_BibleHit";
 		private string _animationHolyWater = "Anim_Arms_HolyWater";
 		private string _animationBibloomerang = "Anim_Arms_Bibloomerang";
+		private string _animationSmartWatch = "Anim_Arms_SmartWatch";
 
 		[Header("Weapons")]
 		public int _currentWeaponIndex =0;
@@ -166,7 +168,8 @@ namespace StarterAssets
 			ChangeWeapon();
 			Fire();
 			Fire2();
-			Pause();
+			//Pause();
+			Map();
 		}
 
 		private void LateUpdate()
@@ -331,33 +334,42 @@ namespace StarterAssets
 		private void Fire()
         {
 			InputAction _fire = _playerInput.actions["UseWeapon"];
-			if (_fire.WasPressedThisFrame())
+			if (_fire.WasPressedThisFrame() && _anim.GetCurrentAnimatorStateInfo(0).IsName(_animationIdle) && !_inBiblioomerang)
 			{
-				_anim.SetBool(_animAttackTrigger, true);
-				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
-				_anim.SetInteger(_animSkillInt, 1);
-
-				if (currentWeapon.name == "Bible")
-					StartCoroutine(BibleHit());
-				if (currentWeapon.name == "HolyWater")
-					StartCoroutine(HolyWaterHit());
+				doAttack(1);
 			}
 		}
 
 		private void Fire2()
 		{
 			InputAction _fire2 = _playerInput.actions["Fire2"];
-			if (_fire2.WasPressedThisFrame() && !_inBiblioomerang)
+			if (_fire2.WasPressedThisFrame() && _anim.GetCurrentAnimatorStateInfo(0).IsName(_animationIdle) && !_inBiblioomerang)
 			{
-				_anim.SetBool(_animAttackTrigger, true);
-				_anim.SetInteger(_animSkillInt, 2);
-				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
-
-				if (currentWeapon.name == "Bible")
-					StartCoroutine(Bibloomerang());
-				if (currentWeapon.name == "HolyWater")
-					StartCoroutine(HolyWaterHit());
+				doAttack(2);
 			}
+		}
+
+		public void doAttack(int skillNumber)
+        {
+			_anim.SetBool(_animAttackTrigger, true);			
+			_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
+			_anim.SetInteger(_animSkillInt, skillNumber);
+
+			if (currentWeapon.name == "Bible")
+            {
+				if(skillNumber == 1)
+					StartCoroutine(BibleHit());
+				if (skillNumber == 2)
+					StartCoroutine(Bibloomerang());
+			}
+				
+			if (currentWeapon.name == "HolyWater")
+            {
+				if (skillNumber == 1)
+					StartCoroutine(HolyWaterHit());
+				if (skillNumber == 2)
+					StartCoroutine(HolyWaterHit());
+			}				
 		}
 		#endregion
 
@@ -383,6 +395,7 @@ namespace StarterAssets
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			
+			
 			yield return null;
 
 			#endregion
@@ -396,8 +409,9 @@ namespace StarterAssets
 		public IEnumerator Bibloomerang()
 		{
 			#region Bible Movement
-			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None - RigidbodyConstraints.FreezeRotationX - RigidbodyConstraints.FreezeRotationZ;
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+			
 
 			GameObject OriginalPosition = GameObject.Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
 			OriginalPosition.transform.localPosition = currentWeapon.transform.localPosition ;
@@ -408,8 +422,8 @@ namespace StarterAssets
 
 			float shotForce = 5f;
 			Rigidbody bibleRigidbody = currentWeapon.GetComponent<Rigidbody>();
-			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
-			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
+			bibleRigidbody.AddForce(-OriginalPosition.transform.up * shotForce);
+			bibleRigidbody.AddTorque(OriginalPosition.transform.right * (shotForce*8), ForceMode.Impulse);
 			
 			_inBiblioomerang = true;
 
@@ -424,7 +438,8 @@ namespace StarterAssets
 				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, (shotForce*4)*Time.deltaTime);
 				yield return new WaitForEndOfFrame();
 			}
-			
+
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
 			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;			
 			Destroy(OriginalPosition);
@@ -457,6 +472,7 @@ namespace StarterAssets
 			_anim.SetTrigger(animatorTrigger);
 			yield return new WaitForSeconds(0.5f);
 			_anim.ResetTrigger(animatorTrigger);
+			
 		}
 		#endregion
 
@@ -469,6 +485,16 @@ namespace StarterAssets
 				_input.PauseButtonDown = false;
 				UIManager.Instance.Pause();			
             }
+        }
+
+		private void Map()
+        {
+			InputAction _map = _playerInput.actions["Map"];
+			if (_map.WasPressedThisFrame())
+            {
+			 _anim.SetBool(_animSmartWatchBool,	_anim.GetBool(_animSmartWatchBool) ? false : true);
+			}
+			
         }
 
         #endregion
