@@ -191,7 +191,7 @@ public class ZombieController : MonoBehaviour
             HolyWaterHit();
             Destroy(collision.gameObject);
         }
-        if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted)
+        if ((collision.gameObject.tag == "Weapon"|| collision.gameObject.tag == "Projectile") && !_hitted && !_player._anim.GetCurrentAnimatorStateInfo(0).IsName(_player._animationIdle))
         {
         _hitted = true;
         _canPursuit = false;
@@ -202,7 +202,7 @@ public class ZombieController : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile")
+        if ((collision.gameObject.tag == "Weapon" || collision.gameObject.tag == "Projectile") && !_player._anim.GetCurrentAnimatorStateInfo(0).IsName(_player._animationIdle)) 
         {
             _hitted = false;
             _anim.SetTrigger(_animHittedTrigger);          

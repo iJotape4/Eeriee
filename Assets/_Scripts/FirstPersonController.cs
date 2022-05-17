@@ -63,14 +63,14 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 
 		[Header("Animation Parameters")]
-		private Animator _anim;
+		public Animator _anim;
 		private string _animAttackTrigger = "Attack";
 		private string _animWeaponInt = "CurrentWeapon";
 		private string _animChangeWeaponTrigger = "WeaponChange";
 		private string _animSkillInt = "Skill";
 
 		[Header("AnimationsDictionary")]
-		private string _animationIdle = "Anim_Arms_Idle";
+		public string _animationIdle = "Anim_Arms_Idle";
 		private string _animationBibleHit = "Anim_Arms_BibleHit";
 		private string _animationHolyWater = "Anim_Arms_HolyWater";
 		private string _animationBibloomerang = "Anim_Arms_Bibloomerang";
@@ -435,7 +435,8 @@ namespace StarterAssets
 				currentWeapon.transform.position = Vector3.MoveTowards(currentWeapon.transform.position, OriginalPosition.transform.position, (shotForce*4)*Time.deltaTime);
 				yield return new WaitForEndOfFrame();
 			}
-			
+
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
 			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;			
 			Destroy(OriginalPosition);
