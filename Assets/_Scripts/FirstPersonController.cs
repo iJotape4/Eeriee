@@ -331,33 +331,42 @@ namespace StarterAssets
 		private void Fire()
         {
 			InputAction _fire = _playerInput.actions["UseWeapon"];
-			if (_fire.WasPressedThisFrame())
+			if (_fire.WasPressedThisFrame() && _anim.GetCurrentAnimatorStateInfo(0).IsName(_animationIdle) && !_inBiblioomerang)
 			{
-				_anim.SetBool(_animAttackTrigger, true);
-				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
-				_anim.SetInteger(_animSkillInt, 1);
-
-				if (currentWeapon.name == "Bible")
-					StartCoroutine(BibleHit());
-				if (currentWeapon.name == "HolyWater")
-					StartCoroutine(HolyWaterHit());
+				doAttack(1);
 			}
 		}
 
 		private void Fire2()
 		{
 			InputAction _fire2 = _playerInput.actions["Fire2"];
-			if (_fire2.WasPressedThisFrame() && !_inBiblioomerang)
+			if (_fire2.WasPressedThisFrame() && _anim.GetCurrentAnimatorStateInfo(0).IsName(_animationIdle) && !_inBiblioomerang)
 			{
-				_anim.SetBool(_animAttackTrigger, true);
-				_anim.SetInteger(_animSkillInt, 2);
-				_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
-
-				if (currentWeapon.name == "Bible")
-					StartCoroutine(Bibloomerang());
-				if (currentWeapon.name == "HolyWater")
-					StartCoroutine(HolyWaterHit());
+				doAttack(2);
 			}
+		}
+
+		public void doAttack(int skillNumber)
+        {
+			_anim.SetBool(_animAttackTrigger, true);			
+			_anim.SetInteger(_animWeaponInt, _currentWeaponIndex);
+			_anim.SetInteger(_animSkillInt, skillNumber);
+
+			if (currentWeapon.name == "Bible")
+            {
+				if(skillNumber == 1)
+					StartCoroutine(BibleHit());
+				if (skillNumber == 2)
+					StartCoroutine(Bibloomerang());
+			}
+				
+			if (currentWeapon.name == "HolyWater")
+            {
+				if (skillNumber == 1)
+					StartCoroutine(HolyWaterHit());
+				if (skillNumber == 2)
+					StartCoroutine(HolyWaterHit());
+			}				
 		}
 		#endregion
 
@@ -383,6 +392,7 @@ namespace StarterAssets
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			
+			
 			yield return null;
 
 			#endregion
@@ -398,6 +408,7 @@ namespace StarterAssets
 			#region Bible Movement
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None - RigidbodyConstraints.FreezeRotationX - RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
+			
 
 			GameObject OriginalPosition = GameObject.Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
 			OriginalPosition.transform.localPosition = currentWeapon.transform.localPosition ;
@@ -457,6 +468,7 @@ namespace StarterAssets
 			_anim.SetTrigger(animatorTrigger);
 			yield return new WaitForSeconds(0.5f);
 			_anim.ResetTrigger(animatorTrigger);
+			
 		}
 		#endregion
 
