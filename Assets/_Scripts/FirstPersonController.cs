@@ -406,7 +406,7 @@ namespace StarterAssets
 		public IEnumerator Bibloomerang()
 		{
 			#region Bible Movement
-			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None - RigidbodyConstraints.FreezeRotationX - RigidbodyConstraints.FreezeRotationZ;
+			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 			
 
@@ -419,8 +419,8 @@ namespace StarterAssets
 
 			float shotForce = 5f;
 			Rigidbody bibleRigidbody = currentWeapon.GetComponent<Rigidbody>();
-			bibleRigidbody.AddForce(OriginalPosition.transform.right * shotForce);
-			bibleRigidbody.AddTorque(OriginalPosition.transform.forward * (shotForce), ForceMode.Impulse);
+			bibleRigidbody.AddForce(-OriginalPosition.transform.up * shotForce);
+			bibleRigidbody.AddTorque(OriginalPosition.transform.right * (shotForce*8), ForceMode.Impulse);
 			
 			_inBiblioomerang = true;
 

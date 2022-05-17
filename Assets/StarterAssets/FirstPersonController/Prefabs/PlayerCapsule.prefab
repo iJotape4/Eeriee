@@ -223,6 +223,7 @@ MonoBehaviour:
   _currentWeaponIndex: 0
   currentWeapon: {fileID: 0}
   weapons: []
+  _inBiblioomerang: 0
   _arms: {fileID: 0}
 --- !u!114 &1978471637655604388
 MonoBehaviour:
@@ -260,6 +261,7 @@ MonoBehaviour:
   currentWeapon: 0
   changeWeapon: 0
   fire: 0
+  fire2: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
