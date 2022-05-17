@@ -20,6 +20,7 @@ public class ZombieController : MonoBehaviour
 
     private Transform[] points;
     private int actualPatrolPoint = 0;
+    public SkinnedMeshRenderer[] meshRenderers;
 
     private NavMeshAgent _zombie;
 
@@ -62,6 +63,8 @@ public class ZombieController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
+
+        meshRenderers= GetComponentsInChildren<SkinnedMeshRenderer>();
 
         foreach (Transform GO  in GetComponentsInChildren<Transform>())
         { 
@@ -221,8 +224,19 @@ public class ZombieController : MonoBehaviour
 
     protected void OnDeath()
     {
-        Destroy(this.gameObject);
+        Dispel();
+        //   
+
     }
 
+    public void Dispel()
+    {
+        foreach ( EnemyDispeler ED in GetComponentsInChildren<EnemyDispeler>())
+        {
+            ED.UpdateMaterialsArray();
+        }
+    }
 }
+
+
 
