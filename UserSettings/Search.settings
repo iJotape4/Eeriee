@@ -7,7 +7,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.83F126EB" = "table"
+	"last_search.83F126EB" = "desk"
 	"OpenInspectorPreview.83F126EB" = "0"
 	"currentGroup.83F126EB" = "asset"
 }
