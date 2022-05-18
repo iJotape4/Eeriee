@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     //int _currentLevel = 0;
     [SerializeField] bool _isGameOver = false;
     public bool IsGameOver { get => _isGameOver; }
-    [SerializeField] bool __isPaused = false;
-    public bool Ispaused { get => __isPaused; }
+    [SerializeField] bool _isPaused = false;
+    public bool Ispaused { get => _isPaused; }
 
     #endregion
 
@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame(bool isPaused)
     {
-        __isPaused = (isPaused) ? true : false;
+        _isPaused = (isPaused) ? false : true;
+        Time.timeScale = (_isPaused) ? 0 : 1;
         Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
