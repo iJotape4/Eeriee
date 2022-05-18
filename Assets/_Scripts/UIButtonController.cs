@@ -19,13 +19,13 @@ public class UIButtonController : MonoBehaviour
     
     public void ResumeGame()
     {
-        UIManager.Instance.Pause();
+       GameObject.FindGameObjectWithTag("Arms").GetComponent<Animator>().SetBool("SmartWatch", false);
+       
     }
 
     public void GOMainMenu()
     {
-        //DestroyImmediate(GameManager.Instance);
-        //DestroyImmediate(UIManager.Instance);
+
         SceneManager.LoadScene(_mainmenu);
         
     }

@@ -26,9 +26,9 @@ public class PlayerAnimationEvents : MonoBehaviour
         UIManager.Instance.SmartWatch();
     }
 
-    public void DisableSmartWatchCamera()
+    public void DisableSmartWatch()
     {
-
+        GetComponent<Animator>().SetBool("SmartWatch", false);
     }
 
 
