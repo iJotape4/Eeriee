@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public bool IsGameOver { get => _isGameOver; }
     [SerializeField] bool _isPaused = false;
     public bool Ispaused { get => _isPaused; }
+    [SerializeField] bool _EerieObtained = false;
+    public bool EerieObtained { get => _EerieObtained; }
+
 
     #endregion
 
@@ -73,9 +76,13 @@ public class GameManager : MonoBehaviour
           
         }
     }
-
     public void updateHealth(float amount)
     {
         _healthCount += amount;
+    }
+
+    public void eerieObtention()
+    {
+        _EerieObtained = true;
     }
 }
