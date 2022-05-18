@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
     public void SmartWatch()
     {
         _pausePanel.SetActive(_pausePanel.activeSelf ? false : true);
-        Cursor.lockState = (CursorLockMode.None == 0 ? CursorLockMode.Confined : CursorLockMode.None) ;
+        Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.Confined : CursorLockMode.Locked) ;
     }
 
     /*
