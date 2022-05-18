@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SlimUI/Tech Menu/Scenes/MainMenu.unity
+    path: Assets/_Scenes/MainMenu.unity
     guid: bebc050756972234eb97d414dab7df66
   - enabled: 1
     path: Assets/_Scenes/Prision.unity

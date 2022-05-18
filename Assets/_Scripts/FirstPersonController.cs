@@ -455,7 +455,6 @@ namespace StarterAssets
 			#endregion
 		}
 
-
 		public IEnumerator HolyWaterHit()
         {
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
