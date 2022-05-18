@@ -3,28 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DialogueController : MonoBehaviour
 {
     private Animator _anim;
     private Queue<string> _dialoguesQueue;
     private Queue<Sprite> _avatarsQueue;
+
+    private PlayerInput _playerInput;
+    private InputAction _next;
+
+
     TextsDictionary _text;
     private string _animEnableBool = "Enable";
     [SerializeField] TextMeshProUGUI _textInScreen;
-    [SerializeField] Image _avatarInScreen; 
+    [SerializeField] Image _avatarInScreen;
+
+    private bool _finisedText =true;
+
 
     private void Awake()
     {
         _anim = GetComponent<Animator>();
         _dialoguesQueue = new Queue<string>();
         _avatarsQueue = new Queue<Sprite>();
+
+        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        _next = _playerInput.actions["Next"];
+    }
+
+    private void Update()
+    {
+        if (_next.WasPressedThisFrame())
+        {
+            Nextphrase();
+        }
     }
 
     public void ActivateDialogue( TextsDictionary objectText)
   {
         _anim.SetBool(_animEnableBool, true);
         _text = objectText;
+        _playerInput.SwitchCurrentActionMap("Dialogues");
     }
 
     public void ActivateText()
@@ -46,28 +67,32 @@ public class DialogueController : MonoBehaviour
 
     public void Nextphrase()
     {
-        Sprite currentAvatar;
-        if (_dialoguesQueue.Count == 0)
+        if (_finisedText) 
         {
-            CloseDialogue();
-            return;
+            _finisedText = false;
+            Sprite currentAvatar;
+            if (_dialoguesQueue.Count == 0)
+            {
+                CloseDialogue();
+                return;
+            }
+
+            string currentPhrase = _dialoguesQueue.Dequeue();
+            if(_avatarsQueue.Count > 0)
+            {
+                currentAvatar = _avatarsQueue.Dequeue();
+                _avatarInScreen.sprite = currentAvatar;
+            }         
+            _textInScreen.text = currentPhrase;
+                StartCoroutine(ShowCharacters(currentPhrase));
         }
-
-        string currentPhrase = _dialoguesQueue.Dequeue();
-        if(_avatarsQueue.Count > 0)
-        {
-            currentAvatar = _avatarsQueue.Dequeue();
-            _avatarInScreen.sprite = currentAvatar;
-        }         
-        _textInScreen.text = currentPhrase;
         
-
-        StartCoroutine(ShowCharacters(currentPhrase));
     }
 
     public void CloseDialogue()
     {
         _anim.SetBool(_animEnableBool, false);
+        _playerInput.SwitchCurrentActionMap("Player");
     }
 
 
@@ -79,5 +104,7 @@ public class DialogueController : MonoBehaviour
             _textInScreen.text += character;
             yield return new WaitForSeconds(0.02f);
         }
+
+        _finisedText = true;
     }
 }

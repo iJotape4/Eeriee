@@ -492,8 +492,7 @@ namespace StarterAssets
 			if (_map.WasPressedThisFrame())
             {
 			 _anim.SetBool(_animSmartWatchBool,	_anim.GetBool(_animSmartWatchBool) ? false : true);
-			}
-			
+			}			
         }
 
         #endregion

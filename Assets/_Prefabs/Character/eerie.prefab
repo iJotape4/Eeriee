@@ -256,7 +256,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2101231841754706477}
   - component: {fileID: 791369981673799302}
-  - component: {fileID: 7383523003985071092}
   - component: {fileID: 2688537540344751687}
   m_Layer: 0
   m_Name: TriggerEerie1stDialogue
@@ -293,19 +292,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.068983, y: 0.48237038, z: 1}
   m_Center: {x: -0.30924034, y: -0.2588148, z: 0}
---- !u!114 &7383523003985071092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483113997361085754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4ab36c8b19860499683accfeebb926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _texts: {fileID: 0}
 --- !u!114 &2688537540344751687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +315,7 @@ MonoBehaviour:
     - "Solo logr\xE9 retrasar su escape volviendo a restringir las salidas de las
       celdas. Ahora mismo puedo sentir su presencia, est\xE1 acumulando energ\xEDa
       para abrir un portal y traer el caos al mundo, \xA1Debemos detenerlo!\r\n"
+    arrayAvatars: []
 --- !u!1 &590726769262119155
 GameObject:
   m_ObjectHideFlags: 0

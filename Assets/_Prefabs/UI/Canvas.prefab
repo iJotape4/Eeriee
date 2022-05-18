@@ -1024,6 +1024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textInScreen: {fileID: 4328915047430400291}
+  _avatarInScreen: {fileID: 0}
 --- !u!114 &152381304796389091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4069,7 +4070,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 225.97514, y: -9.754578, z: -45.522217, w: -27.63647}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

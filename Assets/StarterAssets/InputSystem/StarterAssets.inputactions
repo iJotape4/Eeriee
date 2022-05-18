@@ -479,22 +479,13 @@
             ]
         },
         {
-            "name": "MainMenu",
-            "id": "1ee76f2f-c25c-43b3-a70a-0e04a42d3bbf",
+            "name": "Dialogues",
+            "id": "c2655790-f7e4-4444-ac7e-f599074520cb",
             "actions": [
                 {
-                    "name": "WASD",
-                    "type": "Value",
-                    "id": "cc8f0a45-936e-4227-aa65-268b474147e5",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Select",
+                    "name": "Next",
                     "type": "Button",
-                    "id": "9f3c40e1-32ee-4a75-97b2-d664588bc375",
+                    "id": "42a64c69-2e67-4c27-b0bf-fb9b41acf2a5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -503,79 +494,105 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "d036fd60-8ae2-4ee9-a1ae-f98f1dc80b5e",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "fe10a07f-3435-4632-9d2f-fe1c1f617fe1",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "2f086048-d5bc-4c67-a048-36d735a3840e",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "0f7c64f1-b92c-4118-b839-4cb5dadb12eb",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "7f640f5f-b885-4f7d-b0e3-5e40f1686c89",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WASD",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
-                    "id": "eb9bd4b1-bd51-41a5-be3e-150b117424b3",
-                    "path": "<Keyboard>/enter",
+                    "id": "1725eba9-e136-4c97-8611-92509f591e06",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "Next",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "bb25e7fb-a0a0-4893-b23b-fa4a08ae6f73",
+                    "id": "290a7299-33cb-48cb-a6f4-0a02740798e5",
+                    "path": "<AndroidGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3d99171-1209-47a3-bb9e-b571133fcaf2",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Select",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed592ae4-b5ba-42c2-820e-8dc4c9e38ff0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "aaf3211e-0066-47f8-af3d-81c88b46b757",
+            "actions": [
+                {
+                    "name": "SmartWatch",
+                    "type": "Button",
+                    "id": "2f56739a-f70c-461d-a7fe-2a5694dcb022",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "2e7d10bb-1cb8-4d19-bc45-9997b3c5e76a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5a1a8d86-a938-4634-8c5b-ab3faca440fb",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SmartWatch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a38c8b4-7c3b-491b-9fd1-5c4e13220f35",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SmartWatch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22feba36-8959-4102-93be-92ba769d3871",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
