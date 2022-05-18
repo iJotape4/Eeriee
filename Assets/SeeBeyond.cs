@@ -29,22 +29,5 @@ public class SeeBeyond : MonoBehaviour
     {
         _seeBeyondCamera.enabled = (_seeBeyondLight.enabled ?  true : false);
         _mainCamera.enabled = (_seeBeyondCamera.enabled ? false : true);
-        ActivateSkill();
-    }
-
-    void ActivateSkill()
-    {
-        InputAction _seeBeyond = _playerInput.actions["SeeBeyond"];
-        if (!GameManager.Instance.EerieObtained)
-        {
-            return;
-        }
-        else
-        {
-            if (_seeBeyond.WasPerformedThisFrame())
-            {
-                _seeBeyondLight.enabled = (_seeBeyondLight.enabled ? false : true);
-            }
-        }           
     }
 }
