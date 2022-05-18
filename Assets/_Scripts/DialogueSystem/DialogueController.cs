@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour
 {
     private Animator _anim;
     private Queue<string> _dialoguesQueue;
+    private Queue<Sprite> _avatarsQueue;
     TextsDictionary _text;
     private string _animEnableBool = "Enable";
     [SerializeField] TextMeshProUGUI _textInScreen;
+    [SerializeField] Image _avatarInScreen; 
 
     private void Awake()
     {
         _anim = GetComponent<Animator>();
         _dialoguesQueue = new Queue<string>();
+        _avatarsQueue = new Queue<Sprite>();
     }
 
     public void ActivateDialogue( TextsDictionary objectText)
@@ -26,9 +30,15 @@ public class DialogueController : MonoBehaviour
     public void ActivateText()
     {
         _dialoguesQueue.Clear();
+        _avatarsQueue.Clear();
         foreach (string savedText in _text.arrayTextos)
         {
             _dialoguesQueue.Enqueue(savedText);
+        }
+
+        foreach (Sprite avatar in _text.arrayAvatars)
+        {
+            _avatarsQueue.Enqueue(avatar);
         }
 
         Nextphrase();
@@ -36,14 +46,22 @@ public class DialogueController : MonoBehaviour
 
     public void Nextphrase()
     {
-        if(_dialoguesQueue.Count == 0)
+        Sprite currentAvatar;
+        if (_dialoguesQueue.Count == 0)
         {
             CloseDialogue();
             return;
         }
 
         string currentPhrase = _dialoguesQueue.Dequeue();
+        if(_avatarsQueue.Count > 0)
+        {
+            currentAvatar = _avatarsQueue.Dequeue();
+            _avatarInScreen.sprite = currentAvatar;
+        }         
         _textInScreen.text = currentPhrase;
+        
+
         StartCoroutine(ShowCharacters(currentPhrase));
     }
 
