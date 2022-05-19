@@ -64,7 +64,7 @@ public class EerieController : MonoBehaviour
             return;
         }
 
-        if (Vector3.Distance(_player.transform.position, transform.position) < 1.3f)
+        if (Vector3.Distance(_player.transform.position, transform.position) < 0.8f)
         {
             _anim.SetBool(_animIdleBool, true);
 
