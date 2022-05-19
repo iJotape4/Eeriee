@@ -16,6 +16,8 @@ public class EerieController : MonoBehaviour
     private string _animStopTerrifyBool = "StopTerrify";
     private string _animSpeedFloat = "Speed";
 
+    private string _animationTerrified = "Anim_EerieTerrified";
+
     public float _speed =2f;
     private Light _seeBeyondLight;
 
@@ -60,7 +62,7 @@ public class EerieController : MonoBehaviour
 
     public void FollowPlayer()
     {
-        if (!_player.Grounded)
+        if (!_player.Grounded || _anim.GetCurrentAnimatorStateInfo(0).IsName(_animationTerrified))
         {
             return;
         }

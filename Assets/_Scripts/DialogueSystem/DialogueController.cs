@@ -44,8 +44,7 @@ public class DialogueController : MonoBehaviour
     public void ActivateDialogue( TextsDictionary objectText)
   {
         _anim.SetBool(_animEnableBool, true);
-        _text = objectText;
-        _playerInput.SwitchCurrentActionMap("Dialogues");
+        _text = objectText;       
     }
 
     public void ActivateText()
@@ -61,7 +60,7 @@ public class DialogueController : MonoBehaviour
         {
             _avatarsQueue.Enqueue(avatar);
         }
-
+        _playerInput.SwitchCurrentActionMap("Dialogues");
         Nextphrase();
     }
 
