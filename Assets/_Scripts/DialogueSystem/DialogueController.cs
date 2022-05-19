@@ -13,7 +13,7 @@ public class DialogueController : MonoBehaviour
 
     private PlayerInput _playerInput;
     private InputAction _next;
-
+    private InputAction _skipAll;
 
     TextsDictionary _text;
     private string _animEnableBool = "Enable";
@@ -31,14 +31,22 @@ public class DialogueController : MonoBehaviour
 
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _next = _playerInput.actions["Next"];
+        _skipAll = _playerInput.actions["SkipAll"];
     }
 
     private void Update()
     {
-        if (_next.WasPressedThisFrame())
+        if (_skipAll.WasPerformedThisFrame())
         {
-            Nextphrase();
+            CloseDialogue();
         }
+        else
+        {
+            if (_next.WasPressedThisFrame())
+            {
+                Nextphrase();
+            }
+        }     
     }
 
     public void ActivateDialogue( TextsDictionary objectText)

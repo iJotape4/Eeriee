@@ -526,8 +526,17 @@
             "actions": [
                 {
                     "name": "Next",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "42a64c69-2e67-4c27-b0bf-fb9b41acf2a5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SkipAll",
+                    "type": "Button",
+                    "id": "8186d9b6-ba53-401d-a8bc-c8d17d8f08e2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -576,6 +585,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc166bd2-e998-4639-a82c-6128cdd28040",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Hold(duration=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipAll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ccafbe7-bd0b-42d1-ad70-baf02c723b9a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Hold(duration=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SkipAll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
