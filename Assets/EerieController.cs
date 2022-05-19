@@ -49,7 +49,8 @@ public class EerieController : MonoBehaviour
         }
         else
         {
-            if (_seeBeyond.WasPerformedThisFrame())
+            if (_seeBeyond.WasPerformedThisFrame() 
+                || (_anim.GetBool(_animSeeBeyondBool) && Vector3.Distance(_player.transform.position, transform.position) >0.88f))
             {
                 
                 _anim.SetBool(_animSeeBeyondBool, !_anim.GetBool(_animSeeBeyondBool));
@@ -73,15 +74,16 @@ public class EerieController : MonoBehaviour
         {
             _anim.SetBool(_animIdleBool, false);
             transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
-            transform.LookAt(_player.transform.position);
-
+            transform.LookAt(_player.transform.position);       
+            if(!_anim.GetBool(_animSeeBeyondBool))
             _speed = (Vector3.Distance(_player.transform.position, transform.position) > 5f ? 8f : Vector3.Distance(_player.transform.position, transform.position) > 3f ? 5f :2f );
         }
     }
 
     public void SeeBeyondActivation()
     {
-        _seeBeyondLight.enabled = (_seeBeyondLight.enabled? false : true);        
+        _seeBeyondLight.enabled = (_seeBeyondLight.enabled? false : true);
+        _speed = (_speed ==4f ? 2f : 4f);      
     }
 
     public void StopTerrified()
