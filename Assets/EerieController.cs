@@ -54,7 +54,7 @@ public class EerieController : MonoBehaviour
         else
         {
             if (_seeBeyond.WasPerformedThisFrame() 
-                || (_anim.GetBool(_animSeeBeyondBool) && Vector3.Distance(_player.transform.position, transform.position) >0.88f))
+                || _seeBeyondLight.enabled && Vector3.Distance(_player.transform.position, transform.position) >1f)
             {
                 
                 _anim.SetBool(_animSeeBeyondBool, !_anim.GetBool(_animSeeBeyondBool));
@@ -72,7 +72,7 @@ public class EerieController : MonoBehaviour
         if (Vector3.Distance(_player.transform.position, transform.position) < 0.8f)
         {
             _anim.SetBool(_animIdleBool, true);
-
+            return;
         }
         else
         {
