@@ -35019,6 +35019,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5952503164696174823, guid: 2e46087ff76fb064da59be43bd3dc192, type: 3}
     - target: {fileID: 1557627177661424838, guid: f67c80fb1288d5043a3c2ba77ff17a9d, type: 3}
+      propertyPath: _EerieObtained
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557627177661424838, guid: f67c80fb1288d5043a3c2ba77ff17a9d, type: 3}
       propertyPath: _waterTransform
       value: 
       objectReference: {fileID: 0}
@@ -41593,6 +41597,14 @@ PrefabInstance:
     - target: {fileID: 5805297874562468051, guid: 9f4102c5a987b784580725299246f855, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214847020022743593, guid: 9f4102c5a987b784580725299246f855, type: 3}
+      propertyPath: shotForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214847020022743593, guid: 9f4102c5a987b784580725299246f855, type: 3}
+      propertyPath: shotCadency
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f4102c5a987b784580725299246f855, type: 3}

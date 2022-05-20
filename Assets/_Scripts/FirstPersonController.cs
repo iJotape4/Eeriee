@@ -191,6 +191,7 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold  && !GameManager.Instance.Ispaused)
 			{
@@ -411,9 +412,9 @@ namespace StarterAssets
 			#region Bible Movement
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
-			
 
-			GameObject OriginalPosition = GameObject.Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
+			Vector3 OriginalScale = currentWeapon.transform.localScale;
+			GameObject OriginalPosition = Instantiate(new GameObject("OriginalBiblePosition"), currentWeapon.transform.parent);
 			OriginalPosition.transform.localPosition = currentWeapon.transform.localPosition ;
 			OriginalPosition.transform.localRotation = currentWeapon.transform.localRotation ;
 
@@ -441,8 +442,10 @@ namespace StarterAssets
 
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
-			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;			
+			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
+			currentWeapon.transform.localScale = OriginalScale;
 			Destroy(OriginalPosition);
+			Destroy(GameObject.Find("OriginalBiblePosition"));
 			_inBiblioomerang = false;
 			
 			yield return null;
