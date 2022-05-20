@@ -23,6 +23,7 @@ public class EerieController : MonoBehaviour
 
     public FirstPersonController _player;
     public PlayerInput _playerInput;
+    public Transform _targetPlayer;
     // Start is called before the first frame update
 
     void Start()
@@ -30,6 +31,7 @@ public class EerieController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _seeBeyondLight = GameObject.Find("SeeBeyondLight").GetComponent<Light>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+        _targetPlayer = _player.GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         _playerInput = _player.GetComponent<PlayerInput>();
 
     }
@@ -54,7 +56,7 @@ public class EerieController : MonoBehaviour
         else
         {
             if (_seeBeyond.WasPerformedThisFrame() 
-                || _seeBeyondLight.enabled && Vector3.Distance(_player.transform.position, transform.position) >1f)
+                || _seeBeyondLight.enabled && Vector3.Distance(_targetPlayer.transform.position, transform.position) >1f)
             {
                 
                 _anim.SetBool(_animSeeBeyondBool, !_anim.GetBool(_animSeeBeyondBool));
@@ -69,7 +71,7 @@ public class EerieController : MonoBehaviour
             return;
         }
 
-        if (Vector3.Distance(_player.transform.position, transform.position) < 0.8f)
+        if (Vector3.Distance(_targetPlayer.transform.position, transform.position) < 0.8f)
         {
             _anim.SetBool(_animIdleBool, true);
             return;
@@ -77,10 +79,10 @@ public class EerieController : MonoBehaviour
         else
         {
             _anim.SetBool(_animIdleBool, false);
-            transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
-            transform.LookAt(_player.transform.position);       
+            transform.position = Vector3.MoveTowards(transform.position, _targetPlayer.transform.position, _speed * Time.deltaTime);
+            transform.LookAt(_targetPlayer.transform.position);       
             if(!_anim.GetBool(_animSeeBeyondBool))
-            _speed = (Vector3.Distance(_player.transform.position, transform.position) > 5f ? 8f : Vector3.Distance(_player.transform.position, transform.position) > 3f ? 5f :2f );
+            _speed = (Vector3.Distance(_targetPlayer.transform.position, transform.position) > 5f ? 8f : Vector3.Distance(_targetPlayer.transform.position, transform.position) > 3f ? 5f :2f );
         }
     }
 

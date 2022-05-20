@@ -16,6 +16,11 @@ public class EerieObtainEvent : MonoBehaviour
         _eventTrigger = GetComponent<BoxCollider>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         _eerie = GameObject.FindGameObjectWithTag("Eerie");
+
+        if (GameManager.Instance.EerieObtained)
+        {
+            _eventTrigger.enabled = false;
+        }
     }
 
     // Update is called once per frame
