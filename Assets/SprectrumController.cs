@@ -34,11 +34,17 @@ public class SprectrumController : MonoBehaviour
             counter += Time.deltaTime;
             if (counter > shotCadency)
             {
-                LaunchFireBall();
-                counter = 0;
+                LaunchFireBall();                
+                counter = 0;          
+            }
+            if(counter > shotCadency / 2f)
+            {
+               // Move();
             }
 
         }
+
+       
     }
 
     public void LaunchFireBall()
@@ -51,5 +57,14 @@ public class SprectrumController : MonoBehaviour
         FireBall.GetComponent<Rigidbody>().AddForce(_spawnPoint.forward * shotForce);
         FireBall.transform.LookAt(_playerTarget);
 
+    }
+
+    public void Move()
+    {
+        var position = new Vector3(Random.Range(-3.0f, 3.0f), 0, Random.Range(-3.0f, 3.0f));
+        transform.position = (Vector3.Distance(_playerTarget.position, transform.position) > 5f?
+            Vector3.MoveTowards(transform.position, _playerTarget.position, Time.deltaTime):
+            Vector3.MoveTowards(transform.position, transform.position += position, Time.deltaTime));
+        transform.LookAt(_playerTarget);
     }
 }
