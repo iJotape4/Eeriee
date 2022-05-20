@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4796241490362850}
   - component: {fileID: 198401977771408020}
   - component: {fileID: 199011672764196750}
-  m_Layer: 10
+  m_Layer: 1
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4835,7 +4835,7 @@ GameObject:
   - component: {fileID: 4604663409977868}
   - component: {fileID: 198464741691905212}
   - component: {fileID: 199822400336675052}
-  m_Layer: 10
+  m_Layer: 1
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9662,7 +9662,7 @@ GameObject:
   - component: {fileID: 4938243141795078378}
   - component: {fileID: 4951697511830897429}
   - component: {fileID: 8640954950049890450}
-  m_Layer: 10
+  m_Layer: 1
   m_Name: BlueFire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -14536,7 +14536,7 @@ GameObject:
   - component: {fileID: 4294409281478964}
   - component: {fileID: 198368796621386640}
   - component: {fileID: 199205359930986294}
-  m_Layer: 10
+  m_Layer: 1
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19360,7 +19360,7 @@ GameObject:
   - component: {fileID: 4040067153382932}
   - component: {fileID: 198503361657273424}
   - component: {fileID: 199556183087322092}
-  m_Layer: 10
+  m_Layer: 1
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24182,15 +24182,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1080554763449460, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1169958064465980, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1422804397384892, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Name
@@ -24198,7 +24198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1845955007268882, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_IsActive
@@ -24206,7 +24206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988778204445182, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4563802948693442, guid: 67a684e320da6e7439421a07e3fa265c, type: 3}
       propertyPath: m_RootOrder

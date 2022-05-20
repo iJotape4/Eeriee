@@ -29,6 +29,7 @@ public class BlueFire : MonoBehaviour
         _xplotion.Play();
         yield return new WaitForSeconds(1f);
         _xplotion.Stop();
+        Destroy(this);
     }
 
 }
