@@ -29,7 +29,7 @@ public class HoldButtonUI : MonoBehaviour
         InputAction _hold = _playerInput.actions["Next"];
         if (_hold.IsPressed())
         {
-            _holdbutton.fillAmount += 1f/140f ;
+            _holdbutton.fillAmount += 1f/130f ;
         }
         if (_hold.WasReleasedThisFrame())
             _holdbutton.fillAmount = 0f;

@@ -603,7 +603,7 @@
                     "name": "",
                     "id": "5ccafbe7-bd0b-42d1-ad70-baf02c723b9a",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "Hold(duration=1)",
+                    "interactions": "Hold(duration=2)",
                     "processors": "",
                     "groups": "",
                     "action": "SkipAll",

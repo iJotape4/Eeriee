@@ -21,6 +21,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] Image _avatarInScreen;
 
     private bool _finisedText =true;
+    public GameObject currentEvent;
 
 
     private void Awake()
@@ -32,6 +33,8 @@ public class DialogueController : MonoBehaviour
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _next = _playerInput.actions["Next"];
         _skipAll = _playerInput.actions["SkipAll"];
+
+        _avatarInScreen = GameObject.Find("CharacterImage").GetComponent<Image>();
     }
 
     private void Update()
@@ -49,10 +52,11 @@ public class DialogueController : MonoBehaviour
         }     
     }
 
-    public void ActivateDialogue( TextsDictionary objectText)
+    public void ActivateDialogue( TextsDictionary objectText, GameObject _event)
   {
         _anim.SetBool(_animEnableBool, true);
-        _text = objectText;       
+        _text = objectText;
+        currentEvent = _event;
     }
 
     public void ActivateText()
@@ -77,7 +81,6 @@ public class DialogueController : MonoBehaviour
         if (_finisedText) 
         {
             _finisedText = false;
-            Sprite currentAvatar;
             if (_dialoguesQueue.Count == 0)
             {
                 CloseDialogue();
@@ -87,8 +90,7 @@ public class DialogueController : MonoBehaviour
             string currentPhrase = _dialoguesQueue.Dequeue();
             if(_avatarsQueue.Count > 0)
             {
-                currentAvatar = _avatarsQueue.Dequeue();
-                _avatarInScreen.sprite = currentAvatar;
+                _avatarInScreen.sprite = _avatarsQueue.Dequeue();
             }         
             _textInScreen.text = currentPhrase;
                 StartCoroutine(ShowCharacters(currentPhrase));
@@ -100,6 +102,7 @@ public class DialogueController : MonoBehaviour
     {
         _anim.SetBool(_animEnableBool, false);
         _playerInput.SwitchCurrentActionMap("Player");
+        currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
     }
 
 

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
+    public bool _finishedEvent;
     public TextsDictionary _texts;
-
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -18,7 +19,7 @@ public class InteractableObject : MonoBehaviour
 
     public void activate()
     {
-        FindObjectOfType<DialogueController>().ActivateDialogue(_texts);
+        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, this.gameObject);
        
     }
 }
