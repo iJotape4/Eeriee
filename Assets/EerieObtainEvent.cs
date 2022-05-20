@@ -5,8 +5,8 @@ using StarterAssets;
 
 public class EerieObtainEvent : MonoBehaviour
 {
-    private BoxCollider _eventTrigger;
-    private FirstPersonController _player;
+    public BoxCollider _eventTrigger;
+    public FirstPersonController _player;
     private GameObject _eerie;
     private bool _isLookingEerie = false;
 
@@ -16,7 +16,6 @@ public class EerieObtainEvent : MonoBehaviour
         _eventTrigger = GetComponent<BoxCollider>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         _eerie = GameObject.FindGameObjectWithTag("Eerie");
-
     }
 
     // Update is called once per frame
@@ -24,13 +23,19 @@ public class EerieObtainEvent : MonoBehaviour
     {
         if (!_eventTrigger.enabled)
         {
-            GameManager.Instance.eerieObtention();
             if (!_isLookingEerie)
             {
                 _player.transform.LookAt(_eerie.transform);
                 _isLookingEerie = true;
             }
            
-        }           
+        }
+
+        if (GetComponent<InteractableObject>()._finishedEvent)
+        {
+            GameManager.Instance.eerieObtention();
+            _eerie.GetComponent<EerieController>().StopTerrified();
+            _eerie.GetComponent<AudioSource>().Stop();
+        }
     }
 }

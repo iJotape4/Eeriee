@@ -28,9 +28,6 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region Player
-    FirstPersonController _player = new FirstPersonController();
-    #endregion
 
     private void Awake()
     {

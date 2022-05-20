@@ -14,7 +14,7 @@ public class HoldButtonUI : MonoBehaviour
     void Start()
     {
         _holdbutton = GetComponent<Image>();
-        _playerInput = FindObjectOfType<PlayerInput>();
+        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _holdbutton.fillAmount = 0f;
     }
 

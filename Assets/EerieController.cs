@@ -19,17 +19,19 @@ public class EerieController : MonoBehaviour
     private string _animationTerrified = "Anim_EerieTerrified";
 
     public float _speed =2f;
-    private Light _seeBeyondLight;
+    public Light _seeBeyondLight;
 
     public FirstPersonController _player;
     public PlayerInput _playerInput;
     // Start is called before the first frame update
+
     void Start()
     {
         _anim = GetComponent<Animator>();
-        _seeBeyondLight = GameObject.Find("SeeBeyondLigth").GetComponent<Light>();
+        _seeBeyondLight = GameObject.Find("SeeBeyondLight").GetComponent<Light>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         _playerInput = _player.GetComponent<PlayerInput>();
+
     }
 
     // Update is called once per frame

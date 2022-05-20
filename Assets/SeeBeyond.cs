@@ -20,7 +20,7 @@ public class SeeBeyond : MonoBehaviour
 
         _seeBeyondLight = GetComponent<Light>();
         _seeBeyondLight.enabled = false;
-
+        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
 
     }
 
