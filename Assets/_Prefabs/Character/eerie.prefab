@@ -2163,16 +2163,16 @@ MonoBehaviour:
     arrayTextos:
     - "! Al\xE9jate de m\xED ! !Demonio!"
     - "Tranquil\xEDzate. No soy un pose\xEDdo,  \xBFQui\xE9n eres?"
-    - "Mi nombre es Eerie la M\xE9dium, estoy aqu\xED porque el gobierno contrat\xF3
-      mis servicios para detener a Astaroth junto a un peque\xF1o escuadr\xF3n."
+    - "Mi nombre es Eerie. \xA1 La M\xE9dium!"
+    - " Estoy aqu\xED porque el gobierno contrat\xF3 mis servicios para detener a
+      Astaroth junto a un peque\xF1o escuadr\xF3n.\n"
     - "La misi\xF3n fue un fracaso, el poder de Astaroth es de temer, no pudimos
       hacer nada contra \xE9l."
     - "Solo logr\xE9 retrasar su escape volviendo a restringir las salidas de las
-      celdas. Ahora mismo puedo sentir su presencia, est\xE1 acumulando energ\xEDa
-      para abrir un portal y traer el caos al mundo, \xA1Debemos detenerlo!\r\n"
+      celdas. \n"
     - ' Ahora mismo puedo sentir su presencia ...'
-    - "Est\xE1 acumulando energ\xEDa para abrir un portal y traer el caos al mundo,
-      \xA1Debemos detenerlo!\r\n"
+    - "Est\xE1 acumulando energ\xEDa para abrir un portal y traer el caos al mundo... "
+    - " \xA1Debemos detenerlo!\r"
     arrayAvatars:
     - {fileID: 21300000, guid: 21762d47bf64f4d428a84d739715949b, type: 3}
     - {fileID: 21300000, guid: 4afd42a8be56aff409f60174f6cf9e21, type: 3}
