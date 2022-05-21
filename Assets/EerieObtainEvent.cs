@@ -30,7 +30,7 @@ public class EerieObtainEvent : MonoBehaviour
         {
             if (!_isLookingEerie)
             {
-                _player.transform.LookAt(_eerie.transform);
+               // _player.transform.LookAt(_eerie.transform);
                 _isLookingEerie = true;
             }
            
