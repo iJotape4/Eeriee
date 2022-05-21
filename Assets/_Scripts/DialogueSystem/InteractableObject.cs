@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventTrigger : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
     public bool _finishedEvent;
     public TextsDictionary _texts;
