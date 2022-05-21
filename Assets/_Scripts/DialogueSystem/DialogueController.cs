@@ -10,6 +10,7 @@ public class DialogueController : MonoBehaviour
     private Animator _anim;
     private Queue<string> _dialoguesQueue;
     private Queue<Sprite> _avatarsQueue;
+    private Queue<Sprite> _dBoxQueue;
 
     private PlayerInput _playerInput;
     private InputAction _next;
@@ -19,6 +20,7 @@ public class DialogueController : MonoBehaviour
     private string _animEnableBool = "Enable";
     [SerializeField] TextMeshProUGUI _textInScreen;
     [SerializeField] Image _avatarInScreen;
+    [SerializeField] Image _dBoxInScreen;
 
     private bool _finisedText =true;
     public GameObject currentEvent;
@@ -29,12 +31,14 @@ public class DialogueController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _dialoguesQueue = new Queue<string>();
         _avatarsQueue = new Queue<Sprite>();
+        _dBoxQueue = new Queue<Sprite>();
 
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _next = _playerInput.actions["Next"];
         _skipAll = _playerInput.actions["SkipAll"];
 
         _avatarInScreen = GameObject.Find("CharacterImage").GetComponent<Image>();
+        _dBoxInScreen = this.GetComponent<Image>();
     }
 
     private void Update()
@@ -72,9 +76,16 @@ public class DialogueController : MonoBehaviour
         {
             _avatarsQueue.Enqueue(avatar);
         }
+
+        foreach (Sprite dBox in _text.arrayDBoxes)
+        {
+            _dBoxQueue.Enqueue(dBox);
+        }
+
         _playerInput.SwitchCurrentActionMap("Dialogues");
         Nextphrase();
     }
+
 
     public void Nextphrase()
     {
@@ -91,9 +102,15 @@ public class DialogueController : MonoBehaviour
             if(_avatarsQueue.Count > 0)
             {
                 _avatarInScreen.sprite = _avatarsQueue.Dequeue();
-            }         
+            }
+
+            if (_dBoxQueue.Count > 0)
+            {
+               _dBoxInScreen.sprite = _dBoxQueue.Dequeue();
+            }
+
             _textInScreen.text = currentPhrase;
-                StartCoroutine(ShowCharacters(currentPhrase));
+             StartCoroutine(ShowCharacters(currentPhrase));
         }
         
     }

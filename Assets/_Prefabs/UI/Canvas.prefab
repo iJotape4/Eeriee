@@ -1113,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textInScreen: {fileID: 4328915047430400291}
   _avatarInScreen: {fileID: 0}
+  _dBoxInScreen: {fileID: 0}
   currentEvent: {fileID: 0}
 --- !u!114 &152381304796389091
 MonoBehaviour:
@@ -4123,8 +4124,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4159,7 +4160,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 225.97514, y: -9.754578, z: -173.30112, w: -27.63647}
+  m_margin: {x: 142.52646, y: -3.4564896, z: -173.30112, w: -43.381725}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

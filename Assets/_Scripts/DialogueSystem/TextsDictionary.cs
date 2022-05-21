@@ -8,4 +8,5 @@ public class TextsDictionary
    [TextArea (2,6)]
    public string[] arrayTextos;
    public Sprite[] arrayAvatars;
+    public Sprite[] arrayDBoxes;
 }
