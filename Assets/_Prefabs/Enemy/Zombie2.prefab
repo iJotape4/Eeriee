@@ -1198,6 +1198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 990866031134811504}
   - component: {fileID: 7468073053621955015}
+  - component: {fileID: 1220874853262529942}
   m_Layer: 10
   m_Name: Prisoner
   m_TagString: Enemy
@@ -1240,8 +1241,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1a9608e75d18924ba4b36f1d6697ce7, type: 2}
   - {fileID: 2100000, guid: 6a377da044da9394bb8f2da4e39ca8b6, type: 2}
+  - {fileID: 2100000, guid: c1a9608e75d18924ba4b36f1d6697ce7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1316,6 +1317,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.26809624, y: -0.07967538, z: 0.022568107}
     m_Extent: {x: 0.7288207, y: 1.0159631, z: 0.18278271}
   m_DirtyAABB: 0
+--- !u!114 &1220874853262529942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317483649040493962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75daf2ad39a980643bfb6d26fb94b581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6350218114042137926
 GameObject:
   m_ObjectHideFlags: 0
