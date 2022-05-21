@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     private GameManager _gameManager;
+    public  Animator _smartWatchAnim;
+    public string _animEnableBool;
 
     #region Inspector Properties
     [SerializeField] Healthbar _healthbar;
@@ -50,7 +52,7 @@ public class UIManager : MonoBehaviour
         _healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
         _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
         _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
-      
+        _smartWatchAnim = _pausePanel.GetComponent<Animator>();
 
     }
     public void ShowGameOver()
