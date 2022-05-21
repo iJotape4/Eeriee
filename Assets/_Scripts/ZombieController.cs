@@ -40,6 +40,7 @@ public class ZombieController : MonoBehaviour
     [Header("Animations Dictionary")]
     private string animZombieWalk = "Anim_ZombieWalk";
     private string animZombieAttack = "Anim_ZombieAttack";
+    private string animZombie2Attack = "Anim_Zombie2Attack";
     private string animZombieCrawl =  "Anim_ZombieCrawl";
     private string animZombieCrawlRunning = "Anim_ZombieCrawlRunning";
     private string animZombieDeath =  "Anim_ZombieDeath";
@@ -165,7 +166,7 @@ public class ZombieController : MonoBehaviour
         {
             _anim.SetBool(_animAttackZoneBool, false);
 
-            if (!_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombieAttack))
+            if (!_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombieAttack) && !_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombie2Attack) )
             {
 
             //Vector3 positionFixed = new Vector3(_player.transform.position.x, _player.transform.position.y - 0.2f, _player.transform.position.z);
