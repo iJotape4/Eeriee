@@ -4,15 +4,21 @@ using UnityEngine;
 using UnityEngine.AI;
 using StarterAssets;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody))]
+
 public class ZombieController : MonoBehaviour
 {
 
-    private Rigidbody _rb;
+    public Rigidbody _rb;
 
     public float _health = 100f;
     public bool _stunned;
     public bool _hitted;
     public bool _canPursuit = true;
+
+    public float _attackzone =1.3f;
 
     public float _range = 20f;
     public float _speed = 1f;
@@ -22,42 +28,44 @@ public class ZombieController : MonoBehaviour
     private int actualPatrolPoint = 0;
     public SkinnedMeshRenderer[] meshRenderers;
 
-    private NavMeshAgent _zombie;
+    public NavMeshAgent _zombie;
 
     public FirstPersonController _player;
     #region  Animations Dictionary
     [Header("Animation Parameters")]
-    private Animator _anim;
-    private string _animPatrollingBool = "Patrolling";
-    private string _animPlayerDetectedBool = "PlayerDetected";
-    private string _animIdleBool = "Idle";
-    private string _animAttackZoneBool = "AttackZone";
-    private string _animRunnerZombieBool = "RunnerZombie";
-    private string _animStunnedBool = "Stunned";
-    private string _animHittedTrigger = "Hitted";
-    private string _animDeathTrigger = "Death";
+    public Animator _anim;
+    protected string _animPatrollingBool = "Patrolling";
+    protected string _animPlayerDetectedBool = "PlayerDetected";
+    protected string _animIdleBool = "Idle";
+    protected string _animAttackZoneBool = "AttackZone";
+    protected string _animRunnerZombieBool = "RunnerZombie";
+    protected string _animStunnedBool = "Stunned";
+    protected string _animHittedTrigger = "Hitted";
+    protected string _animDeathTrigger = "Death";
 
     [Header("Animations Dictionary")]
-    private string animZombieWalk = "Anim_ZombieWalk";
-    private string animZombieAttack = "Anim_ZombieAttack";
-    private string animZombie2Attack = "Anim_Zombie2Attack";
-    private string animZombieCrawl =  "Anim_ZombieCrawl";
-    private string animZombieCrawlRunning = "Anim_ZombieCrawlRunning";
-    private string animZombieDeath =  "Anim_ZombieDeath";
-    private string animZombieBitting = "Anim_ZombieBiitting";
-    private string animZombieBitting2  = "Anim_ZombieBitting2";
-    private string animZombieIdle = "Anim_ZombieIdle";
-    private string animZombieDying = "Anim_ZombieDiying";
-    private string animZombieNeckBite = "Anim_ZombieNeckBite";
-    private string animZombieScream = "Anim_ZombieScream";
-    private string animZombieRun = "Anim_ZombieRun";
+    protected string animZombieWalk = "Anim_ZombieWalk";
+    protected string [] animZombieAttacks = { "Anim_ZombieAttack", "Anim_Zombie2Attack", "Anim_SubBossAttack1", "Anim_SubBossAttack2",
+                                            "Anim_SubBossAttack3", "Anim_SubBossAttack4"};
+ 
+    protected string animZombieCrawl =  "Anim_ZombieCrawl";
+    protected string animZombieCrawlRunning = "Anim_ZombieCrawlRunning";
+    protected string animZombieDeath =  "Anim_ZombieDeath";
+    protected string animZombieBitting = "Anim_ZombieBiitting";
+    protected string animZombieBitting2  = "Anim_ZombieBitting2";
+    protected string animZombieIdle = "Anim_ZombieIdle";
+    protected string animZombieDying = "Anim_ZombieDiying";
+    protected string animZombieNeckBite = "Anim_ZombieNeckBite";
+    protected string animZombieScream = "Anim_ZombieScream";
+    protected string animZombieRun = "Anim_ZombieRun";
 
+  
 
     #endregion
 
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         _zombie = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
@@ -93,15 +101,22 @@ public class ZombieController : MonoBehaviour
 
         if (_health<=0)
         {
-            _stunned = false;
-            _canPursuit = false;
-          foreach(CapsuleCollider col in GetComponentsInChildren<CapsuleCollider>())
-            {
-                col.enabled = false;
-            }
-            _anim.SetTrigger(_animDeathTrigger);           
+            callDeath(); 
         }
     }
+
+
+    protected void callDeath()
+    {
+        _stunned = false;
+        _canPursuit = false;
+        foreach (CapsuleCollider col in GetComponentsInChildren<CapsuleCollider>())
+        {
+            col.enabled = false;
+        }
+        _anim.SetTrigger(_animDeathTrigger);
+    }
+
     public IEnumerator GotoNextPoint(int patrolPoint)
     {
         Vector3 target = points[patrolPoint].transform.position;
@@ -157,22 +172,26 @@ public class ZombieController : MonoBehaviour
     }
     public void PursuitPlayer()
     {
-        if (Vector3.Distance(_player.transform.position, transform.position) < 1.3f)
+        if (Vector3.Distance(_player.transform.position, transform.position) < _attackzone)
         {
             _anim.SetBool(_animAttackZoneBool, true);
-
         }
         else
         {
             _anim.SetBool(_animAttackZoneBool, false);
 
-            if (!_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombieAttack) && !_anim.GetCurrentAnimatorStateInfo(0).IsName(animZombie2Attack) )
+            foreach (string animation in animZombieAttacks)
             {
-
-            //Vector3 positionFixed = new Vector3(_player.transform.position.x, _player.transform.position.y - 0.2f, _player.transform.position.z);
+                if (_anim.GetCurrentAnimatorStateInfo(0).IsName(animation))
+                {
+                    //This stops the zombie to move while is attacking
+                    return;
+                }
+            }
+         
             transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
             transform.LookAt(_player.transform.position);
-            }
+            
         }
         if (_zombieRunner)
         {
@@ -219,7 +238,7 @@ public class ZombieController : MonoBehaviour
     public void StunEnds()
     {
         _stunned = false;
-        _canPursuit = true;
+       _canPursuit = true;
     }
 
     protected void OnDeath()
