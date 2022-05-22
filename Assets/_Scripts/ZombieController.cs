@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using StarterAssets;
 
-[RequireComponent(typeof(NavMeshAgent))]
+//[RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
 
@@ -22,13 +22,18 @@ public class ZombieController : MonoBehaviour
 
     public float _range = 20f;
     public float _speed = 1f;
+    public float _walkSpeed = 2f;
+    public float _runSpeed = 5f;
+
     public bool _zombieRunner = false;
+
+    public float pushForce;
 
     private Transform[] points;
     private int actualPatrolPoint = 0;
     public SkinnedMeshRenderer[] meshRenderers;
 
-    public NavMeshAgent _zombie;
+   // public NavMeshAgent _zombie;
 
     public FirstPersonController _player;
     #region  Animations Dictionary
@@ -67,7 +72,7 @@ public class ZombieController : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        _zombie = GetComponent<NavMeshAgent>();
+       // _zombie = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
@@ -88,7 +93,7 @@ public class ZombieController : MonoBehaviour
             }
         }
         
-        _zombie.autoBraking = false;
+        //_zombie.autoBraking = false;
        
     }
 
@@ -195,11 +200,11 @@ public class ZombieController : MonoBehaviour
         }
         if (_zombieRunner)
         {
-            _speed = 5f;
+            _speed = _runSpeed;
         }
         else
         {
-            _speed = 2f;
+            _speed = _walkSpeed;
         }
     }
 

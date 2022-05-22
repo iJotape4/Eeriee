@@ -39,6 +39,6 @@ public class SubBossController : ZombieController
             }
         }
 
-        _anim.SetInteger(_animAttackInt, Random.Range(1, 5));
+        _anim.SetInteger(_animAttackInt, Random.Range(2, 5)) ;
     }
 }
