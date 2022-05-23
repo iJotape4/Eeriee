@@ -10,10 +10,12 @@ public class PlayerPusher : MonoBehaviour
     public float pushforce;
     public float additionalDmg;
     public FirstPersonController _playerRB;
+    public Transform _playerDirection;
 
     private void Start()
     {
         _playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+        _playerDirection = GameObject.FindGameObjectWithTag("Arms").GetComponent<Transform>();
     }
     
 
@@ -22,15 +24,20 @@ public class PlayerPusher : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             UIManager.Instance.UpdateHealth(additionalDmg);
-            StartCoroutine(PlayerPush());
+            Ray directionRay = new Ray(transform.position, (_playerDirection.position - transform.position).normalized);
+            
+            Debug.DrawRay(directionRay.origin, directionRay.direction, Color.red, 2f);
+           
+           // Physics.ray
+            StartCoroutine(PlayerPush(directionRay.direction));
         }
 
     }
 
-    private IEnumerator PlayerPush()
+    private IEnumerator PlayerPush(Vector3 direction)
     {
         _playerRB.GetComponent<CharacterController>().enabled = false;
-        _playerRB.GetComponent<Rigidbody>().AddForce(Vector3.right * pushforce * Time.deltaTime, ForceMode.Impulse);
+        _playerRB.GetComponent<Rigidbody>().AddForce(direction *pushforce * Time.deltaTime, ForceMode.Impulse);
         yield return new WaitForSeconds(1f);
         _playerRB.GetComponent<CharacterController>().enabled = true;
     }
