@@ -7,6 +7,7 @@ public class InteractableObject : MonoBehaviour
 {
 
     public static BoxCollider[] _eventsList;
+    public static GameObject _crossMark;
     public bool _finishedEvent;
     public bool _isMainEvent;
     public TextsDictionary _texts;
@@ -14,6 +15,7 @@ public class InteractableObject : MonoBehaviour
 
     private void Awake()
     {
+        _crossMark = GameObject.Find("CrossMark");
         _eventsList = transform.parent.GetComponentsInChildren<BoxCollider>();
         GetComponent<BoxCollider>().isTrigger = true;
         if(_isMainEvent)
@@ -25,6 +27,8 @@ public class InteractableObject : MonoBehaviour
         if (_finishedEvent)
         {
             _finishedEvent = false;
+
+            if(_isMainEvent)
             GameManager.Instance.NextEvent();
         }
     }
