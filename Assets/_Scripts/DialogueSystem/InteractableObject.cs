@@ -24,13 +24,7 @@ public class InteractableObject : MonoBehaviour
 
     private void Update()
     {
-        if (_finishedEvent)
-        {
-            _finishedEvent = false;
 
-            if(_isMainEvent)
-            GameManager.Instance.NextEvent();
-        }
     }
 
     private void OnTriggerEnter(Collider other)

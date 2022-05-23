@@ -158,6 +158,12 @@ public class DialogueController : MonoBehaviour
         _anim.SetBool(_animEnableBool, false);
         _playerInput.SwitchCurrentActionMap("Player");
         currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
+
+        if (currentEvent.GetComponent<InteractableObject>()._isMainEvent) 
+        { 
+                GameManager.Instance.NextEvent();
+        }
+
         CleanDialoguePanel();
         
     }
