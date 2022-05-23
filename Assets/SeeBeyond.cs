@@ -16,7 +16,6 @@ public class SeeBeyond : MonoBehaviour
     {
         _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         _seeBeyondCamera = GetComponentInChildren<Camera>();
-        _mainCamera.cullingMask -= (1 << LayerMask.NameToLayer("TransparentFX"));
 
         _seeBeyondLight = GetComponent<Light>();
         _seeBeyondLight.enabled = false;
