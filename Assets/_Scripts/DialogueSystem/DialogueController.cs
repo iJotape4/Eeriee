@@ -73,7 +73,7 @@ public class DialogueController : MonoBehaviour
 
     public void ActivateDialogue( TextsDictionary objectText, GameObject _event)
   {
-        _anim.SetBool(_animEnableBool, true);
+       _anim.SetBool(_animEnableBool, true);
         _text = objectText;
         currentEvent = _event;
     }
@@ -108,7 +108,10 @@ public class DialogueController : MonoBehaviour
         _dBoxInScreen.sprite = _transparentSprite;
         _nextButton.sprite = _transparentSprite;
         _holdNextButton.sprite = _transparentSprite;
-       
+        _holdNextButton.fillAmount = 0f;
+        _textInScreen.fontSize = 0f;
+        _finisedText = true;
+        
     }
 
     public void Nextphrase()
@@ -122,7 +125,7 @@ public class DialogueController : MonoBehaviour
                 
                 return;
             }
-
+            _textInScreen.fontSize = 28f;
             string currentPhrase = _dialoguesQueue.Dequeue();
             if(_avatarsQueue.Count > 0)
             {
@@ -154,7 +157,6 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator ShowCharacters (string textToShow)
     {
-        _textInScreen.text = "";
         foreach (char character in textToShow.ToCharArray())
         {
             _textInScreen.text += character;
