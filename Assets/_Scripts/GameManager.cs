@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _EerieObtained = false;
     public bool EerieObtained { get => _EerieObtained; }
 
+    [SerializeField] bool _inSubBossFight = false;
+    public bool InSubBossFight { get => _inSubBossFight; }
+
 
     #endregion
 
@@ -69,10 +72,11 @@ public class GameManager : MonoBehaviour
         {
             _isGameOver = true;
             UIManager.Instance.ShowGameOver();
-            Cursor.lockState = CursorLockMode.None;
-          
+            Cursor.lockState = CursorLockMode.None;         
         }
     }
+
+
     public void updateHealth(float amount)
     {
         _healthCount += amount;
@@ -81,5 +85,10 @@ public class GameManager : MonoBehaviour
     public void eerieObtention()
     {
         _EerieObtained = true;
+    }
+
+    public void SubBossFight(bool active)
+    {
+        _inSubBossFight = active;
     }
 }

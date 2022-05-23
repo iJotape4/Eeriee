@@ -9,6 +9,7 @@ public class SubBossController : ZombieController
      void Start()
     {
         base.Start();
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,5 +41,11 @@ public class SubBossController : ZombieController
         }
 
         _anim.SetInteger(_animAttackInt, Random.Range(2, 5)) ;
+    }
+
+    protected void DisableBossHealthBar()
+    {
+        GameManager.Instance.SubBossFight(false);
+        UIManager.Instance.BossHealthBarActivation();
     }
 }

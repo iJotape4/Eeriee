@@ -427,7 +427,7 @@ MonoBehaviour:
   _health: 300
   _stunned: 0
   _hitted: 0
-  _canPursuit: 1
+  _canPursuit: 0
   _attackzone: 1.8
   _range: 300
   _speed: 1

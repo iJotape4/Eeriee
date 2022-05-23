@@ -9,11 +9,12 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     private GameManager _gameManager;
-    public  Animator _smartWatchAnim;
+    public Animator _smartWatchAnim;
     public string _animEnableBool;
 
     #region Inspector Properties
     [SerializeField] Healthbar _healthbar;
+    public GameObject _bossHealthBar;
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _dmgImage;
 
@@ -39,9 +40,9 @@ public class UIManager : MonoBehaviour
             return;
 
         }
-      //  DontDestroyOnLoad(this);
+        //  DontDestroyOnLoad(this);
 
-    
+
 
     }
 
@@ -50,29 +51,36 @@ public class UIManager : MonoBehaviour
         _gameManager = GameManager.Instance;
         _pausePanel = GameObject.Find("PausePanel"); _pausePanel.SetActive(false);
         _healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
+        _bossHealthBar = FindObjectOfType<BossHealthBar>().gameObject.transform.parent.gameObject; 
+        _bossHealthBar.SetActive(false);
         _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
         _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
         _smartWatchAnim = _pausePanel.GetComponent<Animator>();
 
     }
     public void ShowGameOver()
-      {
-          _gameOverPanel.gameObject.SetActive(true);
-        
-      }
+    {
+        _gameOverPanel.gameObject.SetActive(true);
 
-      // Update is called once per frame
-      void Update()
-      {
-       
-      }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void UpdateHealth(float damage)
     {
-        GameManager.Instance.updateHealth(damage);    
+        GameManager.Instance.updateHealth(damage);
         _healthbar.updateHealthBar(damage);
         StartCoroutine("DmgFlash");
 
+    }
+
+    public void BossHealthBarActivation()
+    {
+        _bossHealthBar.SetActive(_gameManager.InSubBossFight ? true : false);
     }
 
     public IEnumerator DmgFlash()
