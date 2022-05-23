@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _inSubBossFight = false;
     public bool InSubBossFight { get => _inSubBossFight; }
 
+    [SerializeField] int _actualEvent = 0;
+    public int ActualEvent { get => _actualEvent; }
 
     #endregion
 
@@ -50,7 +52,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InteractableObject._eventsList[_actualEvent].enabled = true;
     }
 
     // Update is called once per frame
@@ -90,5 +92,11 @@ public class GameManager : MonoBehaviour
     public void SubBossFight(bool active)
     {
         _inSubBossFight = active;
+    }
+
+    public void NextEvent()
+    {
+        _actualEvent +=1;
+        InteractableObject._eventsList[_actualEvent].enabled = true;
     }
 }

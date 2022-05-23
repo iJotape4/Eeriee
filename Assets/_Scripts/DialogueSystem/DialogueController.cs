@@ -28,6 +28,8 @@ public class DialogueController : MonoBehaviour
     private Sprite _sprNextButton;
     private Sprite _sprHoldNextButton;
 
+    public bool _movementBlock;
+
     private bool _finisedText =true;
     public GameObject currentEvent;
 
@@ -76,12 +78,14 @@ public class DialogueController : MonoBehaviour
        _anim.SetBool(_animEnableBool, true);
         _text = objectText;
         currentEvent = _event;
+        _movementBlock = currentEvent.GetComponent<InteractableObject>()._isMainEvent;
     }
 
     public void ActivateText()
     {
         _dialoguesQueue.Clear();
         _avatarsQueue.Clear();
+        _dBoxQueue.Clear();
         foreach (string savedText in _text.arrayTextos)
         {
             _dialoguesQueue.Enqueue(savedText);
@@ -97,6 +101,7 @@ public class DialogueController : MonoBehaviour
             _dBoxQueue.Enqueue(dBox);
         }
 
+        if (_movementBlock) 
         _playerInput.SwitchCurrentActionMap("Dialogues");
         
         Nextphrase();
@@ -109,7 +114,7 @@ public class DialogueController : MonoBehaviour
         _nextButton.sprite = _transparentSprite;
         _holdNextButton.sprite = _transparentSprite;
         _holdNextButton.fillAmount = 0f;
-        _textInScreen.fontSize = 0f;
+        _textInScreen.text = "";
         _finisedText = true;
         
     }
@@ -125,7 +130,6 @@ public class DialogueController : MonoBehaviour
                 
                 return;
             }
-            _textInScreen.fontSize = 28f;
             string currentPhrase = _dialoguesQueue.Dequeue();
             if(_avatarsQueue.Count > 0)
             {
@@ -138,8 +142,12 @@ public class DialogueController : MonoBehaviour
             }
             
             _textInScreen.text = currentPhrase;
-            _nextButton.sprite = _sprNextButton;
-            _holdNextButton.sprite = _sprHoldNextButton;
+            if (_movementBlock)
+            {
+                _nextButton.sprite = _sprNextButton;
+                _holdNextButton.sprite = _sprHoldNextButton;
+            }
+            
              StartCoroutine(ShowCharacters(currentPhrase));
         }
         
@@ -157,6 +165,7 @@ public class DialogueController : MonoBehaviour
 
     IEnumerator ShowCharacters (string textToShow)
     {
+        _textInScreen.text = "";
         foreach (char character in textToShow.ToCharArray())
         {
             _textInScreen.text += character;
@@ -164,5 +173,11 @@ public class DialogueController : MonoBehaviour
         }
 
         _finisedText = true;
+
+        if (!_movementBlock)
+        {
+           yield return new WaitForSeconds(1.5f);
+            Nextphrase();
+        }
     }
 }

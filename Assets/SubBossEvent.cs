@@ -7,8 +7,9 @@ public class SubBossEvent : MonoBehaviour
     public SubBossController subBoss;
     public bool _battleTriggered =false;
 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         subBoss = FindObjectOfType<SubBossController>();
     }
@@ -22,7 +23,6 @@ public class SubBossEvent : MonoBehaviour
             GameManager.Instance.SubBossFight(true);
             UIManager.Instance.BossHealthBarActivation();
             subBoss.gameObject.SetActive(true);
-                    
         }
     }
 }
