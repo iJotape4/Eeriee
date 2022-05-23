@@ -10,12 +10,11 @@ public class Healthbar : MonoBehaviour
 {
 
     public Image healthbar;
-    public float actualHealth =100f;
-    public float MaximHealth = 100f;
-
+    [SerializeField] protected float actualHealth =100f;
+    [SerializeField] protected float MaximHealth = 100f;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         healthbar = GetComponent<Image>();
     }
@@ -30,7 +29,4 @@ public class Healthbar : MonoBehaviour
     {
         actualHealth += damage;
     }
-
-
-    
 }
