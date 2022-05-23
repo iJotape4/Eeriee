@@ -432,7 +432,7 @@ MonoBehaviour:
   _range: 300
   _speed: 1
   _walkSpeed: 2
-  _runSpeed: 15
+  _runSpeed: 10
   _zombieRunner: 1
   pushForce: 0
   meshRenderers: []
