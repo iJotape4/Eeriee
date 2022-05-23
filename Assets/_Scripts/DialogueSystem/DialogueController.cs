@@ -21,6 +21,12 @@ public class DialogueController : MonoBehaviour
     [SerializeField] TextMeshProUGUI _textInScreen;
     [SerializeField] Image _avatarInScreen;
     [SerializeField] Image _dBoxInScreen;
+    [SerializeField] Image _nextButton;
+    [SerializeField] Image _holdNextButton;
+
+    private Sprite _transparentSprite;
+    private Sprite _sprNextButton;
+    private Sprite _sprHoldNextButton;
 
     private bool _finisedText =true;
     public GameObject currentEvent;
@@ -36,9 +42,18 @@ public class DialogueController : MonoBehaviour
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _next = _playerInput.actions["Next"];
         _skipAll = _playerInput.actions["SkipAll"];
+        _transparentSprite = Resources.Load<Sprite>("Sprites/TransparentSprite");
 
         _avatarInScreen = GameObject.Find("CharacterImage").GetComponent<Image>();
+  
         _dBoxInScreen = this.GetComponent<Image>();
+        _nextButton = transform.GetChild(2).GetComponent<Image>();
+        _holdNextButton = transform.GetChild(3).GetComponent<Image>();
+
+        _sprNextButton = _nextButton.sprite;
+        _sprHoldNextButton = _holdNextButton.sprite;
+
+        CleanDialoguePanel();
     }
 
     private void Update()
@@ -83,9 +98,18 @@ public class DialogueController : MonoBehaviour
         }
 
         _playerInput.SwitchCurrentActionMap("Dialogues");
+        
         Nextphrase();
     }
 
+    public void CleanDialoguePanel()
+    {
+        _avatarInScreen.sprite = _transparentSprite;
+        _dBoxInScreen.sprite = _transparentSprite;
+        _nextButton.sprite = _transparentSprite;
+        _holdNextButton.sprite = _transparentSprite;
+       
+    }
 
     public void Nextphrase()
     {
@@ -95,6 +119,7 @@ public class DialogueController : MonoBehaviour
             if (_dialoguesQueue.Count == 0)
             {
                 CloseDialogue();
+                
                 return;
             }
 
@@ -108,8 +133,10 @@ public class DialogueController : MonoBehaviour
             {
                _dBoxInScreen.sprite = _dBoxQueue.Dequeue();
             }
-
+            
             _textInScreen.text = currentPhrase;
+            _nextButton.sprite = _sprNextButton;
+            _holdNextButton.sprite = _sprHoldNextButton;
              StartCoroutine(ShowCharacters(currentPhrase));
         }
         
@@ -120,6 +147,8 @@ public class DialogueController : MonoBehaviour
         _anim.SetBool(_animEnableBool, false);
         _playerInput.SwitchCurrentActionMap("Player");
         currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
+        CleanDialoguePanel();
+        
     }
 
 
