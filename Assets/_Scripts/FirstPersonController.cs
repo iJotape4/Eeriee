@@ -104,7 +104,7 @@ namespace StarterAssets
 		private PlayerInput _playerInput;
 #endif
 		private CharacterController _controller;
-		private StarterAssetsInputs _input;
+		public  StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 		public GameObject _arms;
 

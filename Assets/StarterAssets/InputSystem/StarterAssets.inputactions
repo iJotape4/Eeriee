@@ -725,6 +725,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Tutorial",
+            "id": "a7a45903-192c-4eaa-bd80-ad876223c802",
+            "actions": [
+                {
+                    "name": "TutorialAction",
+                    "type": "Button",
+                    "id": "b4b3cc35-1494-4a66-84eb-278476a0a642",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b703fe38-92ca-4a3d-a1a4-158a713824b3",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

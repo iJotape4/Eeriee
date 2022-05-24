@@ -47,13 +47,18 @@ public class DialogueController : MonoBehaviour
         _transparentSprite = Resources.Load<Sprite>("Sprites/TransparentSprite");
 
         _avatarInScreen = GameObject.Find("CharacterImage").GetComponent<Image>();
-  
+        _textInScreen = GetComponentInChildren<TextMeshProUGUI>();
+        
         _dBoxInScreen = this.GetComponent<Image>();
         _nextButton = transform.GetChild(2).GetComponent<Image>();
         _holdNextButton = transform.GetChild(3).GetComponent<Image>();
 
         _sprNextButton = _nextButton.sprite;
         _sprHoldNextButton = _holdNextButton.sprite;
+
+        UIManager.Instance._textinScreen = _textInScreen;
+        UIManager.Instance._nextButton = _nextButton;
+        UIManager.Instance._holdNextButton = _holdNextButton;
 
         CleanDialoguePanel();
     }
@@ -101,7 +106,7 @@ public class DialogueController : MonoBehaviour
             _dBoxQueue.Enqueue(dBox);
         }
 
-        if (_movementBlock) 
+        if (_movementBlock && _playerInput.currentActionMap.name != ("Tutorial")) 
         _playerInput.SwitchCurrentActionMap("Dialogues");
         
         Nextphrase();
@@ -116,7 +121,8 @@ public class DialogueController : MonoBehaviour
         _holdNextButton.fillAmount = 0f;
         _textInScreen.text = "";
         _finisedText = true;
-        
+        _nextButton.enabled = true;
+        _holdNextButton.enabled = true;
     }
 
     public void Nextphrase()

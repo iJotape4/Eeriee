@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class UIManager : MonoBehaviour
     public Animator _smartWatchAnim;
     public string _animEnableBool;
 
+    public Image _nextButton;
+    public Image _holdNextButton;
+
+    public TextMeshProUGUI _textinScreen;
+
     #region Inspector Properties
     [SerializeField] Healthbar _healthbar;
     public GameObject _bossHealthBar;
@@ -19,7 +25,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _dmgImage;
 
     [SerializeField] GameObject _gameOverPanel;
-    [SerializeField] Image[] _Uicons;
+    public Image[] _Uicons;
     [SerializeField] GameObject _selectionCircle;
 
 
@@ -80,11 +86,17 @@ public class UIManager : MonoBehaviour
     {
 
         activateUiCon(0);
-        //_Uicons[0].transform.parent.gameObject.SetActive(false);
+        foreach(Image uicon in _Uicons)
+        {
+            uicon.enabled = false;
+            uicon.transform.parent.gameObject.SetActive(false);
+        }
+        
+        
     }
 
     public void activateUiCon(int index)
-    {
+    {    
         _Uicons[index].GetComponent<RectTransform>().SetAsLastSibling();
         _selectionCircle.transform.parent = _Uicons[index].transform;
         _selectionCircle.transform.localPosition = new Vector3(0f, 0f, 0f);

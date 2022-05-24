@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 4789063921392278969}
   - component: {fileID: 4789063921392278970}
   - component: {fileID: 4789063921392278971}
+  - component: {fileID: 2852419255816109497}
   m_Layer: 0
   m_Name: 1. First Tutorial
   m_TagString: Untagged
@@ -630,9 +631,25 @@ MonoBehaviour:
   _finishedEvent: 0
   _isMainEvent: 1
   _texts:
-    arrayTextos: []
-    arrayAvatars: []
-    arrayDBoxes: []
+    arrayTextos:
+    - "(..hmmm , aver... \xBF a qu\xE9 se refer\xEDa ese agente con \"los elementos
+      escenciales para exorcizarlo\" ?) "
+    - "Oh. Aqu\xED est\xE1 mi biblia. Parece que la puedo sacar de mi t\xFAnica al
+      seleccionar el bot\xF3n \"2\""
+    - "Si presiono click izquierdo puedo utilizarla como una arma. Perd\xF3name Dios
+      por este sacrilegio tan grande!!"
+    - "Si presiono click derecho puedo lanzarla como un boomerang. Mi f\xE9 es muy
+      grande, \xA1Conf\xEDo en que siempre volver\xE1 a mi mano!"
+    - "Oh. Aqu\xED est\xE1 mi frasco sagrado. Parece que la puedo sacar de mi bolsillo
+      al seleccionar el bot\xF3n \"3\""
+    - "Creo que podr\xE9 rociar agua bendita al presionar cualquiera de los botones
+      del mouse"
+    - "Por \xFAltimo. Para volver a tener las manos vac\xEDas, debo presionar el
+      boton \"1\""
+    arrayAvatars:
+    - {fileID: 21300000, guid: 4afd42a8be56aff409f60174f6cf9e21, type: 3}
+    arrayDBoxes:
+    - {fileID: 21300000, guid: 63aacdc279c9c4c4095419f8316f799b, type: 3}
 --- !u!65 &4789063921392278971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -646,6 +663,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.89, y: 7.25, z: 7.33}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2852419255816109497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789063921392278968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b67580675d65a4aaeb75cdf994caad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogues: {fileID: 0}
+  _playerInput: {fileID: 0}
+  _actionMap:
+    m_Name: Action Map
+    m_Id: 60825614-974c-4eef-b8cd-dfdd682594a5
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
+  _textInScreen: {fileID: 0}
+  _player: {fileID: 0}
+  _dc: {fileID: 0}
+  _nextButton: {fileID: 0}
+  _holdNextButton: {fileID: 0}
 --- !u!1 &4789063921528822897
 GameObject:
   m_ObjectHideFlags: 0
