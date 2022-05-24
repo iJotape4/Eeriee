@@ -8,6 +8,6 @@ public class Pickable : Interactable
     {
         base.Interact();
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        gameObject.GetComponent<BoxCollider>().enabled =false;
+        gameObject.GetComponent<MeshCollider>().enabled =false;
     }
 }
