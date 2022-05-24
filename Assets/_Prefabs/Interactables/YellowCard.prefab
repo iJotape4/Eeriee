@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3782978566743161793}
   - component: {fileID: 1412760014308019979}
   - component: {fileID: 2420009169485778365}
-  - component: {fileID: 4890616169272952140}
   - component: {fileID: 7623085100082072486}
+  - component: {fileID: 7847921231504043300}
   m_Layer: 15
   m_Name: YellowCard
   m_TagString: Untagged
@@ -100,19 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fc62965c86df34c8eeca09d3c8d358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &4890616169272952140
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620333255947398878}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.16000004, z: 0.24000005}
-  m_Center: {x: -0.005, y: 0, z: 0}
 --- !u!82 &7623085100082072486
 AudioSource:
   m_ObjectHideFlags: 0
@@ -209,6 +196,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &7847921231504043300
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620333255947398878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8375975708645977844, guid: c1b728322488d3f4a98d4ff5b7c0e2eb, type: 3}
 --- !u!1 &2503955754360961465
 GameObject:
   m_ObjectHideFlags: 0
