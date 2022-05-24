@@ -44,6 +44,7 @@ public class EerieController : MonoBehaviour
         if (GameManager.Instance.EerieObtained)
         {
             FollowPlayer();
+            Teleport();
         }
     }
     public void SeeBeyond()
@@ -98,5 +99,10 @@ public class EerieController : MonoBehaviour
             _anim.SetBool(_animStopTerrifyBool, true);
     }
 
+    public void Teleport()
+    {
+        if(Vector3.Distance(_targetPlayer.transform.position, transform.position) > 20f)
+        transform.position = new Vector3(_player.transform.position.x - 3f, _player.transform.position.y, _player.transform.position.z - 3f);
+    }
   
 }
