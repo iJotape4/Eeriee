@@ -23,16 +23,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _isPaused = false;
     public bool Ispaused { get => _isPaused; }
     [SerializeField] bool _EerieObtained = false;
+
+    #endregion
+
+    #region FlowGame Events
     public bool EerieObtained { get => _EerieObtained; }
 
     [SerializeField] bool _inSubBossFight = false;
     public bool InSubBossFight { get => _inSubBossFight; }
 
+    [SerializeField] bool _yellowCard = false;
+    public bool YellowCard { get => _yellowCard; }
+
+    [SerializeField] bool _pinkCard = false;
+    public bool PinkCard { get => _pinkCard; }
+
     [SerializeField] int _actualEvent = 0;
     public int ActualEvent { get => _actualEvent; }
 
-    #endregion
 
+    #endregion
 
     private void Awake()
     {
@@ -94,7 +104,18 @@ public class GameManager : MonoBehaviour
         _inSubBossFight = active;
     }
 
-    public void NextEvent()
+    public void YellowCardObtention(bool active)
+    {
+        _yellowCard = active;
+    }
+
+    public void PinkCardObtention(bool active)
+    {
+        _pinkCard = active;
+    }
+
+
+   public void NextEvent()
     {
         _actualEvent +=1;
 
