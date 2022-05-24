@@ -20,7 +20,8 @@ public class UIButtonController : MonoBehaviour
     public void ResumeGame()
     {
        GameObject.FindGameObjectWithTag("Arms").GetComponent<Animator>().SetBool("SmartWatch", false);
-       
+        Animator animSmartWatchUI = UIManager.Instance._smartWatchAnim;
+        animSmartWatchUI.SetBool("Enable", animSmartWatchUI.GetBool("Enable") ? false : true);
     }
 
     public void GOMainMenu()
