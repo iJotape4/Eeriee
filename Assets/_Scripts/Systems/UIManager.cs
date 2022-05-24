@@ -19,11 +19,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _dmgImage;
 
     [SerializeField] GameObject _gameOverPanel;
+    [SerializeField] Image[] _Uicons;
+    [SerializeField] GameObject _selectionCircle;
+
 
     StarterAssets.StarterAssetsInputs _input;
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-    [SerializeField] PlayerInput _playerInput;
+
 #endif
 
     #endregion
@@ -56,6 +59,9 @@ public class UIManager : MonoBehaviour
         _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
         _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
         _smartWatchAnim = _pausePanel.GetComponent<Animator>();
+        _Uicons = GameObject.Find("UiCons").gameObject.transform.GetComponentsInChildren<Image>();
+        _selectionCircle = GameObject.Find("SelectionCircle"); 
+        UiConsStart();
 
     }
     public void ShowGameOver()
@@ -70,6 +76,19 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void UiConsStart()
+    {
+
+        activateUiCon(0);
+        //_Uicons[0].transform.parent.gameObject.SetActive(false);
+    }
+
+    public void activateUiCon(int index)
+    {
+        _Uicons[index].GetComponent<RectTransform>().SetAsLastSibling();
+        _selectionCircle.transform.parent = _Uicons[index].transform;
+        _selectionCircle.transform.localPosition = new Vector3(0f, 0f, 0f);
+    }
     public void UpdateHealth(float damage)
     {
         GameManager.Instance.updateHealth(damage);

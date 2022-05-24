@@ -314,7 +314,11 @@ namespace StarterAssets
 			if  (index != _currentWeaponIndex && verifyAnimator()) 
             {
 				StartCoroutine(ShowWeapon(index));
+
+	
             }
+
+
         }
 
 		public bool verifyAnimator()
@@ -384,6 +388,7 @@ namespace StarterAssets
 			currentWeapon = weapons[index];
 			currentWeapon.SetActive(true);
 			_currentWeaponIndex = index;
+			UIManager.Instance.activateUiCon(index);
 		}
 
 
