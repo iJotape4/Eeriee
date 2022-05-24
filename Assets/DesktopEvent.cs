@@ -10,10 +10,13 @@ public class DesktopEvent : Interactable
     private float _hackingVelocity =10f;
     private PlayerInput _playerInput;
     private Image _hackingBar;
+    private BoxCollider _bc;
 
     public void Start()
     {
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        _bc = GetComponent<BoxCollider>();
+        _bc.enabled = false;
     }
 
     public override void Interact()
@@ -39,6 +42,7 @@ public class DesktopEvent : Interactable
 
         _hackingBar.transform.parent.gameObject.SetActive(false);
         _playerInput.SwitchCurrentActionMap("Player");
+        _bc.enabled = false;
         GameManager.Instance.NextEvent();
     }
 }

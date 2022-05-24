@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 
         InteractableObject._eventsList[_actualEvent].enabled = true;
         InteractableObject._crossMark.transform.parent = InteractableObject._eventsList[_actualEvent].transform;
+        InteractableObject._eventsList[_actualEvent].GetComponent<BoxCollider>().enabled = true;
         InteractableObject._crossMark.transform.localPosition = (new Vector3(0f, 9f, 0f));
     }
 }
