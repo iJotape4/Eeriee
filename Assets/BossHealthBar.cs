@@ -18,8 +18,11 @@ public class BossHealthBar : Healthbar
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.InSubBossFight)
+        {     
         actualHealth = _subBoss._health;
         healthbar.fillAmount = actualHealth / MaximHealth;
+        }
     }
 
 

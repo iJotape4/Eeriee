@@ -114,6 +114,13 @@ public class UIManager : MonoBehaviour
         _bossHealthBar.SetActive(_gameManager.InSubBossFight ? true : false);
     }
 
+    public Image Hacking()
+    {
+
+        return _bossHealthBar.transform.GetChild(0).GetComponent<Image>();
+     
+    }
+
     public IEnumerator DmgFlash()
     {
         _dmgImage.SetActive(true);
