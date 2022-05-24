@@ -7,6 +7,7 @@ public class Pickable : Interactable
     public override void Interact()
     {
         base.Interact();
-        gameObject.SetActive(false);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider>().enabled =false;
     }
 }

@@ -8,6 +8,11 @@ public class YellowCardPass : Pickable
     {
         base.Interact();
         GameManager.Instance.YellowCardObtention(true);
+        GetComponent<AudioSource>().Play();
+
+        //apagar luces
+
+        GameManager.Instance.NextEvent();
     }
 
     private void Update()
