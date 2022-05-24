@@ -21,7 +21,7 @@ public class SpectrumEvent : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             
-            Instantiate(Resources.Load<GameObject>("Prefabs/Spectrum"), transform.position, transform.rotation);
+            Instantiate(Resources.Load<GameObject>("Prefabs/SpectrumParent"), transform.position, transform.rotation);
         }
 
     }
