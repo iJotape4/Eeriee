@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour
     public Image _nextButton;
     public Image _holdNextButton;
 
+    private Image _eUIcon;
+    private Sprite _eUIconAllow;
+    private Sprite _eUIconForbbidden;
+
     public TextMeshProUGUI _textinScreen;
 
     #region Inspector Properties
@@ -66,7 +70,13 @@ public class UIManager : MonoBehaviour
         _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
         _smartWatchAnim = _pausePanel.GetComponent<Animator>();
         _Uicons = GameObject.Find("UiCons").gameObject.transform.GetComponentsInChildren<Image>();
-        _selectionCircle = GameObject.Find("SelectionCircle"); 
+        _selectionCircle = GameObject.Find("SelectionCircle");
+
+        _eUIcon = GameObject.Find("eUIcon").GetComponent<Image>();
+        _eUIcon.enabled = false;
+        _eUIconAllow = Resources.Load<Sprite>("Sprites/EInteract");
+        _eUIconForbbidden = Resources.Load<Sprite>("Sprites/Eblocked");
+
         UiConsStart();
 
     }
@@ -81,6 +91,24 @@ public class UIManager : MonoBehaviour
     {
 
     }
+
+    public void ShowInteractionAllowed()
+    {
+        _eUIcon.enabled = true;
+        _eUIcon.sprite = _eUIconAllow;
+    } 
+    
+    public void ShowInteractionForbbidden()
+    {
+        _eUIcon.enabled = true;
+        _eUIcon.sprite = _eUIconForbbidden;
+    }
+
+    public void DisableInteraction()
+    {
+        _eUIcon.enabled = false;
+    }
+
 
     public void UiConsStart()
     {
