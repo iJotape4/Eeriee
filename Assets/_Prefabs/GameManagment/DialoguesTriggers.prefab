@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4695753250543906436}
   - component: {fileID: 3197800944047708224}
   m_Layer: 15
-  m_Name: DesktopEvent
+  m_Name: 6. ]Open doors on desktop Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 4789063921528822900}
   - component: {fileID: 4789063921528822899}
   m_Layer: 0
-  m_Name: 6 .Open Doors Event
+  m_Name: 7. An Spectrum Appear
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
