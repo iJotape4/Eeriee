@@ -31,7 +31,6 @@ public class SpectrumEvent : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {           
             _spectrum = Instantiate(Resources.Load<GameObject>("Prefabs/SpectrumParent"), transform.position, transform.rotation) as GameObject;
-            _playerInput.GetComponent<Transform>().LookAt(_spectrum.transform);
             _spectrum.GetComponentInChildren<Animator>().enabled = false;
             _playerInput.SwitchCurrentActionMap("Tutorial");
             _eerie.CallSeeBeyond();
