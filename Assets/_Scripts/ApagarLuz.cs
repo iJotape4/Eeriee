@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ApagarLuz : MonoBehaviour
 {
     public GameObject luces;
+    public PlayerInput _playerInput;
     private float tiempo = 66f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _playerInput = FindObjectOfType<PlayerInput>();
+        _playerInput.SwitchCurrentActionMap("LimitedPlayer");
     }
 
     // Update is called once per frame

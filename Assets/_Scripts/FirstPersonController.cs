@@ -110,6 +110,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private AudioSource _backgroundMusic;
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -131,7 +132,10 @@ namespace StarterAssets
             }
 
 			uimanager = UIManager.Instance;
-        }
+			_backgroundMusic = GetComponent<AudioSource>();
+			_backgroundMusic.enabled = false;
+
+		}
 
         private void Start()
         {
@@ -158,6 +162,7 @@ namespace StarterAssets
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
 
+			
         }
 
 		private void Update()

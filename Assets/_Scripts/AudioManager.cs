@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     {
         _backgroundMainAudio = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         _eerieAudio = GameObject.FindGameObjectWithTag("Eerie").GetComponent<AudioSource>();
+        _backgroundMainAudio.enabled = true;
     }
 
     // Update is called once per frame
