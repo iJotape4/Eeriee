@@ -63,7 +63,7 @@ public class SpectrumEvent : MonoBehaviour
         }
         UIManager.Instance.NextButtonActivation(false);
         TutorialAction.ApplyBindingOverride("<Keyboard>/q");
-
+        UIManager.Instance.BlueEyeActivation();
         while (!TutorialAction.WasPressedThisFrame())
         {
             yield return new WaitForEndOfFrame();

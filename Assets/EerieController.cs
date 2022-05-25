@@ -67,7 +67,8 @@ public class EerieController : MonoBehaviour
 
     public void CallSeeBeyond()
     {
-        _anim.SetBool(_animSeeBeyondBool, !_anim.GetBool(_animSeeBeyondBool));
+     _anim.SetBool(_animSeeBeyondBool, !_anim.GetBool(_animSeeBeyondBool));
+        UIManager.Instance.SwitchBlueEye();
     }
 
     public void FollowPlayer()
