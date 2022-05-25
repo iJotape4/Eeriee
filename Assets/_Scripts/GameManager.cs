@@ -84,7 +84,9 @@ public class GameManager : MonoBehaviour
         {
             _isGameOver = true;
             UIManager.Instance.ShowGameOver();
-            Cursor.lockState = CursorLockMode.None;         
+            AudioManager.Instance.muteSounds();
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
     }
 

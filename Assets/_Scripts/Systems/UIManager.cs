@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
 
     public Image _nextButton;
     public Image _holdNextButton;
-
+    #region Inspector Properties
     private Image _smartWatch;
 
     private Image _eUIcon;
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Sprite _blueEyeForbbidden;
 
     public TextMeshProUGUI _textinScreen;
-    #region Inspector Properties
+    
     [SerializeField] Healthbar _healthbar;
     public GameObject _bossHealthBar;
     [SerializeField] GameObject _pausePanel;
@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _gameOverPanel;
     public Image[] _Uicons;
     [SerializeField] GameObject _selectionCircle;
-
+    public GameObject _thanks4PlayingPanel;
 
     StarterAssets.StarterAssetsInputs _input;
 
@@ -89,6 +89,9 @@ public class UIManager : MonoBehaviour
         _blueEye.enabled = false;
         _blueEyeAllow = Resources.Load<Sprite>("Sprites/BlueEye");
         _blueEyeForbbidden = Resources.Load<Sprite>("Sprites/BlueEyeBlocked");
+
+        _thanks4PlayingPanel = GameObject.Find("Thanks4PlayingPanel");
+        _thanks4PlayingPanel.SetActive(false);
 
         UiConsStart();
 

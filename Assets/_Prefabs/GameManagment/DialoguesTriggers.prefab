@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1630371473256780791}
   - component: {fileID: 7447682808017304808}
   m_Layer: 0
-  m_Name: Eerie crying is heard
+  m_Name: 6. Eerie crying is heard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4695753250543906436}
   - component: {fileID: 3197800944047708224}
   m_Layer: 15
-  m_Name: 6. ]Open doors on desktop Event
+  m_Name: 8. Open doors on desktop Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 4789063920522975328}
   - component: {fileID: 4789063920522975263}
   m_Layer: 0
-  m_Name: 8. Final Event, Xplosives
+  m_Name: 11. Final Event, Xplosives
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 4789063920776434671}
   - component: {fileID: 1347265541632351072}
   m_Layer: 0
-  m_Name: Agent Indications2
+  m_Name: 1. Agent Indications2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 4789063921392278971}
   - component: {fileID: 2852419255816109497}
   m_Layer: 0
-  m_Name: 1. First Tutorial
+  m_Name: 2. First Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 4789063921528822899}
   - component: {fileID: 5162095429705142576}
   m_Layer: 0
-  m_Name: 7. An Spectrum Appear
+  m_Name: 9. An Spectrum Appear
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -782,8 +782,8 @@ MonoBehaviour:
   _spectrum: {fileID: 0}
   _playerInput: {fileID: 0}
   _actionMap:
-    m_Name: 
-    m_Id: 
+    m_Name: Action Map
+    m_Id: 936a2ece-b3f5-4bf5-8cff-ef690de3a7c9
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
@@ -800,8 +800,10 @@ GameObject:
   - component: {fileID: 4789063921560921596}
   - component: {fileID: 4789063921560921598}
   - component: {fileID: 4789063921560921597}
+  - component: {fileID: 8255656090705917018}
+  - component: {fileID: 5929536342822913425}
   m_Layer: 0
-  m_Name: "7. Di\xE1logo Final Boss"
+  m_Name: "10. Di\xE1logo Final Boss"
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -853,6 +855,115 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.89, y: 7.25, z: 7.33}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8255656090705917018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789063921560921595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34030907239d24418d503b206214605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _finalBossAudio: {fileID: 0}
+--- !u!82 &5929536342822913425
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789063921560921595}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e5581c0659ac13e43a9a769cc85bc16f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 4.7524753
+  MaxDistance: 4.8
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.99009895
+      value: 1
+      inSlope: -1.0104039
+      outSlope: -1.0104039
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.9904951
+      outSlope: -0.9904951
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4789063922040994273
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4789063922040994274}
+  - component: {fileID: 2397293115885382458}
   m_Layer: 0
   m_Name: DialoguesTriggers
   m_TagString: Untagged
@@ -887,6 +999,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2397293115885382458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789063922040994273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216d5e974155a8f4a9862dce19ac34f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundMainAudio: {fileID: 0}
+  _eerieAudio: {fileID: 0}
+  _thanks4PlayingAudio: {fileID: 0}
 --- !u!1 &4789063922107204618
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +1027,7 @@ GameObject:
   - component: {fileID: 4789063922107204621}
   - component: {fileID: 4789063922107204620}
   m_Layer: 0
-  m_Name: 5. Eeriee Event
+  m_Name: 7. Eeriee Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1305,7 @@ GameObject:
   - component: {fileID: 7217842775556503892}
   - component: {fileID: 2106284570659237733}
   m_Layer: 0
-  m_Name: 2. YellowCard Obtention
+  m_Name: 3. YellowCard Obtention
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
