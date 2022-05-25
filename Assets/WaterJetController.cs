@@ -6,6 +6,10 @@ public class WaterJetController : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
+        if(collision.gameObject.layer != 9 )
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 }

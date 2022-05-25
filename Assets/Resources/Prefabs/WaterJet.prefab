@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5952503164696174823}
   - component: {fileID: 7599016485236371608}
   - component: {fileID: -368643881119508394}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: WaterJet
   m_TagString: HolyWater
   m_Icon: {fileID: 0}
