@@ -18,7 +18,7 @@ public class CameraInteraction : MonoBehaviour
         _camera = this.transform;
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         _playerInput = _player.GetComponent<PlayerInput>();
-        _interact = _playerInput.actions["Interact"];
+        
         _uimanager = UIManager.Instance;
         
     }
@@ -26,6 +26,7 @@ public class CameraInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _interact = _playerInput.actions["Interact"];
         Debug.DrawRay(_camera.position, _camera.forward * _rayDistance, Color.red);  
             RaycastHit hit;
             if (Physics.Raycast(_camera.position, _camera.forward, out hit, _rayDistance, LayerMask.GetMask("Interactable"))){
