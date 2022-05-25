@@ -31,8 +31,10 @@ public class SpectrumEvent : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {           
             _spectrum = Instantiate(Resources.Load<GameObject>("Prefabs/SpectrumParent"), transform.position, transform.rotation) as GameObject;
+            _playerInput.GetComponent<Transform>().LookAt(_spectrum.transform);
             _spectrum.GetComponentInChildren<Animator>().enabled = false;
             _playerInput.SwitchCurrentActionMap("Tutorial");
+            _eerie.CallSeeBeyond();
             _actionMap = _playerInput.currentActionMap;
             StartCoroutine(EerieTutorial());
         }
@@ -41,7 +43,7 @@ public class SpectrumEvent : MonoBehaviour
 
     public IEnumerator EerieTutorial()
     {
-        _eerie.CallSeeBeyond();
+       
         UIManager.Instance._holdNextButton.enabled = false;
         InputAction TutorialAction = _playerInput.actions["TutorialAction"];
         TutorialAction.ApplyBindingOverride("<Keyboard>/space");
