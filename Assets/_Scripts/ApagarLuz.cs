@@ -7,7 +7,7 @@ public class ApagarLuz : MonoBehaviour
 {
     public GameObject luces;
     public PlayerInput _playerInput;
-    private float tiempo = 6f;
+    private float tiempo = 66f;
     public InteractableObject _eventConversation;
     // Start is called before the first frame update
     void Start()
