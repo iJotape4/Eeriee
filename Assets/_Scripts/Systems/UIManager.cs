@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
     private Sprite _eUIconForbbidden;
 
     public TextMeshProUGUI _textinScreen;
-
     #region Inspector Properties
     [SerializeField] Healthbar _healthbar;
     public GameObject _bossHealthBar;
@@ -90,6 +89,12 @@ public class UIManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void NextButtonActivation(bool activation)
+    {
+        _nextButton.enabled = activation;
+        _holdNextButton.enabled = activation;
     }
 
     public void ShowInteractionAllowed()

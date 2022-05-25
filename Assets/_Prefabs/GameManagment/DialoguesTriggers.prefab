@@ -632,16 +632,20 @@ MonoBehaviour:
       escenciales para exorcizarlo\" ?) "
     - "Oh. Aqu\xED est\xE1 mi biblia. Parece que la puedo sacar de mi t\xFAnica al
       seleccionar el bot\xF3n \"2\""
-    - "Si presiono click izquierdo puedo utilizarla como una arma. Perd\xF3name Dios
+    - "Si presiono click izquierdo puedo utilizarla como un arma. Perd\xF3name Dios
       por este sacrilegio tan grande!!"
     - "Si presiono click derecho puedo lanzarla como un boomerang. Mi f\xE9 es muy
       grande, \xA1Conf\xEDo en que siempre volver\xE1 a mi mano!"
-    - "Oh. Aqu\xED est\xE1 mi frasco sagrado. Parece que la puedo sacar de mi bolsillo
+    - "Oh! Aqu\xED est\xE1 mi frasco sagrado. Parece que la puedo sacar de mi bolsillo
       al seleccionar el bot\xF3n \"3\""
     - "Creo que podr\xE9 rociar agua bendita al presionar cualquiera de los botones
       del mouse"
     - "Por \xFAltimo. Para volver a tener las manos vac\xEDas, debo presionar el
       boton \"1\""
+    - Es fundamental tener las manos vacias para poder recoger cosas
+    - "Mi cuerpo y mi alma son j\xF3venes gracias a la gloria del Se\xF1or"
+    - "Tambi\xE9n puedo Saltar si presiono \"Space\" y correr mientras me muevo si
+      presiono \"Shift Izquierdo\""
     arrayAvatars:
     - {fileID: 21300000, guid: 4afd42a8be56aff409f60174f6cf9e21, type: 3}
     arrayDBoxes:
@@ -683,7 +687,6 @@ MonoBehaviour:
   _player: {fileID: 0}
   _dc: {fileID: 0}
   _nextButton: {fileID: 0}
-  _holdNextButton: {fileID: 0}
 --- !u!1 &4789063921528822897
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +775,7 @@ MonoBehaviour:
     m_Actions: []
     m_Bindings: []
   _textInScreen: {fileID: 0}
+  _dc: {fileID: 0}
 --- !u!1 &4789063921560921595
 GameObject:
   m_ObjectHideFlags: 0

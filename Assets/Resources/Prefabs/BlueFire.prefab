@@ -9660,8 +9660,8 @@ GameObject:
   - component: {fileID: 198696392922457284}
   - component: {fileID: 199374976460404498}
   - component: {fileID: 4938243141795078378}
-  - component: {fileID: 4951697511830897429}
   - component: {fileID: 8640954950049890450}
+  - component: {fileID: 271204349343749565}
   m_Layer: 1
   m_Name: BlueFire
   m_TagString: Enemy
@@ -9678,7 +9678,7 @@ Transform:
   m_GameObject: {fileID: 1223526616464650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.4393723, y: 2.4393723, z: 2.4393723}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6508614772363919513}
@@ -14496,7 +14496,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4951697511830897429
+--- !u!135 &8640954950049890450
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223526616464650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Center: {x: -0.01, y: 0.19, z: -0.07}
+--- !u!114 &271204349343749565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14512,19 +14525,6 @@ MonoBehaviour:
   _blueFire: {fileID: 0}
   _xplotion: {fileID: 0}
   shotForce: 2000
---- !u!135 &8640954950049890450
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223526616464650}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.26
-  m_Center: {x: -0.01, y: 0.19, z: -0.07}
 --- !u!1 &1430769185673144
 GameObject:
   m_ObjectHideFlags: 0

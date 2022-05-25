@@ -8,8 +8,9 @@ public class SprectrumController : MonoBehaviour
     public Transform _spawnPoint;
     public GameObject _blueFire;
     public CapsuleCollider capsuleCollider;
+    public Animator _anim;
 
-    public float shotCadency = 3f;
+    public float shotCadency = 15f;
     private float counter;
 
 
@@ -22,12 +23,13 @@ public class SprectrumController : MonoBehaviour
         _blueFire = Resources.Load<GameObject>("Prefabs/BlueFire");
         capsuleCollider = GetComponent<CapsuleCollider>();
         capsuleCollider.enabled = false;
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.EerieObtained)
+        if (GameManager.Instance.EerieObtained && _anim.enabled)
         {
             capsuleCollider.enabled = true;
 

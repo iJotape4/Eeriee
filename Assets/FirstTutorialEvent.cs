@@ -16,33 +16,24 @@ public class FirstTutorialEvent : MonoBehaviour
     public FirstPersonController _player;
     public DialogueController _dc;
     public Image _nextButton;
-    public Image _holdNextButton;
     // Start is called before the first frame update
     void Start()
     {
         _dialogues = GetComponent<InteractableObject>();
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();       
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
-
-        _dc = FindObjectOfType<DialogueController>();
-
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();        
         _textInScreen = UIManager.Instance._textinScreen;
+        _dc = FindObjectOfType<DialogueController>();
         _nextButton = UIManager.Instance._nextButton;
-        _holdNextButton = UIManager.Instance._holdNextButton;
-
-        _holdNextButton.enabled = false;
-        
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            _nextButton.enabled = false;
-              _playerInput.SwitchCurrentActionMap("Tutorial");
-            _actionMap = _playerInput.currentActionMap;
-
+            UIManager.Instance.NextButtonActivation(false);
+             _playerInput.SwitchCurrentActionMap("Tutorial");
+            _actionMap = _playerInput.currentActionMap;           
             StartCoroutine(TutorialManager());
         }
     }
@@ -55,14 +46,14 @@ public class FirstTutorialEvent : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-        _nextButton.enabled = true;
+        UIManager.Instance._nextButton.enabled = true;
         TutorialAction.ApplyBindingOverride("<Keyboard>/space");
 
         while (!TutorialAction.WasPressedThisFrame())
         {
             yield return new WaitForEndOfFrame();
         }
-        _nextButton.enabled = false;
+        UIManager.Instance.NextButtonActivation(false);
         _dc.Nextphrase();
         while (_dialogues._texts.arrayTextos[1] != _textInScreen.text)
         {
@@ -152,6 +143,9 @@ public class FirstTutorialEvent : MonoBehaviour
         UIManager.Instance.activateUiCon(0);
         _player._input.currentWeapon = 0;
         _dc.Nextphrase();
+
+        _playerInput.SwitchCurrentActionMap("Dialogues");
+        UIManager.Instance.NextButtonActivation(true);
 
         yield return null;
     }
