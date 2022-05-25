@@ -16,9 +16,15 @@ public class UIManager : MonoBehaviour
     public Image _nextButton;
     public Image _holdNextButton;
 
+    private Image _smartWatch;
+
     private Image _eUIcon;
     private Sprite _eUIconAllow;
     private Sprite _eUIconForbbidden;
+
+    [SerializeField] private Image _blueEye;
+    [SerializeField] private Sprite _blueEyeAllow;
+    [SerializeField] private Sprite _blueEyeForbbidden;
 
     public TextMeshProUGUI _textinScreen;
     #region Inspector Properties
@@ -71,10 +77,18 @@ public class UIManager : MonoBehaviour
         _Uicons = GameObject.Find("UiCons").gameObject.transform.GetComponentsInChildren<Image>();
         _selectionCircle = GameObject.Find("SelectionCircle");
 
+        _smartWatch = GameObject.Find("UiconSmartWatch").GetComponent<Image>();
+        _smartWatch.enabled = false;
+
         _eUIcon = GameObject.Find("eUIcon").GetComponent<Image>();
         _eUIcon.enabled = false;
         _eUIconAllow = Resources.Load<Sprite>("Sprites/EInteract");
         _eUIconForbbidden = Resources.Load<Sprite>("Sprites/Eblocked");
+
+        _blueEye = GameObject.Find("UiconEye").GetComponent<Image>();
+        _blueEye.enabled = false;
+        _blueEyeAllow = Resources.Load<Sprite>("Sprites/BlueEye");
+        _blueEyeForbbidden = Resources.Load<Sprite>("Sprites/BlueEyeBlocked");
 
         UiConsStart();
 
@@ -85,10 +99,21 @@ public class UIManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+    public void BlueEyeActivation()
+    {
+        _blueEye.enabled = true;
+    }
+
+    public void SwitchBlueEye()
+    {
+        _blueEye.sprite = (_blueEye.sprite == _blueEyeAllow? _blueEyeForbbidden: _blueEyeAllow);
+    }
+
+
+    public void SmartWatchUIconActivation()
+    {
+        _smartWatch.enabled = true;
     }
 
     public void NextButtonActivation(bool activation)
