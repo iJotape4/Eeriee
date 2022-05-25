@@ -11,12 +11,15 @@ public class DesktopEvent : Interactable
     private PlayerInput _playerInput;
     private Image _hackingBar;
     private BoxCollider _bc;
+    public AudioSource _keyboardSFX;
 
     public void Start()
     {
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
         _bc = GetComponent<BoxCollider>();
         _bc.enabled = false;
+        _keyboardSFX = GetComponent<AudioSource>();
+        _keyboardSFX.enabled = false;
     }
 
     public override void Interact()
@@ -29,6 +32,7 @@ public class DesktopEvent : Interactable
 
     public IEnumerator Hacking()
     {
+        _keyboardSFX.enabled = true;
         _playerInput.SwitchCurrentActionMap("Tutorial");
         _hackingBar.color = Color.gray;
 
@@ -39,10 +43,11 @@ public class DesktopEvent : Interactable
             _hackingBar.fillAmount += 0.1f / _hackingVelocity;
             yield return new WaitForEndOfFrame();          
         }
-
+        _keyboardSFX.enabled = false;
         _hackingBar.transform.parent.gameObject.SetActive(false);
         _playerInput.SwitchCurrentActionMap("Player");
         _bc.enabled = false;
         GameManager.Instance.NextEvent();
+        GameManager.Instance.TheCellDoorsAreOpened();
     }
 }

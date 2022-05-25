@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool _pinkCard = false;
     public bool PinkCard { get => _pinkCard; }
 
+    [SerializeField] bool _cellDoorsOpened = false;
+    public bool CelldoorsOpened { get => _cellDoorsOpened; }
+
     [SerializeField] int _actualEvent = 0;
     public int ActualEvent { get => _actualEvent; }
 
@@ -116,6 +119,10 @@ public class GameManager : MonoBehaviour
         _pinkCard = active;
     }
 
+    public void TheCellDoorsAreOpened()
+    {
+        _cellDoorsOpened = true;
+    }
 
    public void NextEvent()
     {
