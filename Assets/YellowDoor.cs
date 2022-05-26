@@ -10,5 +10,8 @@ public class YellowDoor : PrisonDoor
         {
             base.Interact();
         }
+        {
+            _needKey.Play();
+        }
     }
 }

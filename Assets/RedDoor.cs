@@ -10,5 +10,8 @@ public class RedDoor : PrisonDoor
         {
             base.Interact();
         }
+        else{
+            _needKey.Play();
+        }
     }
 }

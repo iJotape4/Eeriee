@@ -6,12 +6,14 @@ public class PrisonDoor : Interactable
 {
 
     private Animator _anim;
+    public AudioSource _needKey;
     private string _opened = "Opened";
     private float _timeOpened = 2f;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _needKey = GetComponent<AudioSource>();
     }
 
      public override void Interact()
