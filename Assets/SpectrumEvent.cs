@@ -20,7 +20,7 @@ public class SpectrumEvent : MonoBehaviour
     {
         _eerie = GameObject.FindGameObjectWithTag("Eerie").GetComponent<EerieController>();
         _dialogues = GetComponent<InteractableObject>();
-        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        _playerInput = FindObjectOfType<PlayerInput>();
         _textInScreen = UIManager.Instance._textinScreen;
         _dc = FindObjectOfType<DialogueController>();
     }

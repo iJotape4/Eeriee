@@ -916,7 +916,6 @@ GameObject:
   - component: {fileID: 881877843033047480}
   - component: {fileID: 936678226603042429}
   - component: {fileID: 118475899733778622}
-  - component: {fileID: 1108466264307873838}
   - component: {fileID: 7130781981288959959}
   m_Layer: 5
   m_Name: HoldSpaceBar
@@ -983,21 +982,6 @@ MonoBehaviour:
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1108466264307873838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141474756518513242}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1b6d217f0c17954289898c21fad1d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
-  actualHealth: 100
-  MaximHealth: 100
 --- !u!114 &7130781981288959959
 MonoBehaviour:
   m_ObjectHideFlags: 0

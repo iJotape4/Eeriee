@@ -16,7 +16,7 @@ public class PinkDoorTriggerEvent : MonoBehaviour
         SwitchmrActivation();
         _this = GetComponent<BoxCollider>();
         _this.enabled = true;
-        _pi = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        _pi = FindObjectOfType<PlayerInput>();
         _io = GetComponent<InteractableObject>();
     }
 

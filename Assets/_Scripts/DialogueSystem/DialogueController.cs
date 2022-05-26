@@ -41,7 +41,7 @@ public class DialogueController : MonoBehaviour
         _avatarsQueue = new Queue<Sprite>();
         _dBoxQueue = new Queue<Sprite>();
 
-        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
+        _playerInput = FindObjectOfType<PlayerInput>();
         _next = _playerInput.actions["Next"];
         _skipAll = _playerInput.actions["SkipAll"];
         _transparentSprite = Resources.Load<Sprite>("Sprites/TransparentSprite");
