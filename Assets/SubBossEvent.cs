@@ -14,11 +14,12 @@ public class SubBossEvent : MonoBehaviour
         subBoss = FindObjectOfType<SubBossController>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (GetComponent<InteractableObject>()._finishedEvent && !_battleTriggered)
+        if (!_battleTriggered)
         {
+            GetComponent<BoxCollider>().enabled = false;
             _battleTriggered = true;
             GameManager.Instance.SubBossFight(true);
             UIManager.Instance.BossHealthBarActivation();

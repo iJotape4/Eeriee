@@ -9,7 +9,7 @@ public class AdminGreenDoor : PrisonDoor
         if (GameManager.Instance.EerieObtained)
         {
             base.Interact();
-        }
+        }else
         {
             _needKey.Play();
         }

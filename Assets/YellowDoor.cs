@@ -9,7 +9,7 @@ public class YellowDoor : PrisonDoor
         if (GameManager.Instance.YellowCard)
         {
             base.Interact();
-        }
+        }else
         {
             _needKey.Play();
         }

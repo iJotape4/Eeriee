@@ -9,7 +9,7 @@ public class PinkDoor : PrisonDoor
         if (GameManager.Instance.PinkCard && !GameManager.Instance.InSubBossFight)
         {
             base.Interact();
-        }
+        }else
         {
             _needKey.Play();
         }

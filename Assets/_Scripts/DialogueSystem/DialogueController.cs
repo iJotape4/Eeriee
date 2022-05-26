@@ -126,6 +126,10 @@ public class DialogueController : MonoBehaviour
         _finisedText = true;
         _nextButton.enabled = true;
         _holdNextButton.enabled = true;
+
+        _dialoguesQueue.Clear();
+        _avatarsQueue.Clear();
+        _dBoxQueue.Clear();
     }
 
     public void Nextphrase()
@@ -168,21 +172,14 @@ public class DialogueController : MonoBehaviour
         if (_playerInput.currentActionMap.name == ("Dialogues")) { 
             _playerInput.SwitchCurrentActionMap("Player");
         }
-        try
-        {
+
             currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
 
             if (currentEvent.GetComponent<InteractableObject>()._isMainEvent)
             {
                 GameManager.Instance.NextEvent();
             }
-        }
-        catch
-        {
-
-        }      
-        CleanDialoguePanel();
-        
+  
     }
 
 
