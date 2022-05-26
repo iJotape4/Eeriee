@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _keyboardSFX: {fileID: 0}
+  _spectrumEvent: {fileID: 4789063921528822899}
 --- !u!82 &7117911575805736420
 AudioSource:
   m_ObjectHideFlags: 0
@@ -344,7 +345,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4789063920270580307}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.3474894, y: 4.2390614, z: 10.270654}
@@ -361,6 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229ba5850a433a947803d6dc8d012384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
 --- !u!1 &4789063920468220015
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4789063920468220016}
   - component: {fileID: 4789063920468220017}
-  - component: {fileID: 4789063920468220018}
   - component: {fileID: 4789063920468220019}
   m_Layer: 0
   m_Name: 4 .SubBoss Event
@@ -403,29 +404,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4789063920468220015}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.72, y: 7.25, z: 3.39}
   m_Center: {x: -1.1681952, y: 0, z: 0}
---- !u!114 &4789063920468220018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789063920468220015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6c31abeb95d6b46a73e8c34854e82d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _finishedEvent: 0
-  _isMainEvent: 1
-  _texts:
-    arrayTextos: []
-    arrayAvatars: []
-    arrayDBoxes: []
 --- !u!114 &4789063920468220019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +867,7 @@ BoxCollider:
   m_GameObject: {fileID: 4789063921528822897}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.12, y: 7.25, z: 10.0982895}
   m_Center: {x: 0, y: 0, z: 2.6891441}

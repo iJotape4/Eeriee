@@ -12,6 +12,7 @@ public class DesktopEvent : Interactable
     private Image _hackingBar;
     private BoxCollider _bc;
     public AudioSource _keyboardSFX;
+    public BoxCollider _spectrumEvent;
 
     public void Start()
     {
@@ -49,5 +50,6 @@ public class DesktopEvent : Interactable
         _bc.enabled = false;
         GameManager.Instance.NextEvent();
         GameManager.Instance.TheCellDoorsAreOpened();
+        _spectrumEvent.enabled = true;
     }
 }

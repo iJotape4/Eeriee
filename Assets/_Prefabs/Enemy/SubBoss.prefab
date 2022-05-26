@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
-  _health: 500
+  _health: 300
   _stunned: 0
   _hitted: 0
   _canPursuit: 0

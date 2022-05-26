@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
 
-    public static BoxCollider[] _eventsList;
+   // public static BoxCollider[] _eventsList;
    // public static GameObject _crossMark;
     public bool _finishedEvent;
     public bool _isMainEvent;
@@ -16,7 +16,7 @@ public class InteractableObject : MonoBehaviour
     private void Awake()
     {
        // _crossMark = GameObject.Find("CrossMark");
-        _eventsList = transform.parent.GetComponentsInChildren<BoxCollider>();
+        //_eventsList = transform.parent.GetComponentsInChildren<BoxCollider>();
         GetComponent<BoxCollider>().isTrigger = true;
     }
 
