@@ -22,8 +22,6 @@ public class KnockOutEvent : MonoBehaviour
         _player = FindObjectOfType<FirstPersonController>();
         playerInput = _player.GetComponent<PlayerInput>();
         _io = GetComponentInParent<NormalDialogue>();
-        _lookAt = _anim.gameObject.transform.GetChild(0).transform;
-        _lookAt.parent = null;
     }
 
     private void OnTriggerEnter(Collider other)

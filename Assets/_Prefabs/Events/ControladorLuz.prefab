@@ -227,7 +227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _finishedEvent: 0
-  _isMainEvent: 0
   _texts:
     arrayTextos:
     - "Parece que hubo un baj\xF3n de luz. Deber\xEDa salir a revisar el generador."
@@ -296,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
   _io: {fileID: 0}
-  _lookAt: {fileID: 0}
+  _lookAt: {fileID: 1988940035695328268}
 --- !u!1 &7615359712875530822
 GameObject:
   m_ObjectHideFlags: 0
