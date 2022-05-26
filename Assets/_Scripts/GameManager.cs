@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int _holyWaterCount = 10;
     [SerializeField] int _saltCount = 10;
 
+     public BoxCollider[] _eventsList;
+
     // int _scoreCount = 0;
     //int _currentLevel = 0;
     [SerializeField] bool _isGameOver = false;
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InteractableObject._eventsList[_actualEvent].enabled = true;
+        _eventsList[_actualEvent].enabled = true;
     }
 
     // Update is called once per frame
@@ -133,9 +135,9 @@ public class GameManager : MonoBehaviour
     {
         _actualEvent +=1;
 
-        InteractableObject._eventsList[_actualEvent].enabled = true;
-        InteractableObject._crossMark.transform.parent = InteractableObject._eventsList[_actualEvent].transform;
-        InteractableObject._eventsList[_actualEvent].GetComponent<BoxCollider>().enabled = true;
+        _eventsList[_actualEvent].enabled = true;
+        InteractableObject._crossMark.transform.parent = _eventsList[_actualEvent].transform;
+        _eventsList[_actualEvent].GetComponent<BoxCollider>().enabled = true;
         InteractableObject._crossMark.transform.localPosition = (new Vector3(0f, 9f, 0f));
     }
 }

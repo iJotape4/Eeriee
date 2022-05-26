@@ -92,6 +92,7 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private float _autoRecoveryAmount = 0.05f;
 
 		// Weapons
 
@@ -175,6 +176,12 @@ namespace StarterAssets
 			Fire2();
 			//Pause();
 			Map();
+
+
+            if (GameManager.Instance._healthCount < 100)
+            {
+				AutoRecovering();
+            }
 		}
 
 		private void LateUpdate()
@@ -513,6 +520,12 @@ namespace StarterAssets
 
             }
         }
+
+		public void AutoRecovering()
+        {
+			UIManager.Instance.UpdateHealth(_autoRecoveryAmount);
+		}
+
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{

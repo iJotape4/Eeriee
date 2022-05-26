@@ -153,8 +153,11 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Instance.updateHealth(damage);
         _healthbar.updateHealthBar(damage);
-        StartCoroutine("DmgFlash");
 
+        if(damage <0)
+        {
+            StartCoroutine("DmgFlash");
+        }
     }
 
     public void BossHealthBarActivation()
