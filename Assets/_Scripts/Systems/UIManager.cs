@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     public GameObject _bossHealthBar;
     [SerializeField] GameObject _pausePanel;
     [SerializeField] GameObject _dmgImage;
+    [SerializeField] Image[] _knockImage;
 
     [SerializeField] GameObject _gameOverPanel;
     public Image[] _Uicons;
@@ -93,6 +94,12 @@ public class UIManager : MonoBehaviour
         _thanks4PlayingPanel = GameObject.Find("Thanks4PlayingPanel");
         _thanks4PlayingPanel.SetActive(false);
 
+        _knockImage = GameObject.Find("KnockImages").GetComponentsInChildren<Image>();
+        foreach (Image img in _knockImage)
+        {
+            img.enabled = false;
+        }
+
         UiConsStart();
 
     }
@@ -101,7 +108,6 @@ public class UIManager : MonoBehaviour
         _gameOverPanel.gameObject.SetActive(true);
 
     }
-
 
     public void BlueEyeActivation()
     {
@@ -202,17 +208,53 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.Confined : CursorLockMode.Locked) ;
     }
 
-    /*
-     public void ActivateTutIcon(string IconName)
-     {
+    public void KnockOutAnimation()
+    {
+        foreach (Image parpad in _knockImage)
+        {
+            StartCoroutine(parpadsAnimation(parpad));
+        }    
+    }
 
-         TutIcon1.gameObject.SetActive(true);
-     }
+    public IEnumerator parpadsAnimation(Image parpad)
+    {
+        parpad.fillAmount = 1f;
+        parpad.enabled = true;
 
-     public void DesactivateTutIcon(string IconName)
-     {
+        while (parpad.fillAmount >= 0.4f)
+        {
+            parpad.fillAmount -= 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
 
-         TutIcon1.gameObject.SetActive(false);
-     }
- }*/
+        while (parpad.fillAmount != 1f)
+        {
+            parpad.fillAmount += 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+
+        while (parpad.fillAmount >= 0.6f)
+        {
+            parpad.fillAmount -= 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+
+        while (parpad.fillAmount != 1f)
+        {
+            parpad.fillAmount += 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+
+        while (parpad.fillAmount >= 0.8f)
+        {
+            parpad.fillAmount -= 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+
+        while (parpad.fillAmount != 1f)
+        {
+            parpad.fillAmount += 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
