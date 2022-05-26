@@ -12,7 +12,11 @@ public class KnockutAnimationEvents : MonoBehaviour
     public void KnockOutAnimation()
     {
         UIManager.Instance.KnockOutAnimation();
+        
     }
-
+    public void activateSound()
+    {
+        GetComponent<AudioSource>().enabled = true;
+    }
 
 }
