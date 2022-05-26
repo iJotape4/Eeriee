@@ -30,7 +30,6 @@ public class EerieController : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _seeBeyondLight = GameObject.Find("SeeBeyondLight").GetComponent<Light>();
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
         _targetPlayer = _player.GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         _playerInput = _player.GetComponent<PlayerInput>();
 

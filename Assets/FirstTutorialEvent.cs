@@ -19,9 +19,7 @@ public class FirstTutorialEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _dialogues = GetComponent<InteractableObject>();
-        _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();       
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();        
+        _dialogues = GetComponent<InteractableObject>();     
         _textInScreen = UIManager.Instance._textinScreen;
         _dc = FindObjectOfType<DialogueController>();
         _nextButton = UIManager.Instance._nextButton;

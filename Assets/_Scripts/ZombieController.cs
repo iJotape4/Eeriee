@@ -75,7 +75,6 @@ public class ZombieController : MonoBehaviour
        // _zombie = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>() ;
 
         meshRenderers= GetComponentsInChildren<SkinnedMeshRenderer>();
 

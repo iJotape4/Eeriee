@@ -9,14 +9,10 @@ public class PlayerAnimationEvents : MonoBehaviour
     public Transform _bottleCap;
 
     public GameObject _smartWatch;
-    public GameObject _player;
+    public FirstPersonController _player;
 
     [SerializeField] private float shotForce = 2000f;
 
-    public void Awake()
-    {
-        _player = GameObject.FindGameObjectWithTag("Player");    
-    }
 
     public void LaunchWater()
     {
@@ -40,7 +36,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void EnableBibleCollider()
     {
-        GameObject _playerCurrentWeapon = _player.GetComponent<FirstPersonController>().currentWeapon;
+        GameObject _playerCurrentWeapon = _player.currentWeapon;
 
         if (_playerCurrentWeapon.name == ("Bible"))
             _playerCurrentWeapon.GetComponent<BoxCollider>().enabled = true;
@@ -48,7 +44,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void DisableBibleCollider()
     {
-        GameObject _playerCurrentWeapon = _player.GetComponent<FirstPersonController>().currentWeapon;
+        GameObject _playerCurrentWeapon = _player.currentWeapon;
 
         if (_playerCurrentWeapon.name == ("Bible"))
             _playerCurrentWeapon.GetComponent<BoxCollider>().enabled = false;

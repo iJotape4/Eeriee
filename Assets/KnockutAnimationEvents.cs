@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KnockutAnimationEvents : MonoBehaviour
 {
+
+
     public void DamageFlash()
     {
         StartCoroutine(UIManager.Instance.DmgFlash());
@@ -19,8 +21,12 @@ public class KnockutAnimationEvents : MonoBehaviour
         GetComponent<AudioSource>().enabled = true;
     }
 
-    public void Finish()
+    public IEnumerator Finish()
     {
+        while(UIManager.Instance._knockImage[1].fillAmount != 1)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         GameManager.Instance.LoadEScene("Jpruebas 2.0");
     }
 

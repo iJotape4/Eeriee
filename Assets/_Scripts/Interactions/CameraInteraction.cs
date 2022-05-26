@@ -10,13 +10,13 @@ public class CameraInteraction : MonoBehaviour
     public float _rayDistance =3f;
     private PlayerInput _playerInput;
     private InputAction _interact;
-    private FirstPersonController _player;
+    public FirstPersonController _player;
     private UIManager _uimanager;
 
     void Start()
     {
         _camera = this.transform;
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
+        _camera.parent = null;
         _playerInput = _player.GetComponent<PlayerInput>();
         
         _uimanager = UIManager.Instance;

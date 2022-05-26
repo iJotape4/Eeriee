@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
 
     [Header("KnockOut")]
     [SerializeField] GameObject _dmgImage;
-    [SerializeField] Image[] _knockImage;
+    public Image[] _knockImage;
 
     #endregion
     private void Awake()

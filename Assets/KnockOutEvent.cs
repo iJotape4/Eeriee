@@ -8,7 +8,7 @@ public class KnockOutEvent : MonoBehaviour
 {
 
     Animator _anim;
-    FirstPersonController _player;
+    public FirstPersonController _player;
     public PlayerInput playerInput;
     public NormalDialogue _io;
     public Transform _lookAt;
@@ -19,7 +19,6 @@ public class KnockOutEvent : MonoBehaviour
         _anim = GetComponentInChildren<Animator>();
         _anim.enabled = false;
 
-        _player = FindObjectOfType<FirstPersonController>();
         playerInput = _player.GetComponent<PlayerInput>();
         _io = GetComponentInParent<NormalDialogue>();
     }
@@ -41,5 +40,6 @@ public class KnockOutEvent : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();          
         }
+        _player.transform.parent = null;
     }
 }

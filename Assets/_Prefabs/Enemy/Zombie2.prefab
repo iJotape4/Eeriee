@@ -368,7 +368,7 @@ MonoBehaviour:
   _walkSpeed: 2
   _runSpeed: 5
   _zombieRunner: 0
-  pushForce: 0
+  pushForce: 10
   meshRenderers: []
   _player: {fileID: 0}
   _anim: {fileID: 0}
