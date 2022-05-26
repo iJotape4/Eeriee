@@ -1363,8 +1363,8 @@ MonoBehaviour:
   _textInScreen: {fileID: 4328915047430400291}
   _avatarInScreen: {fileID: 0}
   _dBoxInScreen: {fileID: 0}
-  _nextButton: {fileID: 0}
-  _holdNextButton: {fileID: 0}
+  _nextButton: {fileID: 6907509539955276822}
+  _holdNextButton: {fileID: 118475899733778622}
   _movementBlock: 0
   currentEvent: {fileID: 0}
 --- !u!114 &152381304796389091
@@ -5273,7 +5273,7 @@ GameObject:
   - component: {fileID: 6330732559351390396}
   - component: {fileID: 6511348853584786487}
   m_Layer: 5
-  m_Name: PausePanel
+  m_Name: SmartWatch Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

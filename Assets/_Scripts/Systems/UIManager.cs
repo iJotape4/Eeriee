@@ -9,41 +9,46 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    #region Inspector Properties
+    [Header ("Important Systems")]
     private GameManager _gameManager;
+
+    [Header("Animator System")]
     public Animator _smartWatchAnim;
     public string _animEnableBool;
 
+    [Header("Dialogues Control")]
+    public TextMeshProUGUI _textinScreen;
+
     public Image _nextButton;
     public Image _holdNextButton;
-    #region Inspector Properties
-    private Image _smartWatch;
 
-    private Image _eUIcon;
-    private Sprite _eUIconAllow;
-    private Sprite _eUIconForbbidden;
+    [Header("Paneles")]
+    public GameObject _smartWatchPanel;
+    public GameObject _gameOverPanel;
+    public GameObject _thanks4PlayingPanel;
 
-    [SerializeField] private Image _blueEye;
+    [Header("UIcon")]
+    public Image _eUIcon;
+    [SerializeField] private Sprite _eUIconAllow;
+    [SerializeField] private Sprite _eUIconForbbidden;
+
+    public Image _blueEye;
     [SerializeField] private Sprite _blueEyeAllow;
     [SerializeField] private Sprite _blueEyeForbbidden;
 
-    public TextMeshProUGUI _textinScreen;
-    
-    [SerializeField] Healthbar _healthbar;
+    public Image _smartWatch;
+
+    public GameObject _selectionCircle;
+    public Image[] _Uicons;
+
+    [Header("HealthBars")]
+    public Healthbar _healthbar;
     public GameObject _bossHealthBar;
-    [SerializeField] GameObject _pausePanel;
+
+    [Header("KnockOut")]
     [SerializeField] GameObject _dmgImage;
     [SerializeField] Image[] _knockImage;
-
-    [SerializeField] GameObject _gameOverPanel;
-    public Image[] _Uicons;
-    [SerializeField] GameObject _selectionCircle;
-    public GameObject _thanks4PlayingPanel;
-
-    StarterAssets.StarterAssetsInputs _input;
-
-#if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-
-#endif
 
     #endregion
     private void Awake()
@@ -60,41 +65,20 @@ public class UIManager : MonoBehaviour
 
         }
         //  DontDestroyOnLoad(this);
-
-
-
     }
 
     private void Start()
     {
         _gameManager = GameManager.Instance;
-        _pausePanel = GameObject.Find("PausePanel"); _pausePanel.SetActive(false);
-        _healthbar = GameObject.Find("HealthBar").GetComponentInChildren<Healthbar>();
-        _bossHealthBar = FindObjectOfType<BossHealthBar>().gameObject.transform.parent.gameObject; 
-        _bossHealthBar.SetActive(false);
-        _dmgImage = GameObject.Find("DmgFlashImage"); _dmgImage.SetActive(false);
-        _gameOverPanel = GameObject.Find("GameOverPanel"); _gameOverPanel.gameObject.SetActive(false);
-        _smartWatchAnim = _pausePanel.GetComponent<Animator>();
-        _Uicons = GameObject.Find("UiCons").gameObject.transform.GetComponentsInChildren<Image>();
-        _selectionCircle = GameObject.Find("SelectionCircle");
-
-        _smartWatch = GameObject.Find("UiconSmartWatch").GetComponent<Image>();
-        _smartWatch.enabled = false;
-
-        _eUIcon = GameObject.Find("eUIcon").GetComponent<Image>();
-        _eUIcon.enabled = false;
-        _eUIconAllow = Resources.Load<Sprite>("Sprites/EInteract");
-        _eUIconForbbidden = Resources.Load<Sprite>("Sprites/Eblocked");
-
-        _blueEye = GameObject.Find("UiconEye").GetComponent<Image>();
-        _blueEye.enabled = false;
-        _blueEyeAllow = Resources.Load<Sprite>("Sprites/BlueEye");
-        _blueEyeForbbidden = Resources.Load<Sprite>("Sprites/BlueEyeBlocked");
-
-        _thanks4PlayingPanel = GameObject.Find("Thanks4PlayingPanel");
+         _smartWatchPanel.SetActive(false);
         _thanks4PlayingPanel.SetActive(false);
+        _gameOverPanel.gameObject.SetActive(false);
 
-        _knockImage = GameObject.Find("KnockImages").GetComponentsInChildren<Image>();
+        _bossHealthBar.SetActive(false);
+        _dmgImage.SetActive(false);       
+        _smartWatch.enabled = false;
+        _eUIcon.enabled = false;
+        _blueEye.enabled = false;
 
         AwakePlayer();
         UiConsStart();
@@ -194,14 +178,14 @@ public class UIManager : MonoBehaviour
 
      public  void Pause()
      {
-        _pausePanel.SetActive(_pausePanel.activeSelf ? false : true);
-        GameManager.Instance.PauseGame(_pausePanel.activeSelf);
-        Time.timeScale = (_pausePanel.activeSelf) ? 0 : 1;
+        _smartWatchPanel.SetActive(_smartWatchPanel.activeSelf ? false : true);
+        GameManager.Instance.PauseGame(_smartWatchPanel.activeSelf);
+        Time.timeScale = (_smartWatchPanel.activeSelf) ? 0 : 1;
      }
 
     public void SmartWatch()
     {
-        _pausePanel.SetActive(_pausePanel.activeSelf ? false : true);
+        _smartWatchPanel.SetActive(_smartWatchPanel.activeSelf ? false : true);
         Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.Confined : CursorLockMode.Locked) ;
     }
 
@@ -242,17 +226,6 @@ public class UIManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        while (parpad.fillAmount >= 0.8f)
-        {
-            parpad.fillAmount -= 0.005f;
-            yield return new WaitForEndOfFrame();
-        }
-
-        while (parpad.fillAmount != 1f)
-        {
-            parpad.fillAmount += 0.005f;
-            yield return new WaitForEndOfFrame();
-        }
         yield return null;
     }
 

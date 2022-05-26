@@ -44,8 +44,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9b2e81e5e6735458804bd42dd252b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbar: {fileID: 0}
-  _pausePanel: {fileID: 0}
-  _dmgImage: {fileID: 0}
+  _smartWatchAnim: {fileID: 0}
+  _animEnableBool: 
+  _textinScreen: {fileID: 0}
+  _nextButton: {fileID: 0}
+  _holdNextButton: {fileID: 0}
+  _smartWatchPanel: {fileID: 0}
   _gameOverPanel: {fileID: 0}
-  _playerInput: {fileID: 0}
+  _thanks4PlayingPanel: {fileID: 0}
+  _eUIcon: {fileID: 0}
+  _eUIconAllow: {fileID: 21300000, guid: fb12eeed374fabe4f99cea6c3aabc79b, type: 3}
+  _eUIconForbbidden: {fileID: 21300000, guid: 4cdf2fd85c52c944caca0b19fa933b06, type: 3}
+  _blueEye: {fileID: 0}
+  _blueEyeAllow: {fileID: 21300000, guid: d14619a6c2679e245b2f21ab081e9758, type: 3}
+  _blueEyeForbbidden: {fileID: 21300000, guid: 49f8f7d39215ac64c94149aa8bd396be, type: 3}
+  _smartWatch: {fileID: 0}
+  _selectionCircle: {fileID: 0}
+  _Uicons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _healthbar: {fileID: 0}
+  _bossHealthBar: {fileID: 0}
+  _dmgImage: {fileID: 0}
+  _knockImage:
+  - {fileID: 0}
+  - {fileID: 0}

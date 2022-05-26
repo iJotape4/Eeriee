@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class BossHealthBar : Healthbar
 {
-    private SubBossController _subBoss;
+    public  SubBossController _subBoss;
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-        _subBoss = GameObject.Find("SubBoss").GetComponent<SubBossController>();
-        actualHealth = _subBoss._health;
+       actualHealth = _subBoss._health;
         MaximHealth = _subBoss._health;
     }
 

@@ -56,10 +56,6 @@ public class DialogueController : MonoBehaviour
         _sprNextButton = _nextButton.sprite;
         _sprHoldNextButton = _holdNextButton.sprite;
 
-        UIManager.Instance._textinScreen = _textInScreen;
-        UIManager.Instance._nextButton = _nextButton;
-        UIManager.Instance._holdNextButton = _holdNextButton;
-
         CleanDialoguePanel();
     }
 
