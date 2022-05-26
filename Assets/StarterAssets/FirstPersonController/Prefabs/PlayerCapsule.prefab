@@ -249,7 +249,7 @@ MonoBehaviour:
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 2048
   _collider: {fileID: 0}
   CinemachineCameraTarget: {fileID: 4135013735270702863}
   TopClamp: 89
@@ -257,7 +257,7 @@ MonoBehaviour:
   _anim: {fileID: 0}
   _animationIdle: Anim_Arms_Idle
   _currentWeaponIndex: 0
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 7089260240441781305}
   weapons: []
   _inBiblioomerang: 0
   _input: {fileID: 0}
@@ -770,5 +770,10 @@ PrefabInstance:
 --- !u!4 &4520210958270903518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5449280597207485883, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
+  m_PrefabInstance: {fileID: 8441074178973219173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7089260240441781305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1677208913910338908, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
   m_PrefabInstance: {fileID: 8441074178973219173}
   m_PrefabAsset: {fileID: 0}
