@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 4
-  SprintSpeed: 6
+  SprintSpeed: 8
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 1.2
@@ -246,7 +246,7 @@ MonoBehaviour:
   FireTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.5
+  GroundedRadius: 0.3
   GroundLayers:
     serializedVersion: 2
     m_Bits: 2048
@@ -258,7 +258,10 @@ MonoBehaviour:
   _animationIdle: Anim_Arms_Idle
   _currentWeaponIndex: 0
   currentWeapon: {fileID: 7089260240441781305}
-  weapons: []
+  weapons:
+  - {fileID: 7089260240441781305}
+  - {fileID: 2629454025231994858}
+  - {fileID: 4300785489974971874}
   _inBiblioomerang: 0
   _input: {fileID: 0}
   _arms: {fileID: 0}
@@ -767,6 +770,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
+--- !u!1 &2629454025231994858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5861728205979203215, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
+  m_PrefabInstance: {fileID: 8441074178973219173}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4300785489974971874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5659843460467225735, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}
+  m_PrefabInstance: {fileID: 8441074178973219173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4520210958270903518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5449280597207485883, guid: cfeed0d528dcfae4a9874bfa419960f3, type: 3}

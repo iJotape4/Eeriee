@@ -142,7 +142,6 @@ namespace StarterAssets
         {
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-            weapons = GameObject.FindGameObjectsWithTag("Weapon");
 			_collider = GetComponentInChildren<CapsuleCollider>();
 			_arms = GameObject.FindGameObjectWithTag("Arms");
 			_arms.transform.SetParent(_mainCamera.transform);
