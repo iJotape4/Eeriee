@@ -19,4 +19,9 @@ public class KnockutAnimationEvents : MonoBehaviour
         GetComponent<AudioSource>().enabled = true;
     }
 
+    public void Finish()
+    {
+        GameManager.Instance.LoadEScene("Jpruebas 2.0");
+    }
+
 }

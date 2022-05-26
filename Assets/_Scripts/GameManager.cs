@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -93,6 +94,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LoadEScene(string Scene)
+    {
+        SceneManager.LoadScene(Scene);
+    }
 
     public void updateHealth(float amount)
     {

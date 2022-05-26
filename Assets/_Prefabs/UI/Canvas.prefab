@@ -3687,7 +3687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210831535366472680}
   m_Layer: 5
-  m_Name: Knock Images
+  m_Name: KnockImages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

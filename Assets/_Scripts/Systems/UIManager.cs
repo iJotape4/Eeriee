@@ -95,11 +95,8 @@ public class UIManager : MonoBehaviour
         _thanks4PlayingPanel.SetActive(false);
 
         _knockImage = GameObject.Find("KnockImages").GetComponentsInChildren<Image>();
-        foreach (Image img in _knockImage)
-        {
-            img.enabled = false;
-        }
 
+        AwakePlayer();
         UiConsStart();
 
     }
@@ -256,5 +253,28 @@ public class UIManager : MonoBehaviour
             parpad.fillAmount += 0.005f;
             yield return new WaitForEndOfFrame();
         }
+        yield return null;
     }
+
+
+    public void AwakePlayer()
+    {
+        foreach (Image parpad in _knockImage)
+        {
+            StartCoroutine(ParpadsAwake(parpad));
+        }
+    }
+
+    public IEnumerator ParpadsAwake(Image parpad)
+    {
+        parpad.enabled = true;
+
+        while (parpad.fillAmount != 0)
+        {
+            parpad.fillAmount -= 0.005f;
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+    }
+
 }
