@@ -36687,9 +36687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a01b1ef84add0458f524da98451c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pull: {fileID: 5509830888002762699}
-  open: 0
-  Player: {fileID: 0}
+  _openAndClose: {fileID: 0}
+  opened: Opened
 --- !u!95 &5509830888002762699
 Animator:
   serializedVersion: 4
@@ -69917,7 +69916,7 @@ GameObject:
   - component: {fileID: 5509830889020588063}
   - component: {fileID: 5509830889020588060}
   m_Layer: 15
-  m_Name: Door.001
+  m_Name: ExitDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

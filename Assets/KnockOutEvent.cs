@@ -11,6 +11,7 @@ public class KnockOutEvent : MonoBehaviour
     FirstPersonController _player;
     public PlayerInput playerInput;
     public InteractableObject _io;
+    public Transform _lookAt;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class KnockOutEvent : MonoBehaviour
         _player = FindObjectOfType<FirstPersonController>();
         playerInput = _player.GetComponent<PlayerInput>();
         _io = FindObjectOfType<InteractableObject>();
+        _lookAt = _anim.gameObject.transform.GetChild(0).transform;
+        _lookAt.parent = null;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,8 +37,8 @@ public class KnockOutEvent : MonoBehaviour
 
     public IEnumerator animKnockingout()
     {
-        _player.transform.parent = _anim.gameObject.transform;
-        _player.transform.LookAt(_anim.gameObject.transform.GetChild(0).transform);
+        _player.transform.LookAt(_lookAt);
+        _player.transform.parent = _anim.gameObject.transform;       
         while (!_io._finishedEvent)
         {
             yield return new WaitForEndOfFrame();          

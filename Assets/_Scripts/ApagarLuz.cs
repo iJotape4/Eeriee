@@ -7,9 +7,10 @@ public class ApagarLuz : MonoBehaviour
 {
     public GameObject luces;
     public PlayerInput _playerInput;
-    private float tiempo = 66f;
+    private float tiempo = 6f;
     public InteractableObject _eventConversation;
     public BoxCollider _knockoutTriggerEvent;
+    public GameObject _exitDoor;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,8 @@ public class ApagarLuz : MonoBehaviour
         _playerInput.SwitchCurrentActionMap("LimitedPlayer");
         _eventConversation = GetComponent<InteractableObject>();
         _knockoutTriggerEvent = FindObjectOfType<KnockOutEvent>().GetComponentInChildren<BoxCollider>();
-
+        _exitDoor = GameObject.Find("ExitDoor");
+        _exitDoor.layer = 0;
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class ApagarLuz : MonoBehaviour
             luces.SetActive(false);
             _eventConversation.activate();
             _knockoutTriggerEvent.enabled = true;
+            _exitDoor.layer = 15;
         }
     }
 

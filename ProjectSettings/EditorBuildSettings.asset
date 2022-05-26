@@ -12,13 +12,10 @@ EditorBuildSettings:
     path: Assets/_Scenes/Prision.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/_Scenes/Jpruebas.unity
-    guid: 59770d7102a40314aaa186cd1011adba
-  - enabled: 1
-    path: Assets/SlimUI/Tech Menu/Scenes/SecondScene.unity
-    guid: a797fa8dc8d369d469ffa5e670be0b71
-  - enabled: 1
     path: Assets/_Scenes/Jpruebas 2.0.unity
     guid: b24a60ac3bf7bce48bc67b105b246f09
+  - enabled: 1
+    path: Assets/_Scenes/Apartamento.unity
+    guid: 5192fb7ee619ba3438fa03702e516cd4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
