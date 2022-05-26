@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         _gameManager = GameManager.Instance;
-         _smartWatchPanel.SetActive(false);
+        _smartWatchAnim = _smartWatchPanel.GetComponent<Animator>();
         _thanks4PlayingPanel.SetActive(false);
         _gameOverPanel.gameObject.SetActive(false);
 
@@ -185,7 +185,7 @@ public class UIManager : MonoBehaviour
 
     public void SmartWatch()
     {
-        _smartWatchPanel.SetActive(_smartWatchPanel.activeSelf ? false : true);
+        _smartWatchAnim.SetBool("Enable", _smartWatchAnim.GetBool("Enable") ? false : true);
         Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.Confined : CursorLockMode.Locked) ;
     }
 

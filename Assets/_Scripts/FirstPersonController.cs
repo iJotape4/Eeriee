@@ -505,9 +505,6 @@ namespace StarterAssets
 			if (_map.WasPressedThisFrame())
             {
 			 _anim.SetBool(_animSmartWatchBool,	_anim.GetBool(_animSmartWatchBool) ? false : true);
-
-			Animator animSmartWatchUI = uimanager._smartWatchAnim;
-			animSmartWatchUI.SetBool("Enable", animSmartWatchUI.GetBool("Enable") ? false : true);
 			}			
         }
 
