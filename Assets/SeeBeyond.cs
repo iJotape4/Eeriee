@@ -8,16 +8,10 @@ public class SeeBeyond : MonoBehaviour
     public Camera _mainCamera;
     public Camera _seeBeyondCamera;
     public Light _seeBeyondLight;
-    public int _cullingMask;
-
     public PlayerInput _playerInput;
     // Start is called before the first frame update
     void Start()
     {
-        _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        _seeBeyondCamera = GetComponentInChildren<Camera>();
-
-        _seeBeyondLight = GetComponent<Light>();
         _seeBeyondLight.enabled = false;
         _playerInput = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInput>();
 

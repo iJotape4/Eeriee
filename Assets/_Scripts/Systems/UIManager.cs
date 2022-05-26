@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
             return;
 
         }
-        //  DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
     }
 
     private void Start()

@@ -134,7 +134,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
+  near clip plane: 0.1
   far clip plane: 500
   field of view: 40
   orthographic: 0
@@ -317,8 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee70930b9500aa48a740a4b04dbf500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 0}
-  _seeBeyondCamera: {fileID: 0}
-  _seeBeyondLight: {fileID: 0}
-  _cullingMask: 0
+  _mainCamera: {fileID: 2703942694473491896}
+  _seeBeyondCamera: {fileID: 2703942693178449611}
+  _seeBeyondLight: {fileID: 2703942694599752182}
   _playerInput: {fileID: 0}
