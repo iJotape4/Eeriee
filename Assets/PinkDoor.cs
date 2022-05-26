@@ -6,7 +6,7 @@ public class PinkDoor : PrisonDoor
 {
     public override void Interact()
     {
-        if (GameManager.Instance.PinkCard)
+        if (GameManager.Instance.PinkCard && !GameManager.Instance.InSubBossFight)
         {
             base.Interact();
         }
