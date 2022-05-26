@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _finishedEvent: 0
-  _isMainEvent: 0
+  _isMainEvent: 1
   _texts:
     arrayTextos:
     - "Parece que hay algo a la izquierda. Si no hago algo, no podr\xE9 entrar a
@@ -847,9 +847,21 @@ MonoBehaviour:
   _finishedEvent: 0
   _isMainEvent: 1
   _texts:
-    arrayTextos: []
-    arrayAvatars: []
-    arrayDBoxes: []
+    arrayTextos:
+    - "Te estoy permitiendo ver al espectro. Ahora Deber\xEDas poder detenerlo"
+    - 'Puedo brindarte esta habilidad siempre que quieras. Solo debes indicarmelo
+      al presionar "Q" '
+    - "Intenta no alejarte demasiado, o no podr\xE9 seguirte el ritmo y nuestra conexi\xF3n
+      espiritual se romper\xE1."
+    - "Tambi\xE9n podemos romper la conexi\xF3n a voluntad. Solo debes indicarmelo
+      al presionar \"Q\" nuevamente. "
+    - "Como? Que no tienes alg\xFAn artilugio para combatir espectros ? "
+    - '... '
+    - Supongo que almenos puedes utilizar la biblia para bloquear sus ataques
+    arrayAvatars:
+    - {fileID: 21300000, guid: 21762d47bf64f4d428a84d739715949b, type: 3}
+    arrayDBoxes:
+    - {fileID: 21300000, guid: 63aacdc279c9c4c4095419f8316f799b, type: 3}
 --- !u!65 &4789063921528822899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -881,7 +893,7 @@ MonoBehaviour:
   _playerInput: {fileID: 0}
   _actionMap:
     m_Name: Action Map
-    m_Id: 936a2ece-b3f5-4bf5-8cff-ef690de3a7c9
+    m_Id: 80ef7986-f4f9-4864-98ee-9026ddc697ba
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
@@ -937,9 +949,17 @@ MonoBehaviour:
   _finishedEvent: 0
   _isMainEvent: 1
   _texts:
-    arrayTextos: []
-    arrayAvatars: []
-    arrayDBoxes: []
+    arrayTextos:
+    - Siento una presencia demasiado oscura en este sitio. Creo que hemos llegado
+    - "Veo que los humanos no se cansan de intentar detenerme, el ritual est\xE1
+      casi completado..."
+    - "Simplemente necesito dos recipientes para Belceb\xFA y Lucifer, y parece que
+      ustedes me facilitaron la b\xFAsqueda"
+    arrayAvatars:
+    - {fileID: 21300000, guid: 21762d47bf64f4d428a84d739715949b, type: 3}
+    - {fileID: 21300000, guid: 7b5e0a4e11f6efe48aef8d7514056ecf, type: 3}
+    arrayDBoxes:
+    - {fileID: 21300000, guid: 63aacdc279c9c4c4095419f8316f799b, type: 3}
 --- !u!65 &4789063921560921597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1139,7 +1159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4789063922107204618}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 30.958, z: -70.33}
+  m_LocalPosition: {x: -7.39, y: 30.958, z: -68.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1157,8 +1177,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.49264, y: 7.25, z: 4.1912003}
-  m_Center: {x: -1.0071077, y: 0, z: 0.08079147}
+  m_Size: {x: 11.541361, y: 7.25, z: 5}
+  m_Center: {x: -1.87, y: 0, z: -1.88}
 --- !u!114 &4789063922107204621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,7 +1456,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &912189142066512994
 PrefabInstance:
