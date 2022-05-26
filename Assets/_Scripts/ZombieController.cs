@@ -18,7 +18,7 @@ public class ZombieController : MonoBehaviour
     public bool _hitted;
     public bool _canPursuit = true;
 
-    public float _attackzone =1.3f;
+    public float _attackzone =1.2f;
 
     public float _range = 20f;
     public float _speed = 1f;
@@ -160,6 +160,12 @@ public class ZombieController : MonoBehaviour
 
     void PlayerDetection()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, LayerMask.GetMask("Default")))
+        {
+            return;
+        }
+
         if (Vector3.Distance(_player.transform.position, transform.position) <= _range)
 
         {

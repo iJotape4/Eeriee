@@ -1818,7 +1818,7 @@ MonoBehaviour:
   _stunned: 0
   _hitted: 0
   _canPursuit: 1
-  _attackzone: 1.3
+  _attackzone: 1.2
   _range: 20
   _speed: 2
   _walkSpeed: 2
