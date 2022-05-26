@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int _livesCount = 2;
     [SerializeField] int _energyCount = 100;
     [SerializeField] int _manaCount = 100;
-    [SerializeField] float _healthCount = 100f;
+    public float _healthCount = 100f;
     [SerializeField] int _holyWaterCount = 10;
     [SerializeField] int _saltCount = 10;
 
