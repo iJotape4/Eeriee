@@ -319,18 +319,15 @@ namespace StarterAssets
 			if  (index != _currentWeaponIndex && verifyAnimator()) 
             {
 				StartCoroutine(ShowWeapon(index));
-
-	
             }
-
-
         }
 
 		public bool verifyAnimator()
         {
 			AnimatorStateInfo animState = _anim.GetCurrentAnimatorStateInfo(0);
 
-			if (animState.IsName(_animationBibleHit) || animState.IsName(_animationHolyWater)){
+			if (animState.IsName(_animationBibleHit) || animState.IsName(_animationHolyWater) || _inBiblioomerang)
+			{
 				return false;
 
             }
@@ -419,7 +416,6 @@ namespace StarterAssets
 
 		public IEnumerator Bibloomerang()
 		{
-			#region Bible Movement
 			currentWeapon.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			StartCoroutine(AnimatorTriggersController(_animAttackTrigger));
 
@@ -454,18 +450,15 @@ namespace StarterAssets
 			bibleRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
 			currentWeapon.transform.rotation = OriginalPosition.transform.rotation;
 			currentWeapon.transform.localScale = OriginalScale;
+			
 			Destroy(OriginalPosition);
 			Destroy(GameObject.Find("OriginalBiblePosition"));
+
+			while(currentWeapon.GetComponent<Rigidbody>().constraints != RigidbodyConstraints.FreezeAll)
+            {
+				yield return new WaitForEndOfFrame();				
+			}
 			_inBiblioomerang = false;
-			
-			yield return null;
-
-			#endregion
-
-			#region  EnemyDetection
-
-			//Aqui va la detección de enemigos y su deteccion
-			#endregion
 		}
 
 		public IEnumerator HolyWaterHit()
