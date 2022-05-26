@@ -544,7 +544,6 @@ GameObject:
   - component: {fileID: 4789063920776434670}
   - component: {fileID: 4789063920776434672}
   - component: {fileID: 4789063920776434671}
-  - component: {fileID: 1347265541632351072}
   m_Layer: 0
   m_Name: 1. Agent Indications2
   m_TagString: Untagged
@@ -604,18 +603,6 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 4123eb5df7d52e843b8098943a557868, type: 3}
     arrayDBoxes:
     - {fileID: 21300000, guid: aca103437472028419e2f978ac44a86c, type: 3}
---- !u!114 &1347265541632351072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789063920776434669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e0f07d8b99c6d14eadea606dcfa7188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4789063921369708447
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +614,7 @@ GameObject:
   - component: {fileID: 4789063921369708512}
   - component: {fileID: 4789063921369708514}
   - component: {fileID: 4789063921369708513}
+  - component: {fileID: 63181387963937146}
   m_Layer: 0
   m_Name: 0. Agent Indications
   m_TagString: Untagged
@@ -689,6 +677,18 @@ MonoBehaviour:
     arrayDBoxes:
     - {fileID: 21300000, guid: aca103437472028419e2f978ac44a86c, type: 3}
     - {fileID: 21300000, guid: aca103437472028419e2f978ac44a86c, type: 3}
+--- !u!114 &63181387963937146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789063921369708447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0f07d8b99c6d14eadea606dcfa7188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4789063921392278968
 GameObject:
   m_ObjectHideFlags: 0
