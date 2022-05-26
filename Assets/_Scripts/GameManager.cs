@@ -68,7 +68,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _eventsList[_actualEvent].enabled = true;
+        try
+        {
+            _eventsList[_actualEvent].enabled = true;
+        }
+        catch { }
     }
 
     // Update is called once per frame

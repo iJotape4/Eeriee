@@ -8,15 +8,21 @@ public class ApagarLuz : MonoBehaviour
     public GameObject luces;
     public PlayerInput _playerInput;
     private float tiempo = 6f;
-    public InteractableObject _eventConversation;
+    public NormalDialogue _eventConversation;
     public BoxCollider _knockoutTriggerEvent;
     public GameObject _exitDoor;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        _eventConversation = GetComponent<NormalDialogue>();
+    }
+
     void Start()
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _playerInput.SwitchCurrentActionMap("LimitedPlayer");
-        _eventConversation = GetComponent<InteractableObject>();
+       
         _knockoutTriggerEvent = FindObjectOfType<KnockOutEvent>().GetComponentInChildren<BoxCollider>();
         _exitDoor = GameObject.Find("ExitDoor");
         _exitDoor.layer = 0;

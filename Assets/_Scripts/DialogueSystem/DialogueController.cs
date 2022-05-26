@@ -78,8 +78,15 @@ public class DialogueController : MonoBehaviour
   {
        _anim.SetBool(_animEnableBool, true);
         _text = objectText;
-        currentEvent = _event;
-        _movementBlock = currentEvent.GetComponent<InteractableObject>()._isMainEvent;
+        try
+        {
+            currentEvent = _event;
+            _movementBlock = currentEvent.GetComponent<InteractableObject>()._isMainEvent;
+        }
+        catch
+        {
+        }
+        
     }
 
     public void ActivateText()
@@ -158,14 +165,22 @@ public class DialogueController : MonoBehaviour
     public void CloseDialogue()
     {
         _anim.SetBool(_animEnableBool, false);
-        _playerInput.SwitchCurrentActionMap("Player");
-        currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
-
-        if (currentEvent.GetComponent<InteractableObject>()._isMainEvent) 
-        { 
-                GameManager.Instance.NextEvent();
+        if (_playerInput.currentActionMap.name == ("Dialogues")) { 
+            _playerInput.SwitchCurrentActionMap("Player");
         }
+        try
+        {
+            currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
 
+            if (currentEvent.GetComponent<InteractableObject>()._isMainEvent)
+            {
+                GameManager.Instance.NextEvent();
+            }
+        }
+        catch
+        {
+
+        }      
         CleanDialoguePanel();
         
     }

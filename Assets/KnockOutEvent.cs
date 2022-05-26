@@ -10,7 +10,7 @@ public class KnockOutEvent : MonoBehaviour
     Animator _anim;
     FirstPersonController _player;
     public PlayerInput playerInput;
-    public InteractableObject _io;
+    public NormalDialogue _io;
     public Transform _lookAt;
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class KnockOutEvent : MonoBehaviour
 
         _player = FindObjectOfType<FirstPersonController>();
         playerInput = _player.GetComponent<PlayerInput>();
-        _io = FindObjectOfType<InteractableObject>();
+        _io = GetComponentInParent<NormalDialogue>();
         _lookAt = _anim.gameObject.transform.GetChild(0).transform;
         _lookAt.parent = null;
     }
@@ -43,6 +43,5 @@ public class KnockOutEvent : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();          
         }
-        playerInput.SwitchCurrentActionMap("Tutorial");
     }
 }
