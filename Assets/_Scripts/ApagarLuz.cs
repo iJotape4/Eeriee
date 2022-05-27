@@ -31,6 +31,16 @@ public class ApagarLuz : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_playerInput == null)
+        {
+            try
+            {
+                _playerInput = FindObjectOfType<PlayerInput>();
+            }
+            catch { }
+           
+        }
+
         tiempo -= Time.deltaTime;
 
         if (tiempo <= 0)
