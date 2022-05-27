@@ -189,7 +189,7 @@ public class DialogueController : MonoBehaviour
         foreach (char character in textToShow.ToCharArray())
         {
             _textInScreen.text += character;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         _finisedText = true;
