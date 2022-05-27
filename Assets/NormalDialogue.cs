@@ -5,11 +5,12 @@ using UnityEngine;
 public class NormalDialogue : MonoBehaviour
 {
     public bool _finishedEvent;
+    public bool _isMainEvent = false;
     public TextsDictionary _texts;
 
     public void activate()
     {
-        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, false);
+        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, this.gameObject);
 
     }
 }

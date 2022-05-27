@@ -7,7 +7,7 @@ public class ApagarLuz : MonoBehaviour
 {
     public GameObject luces;
     public PlayerInput _playerInput;
-    private float tiempo = 0f;
+    private float tiempo = 66f;
     public NormalDialogue _eventConversation;
     public BoxCollider _knockoutTriggerEvent;
     public GameObject _exitDoor;

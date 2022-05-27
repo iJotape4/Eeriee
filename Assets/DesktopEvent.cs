@@ -18,7 +18,6 @@ public class DesktopEvent : Interactable
     {
         _playerInput = FindObjectOfType<PlayerInput>();
         _bc = GetComponent<BoxCollider>();
-        _bc.enabled = false;
         _keyboardSFX = GetComponent<AudioSource>();
         _keyboardSFX.enabled = false;
     }

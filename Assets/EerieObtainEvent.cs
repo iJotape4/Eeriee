@@ -24,7 +24,9 @@ public class EerieObtainEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "Player"){
+            StartCoroutine(EerieEvent());
+        }
     }
 
    public IEnumerator EerieEvent()
