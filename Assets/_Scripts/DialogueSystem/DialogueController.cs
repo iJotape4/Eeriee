@@ -86,11 +86,19 @@ public class DialogueController : MonoBehaviour
         }     
     }
 
-    public void ActivateDialogue( TextsDictionary objectText, bool mainEvent)
+    public void ActivateDialogue( TextsDictionary objectText, GameObject _event)
   {
        _anim.SetBool(_animEnableBool, true);
         _text = objectText;
-       _movementBlock = mainEvent;
+        try
+        {
+            currentEvent = _event;
+            _movementBlock = currentEvent.GetComponent<InteractableObject>()._isMainEvent;
+        }
+        catch
+        {
+        }
+
     }
 
     public void ActivateText()
