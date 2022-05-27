@@ -6,8 +6,12 @@ using StarterAssets;
 public class EventZeroActivator : MonoBehaviour
 {
     public FirstPersonController _player;
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        _player.GetComponent<AudioSource>().enabled = true;
+        if(other.gameObject.tag == "Player")
+        {
+            _player.GetComponent<AudioSource>().enabled = true;
+            UIManager.Instance.AwakePlayer();
+        }
     }
 }

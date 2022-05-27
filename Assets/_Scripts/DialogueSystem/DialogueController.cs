@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class DialogueController : MonoBehaviour
 {
-    private Animator _anim;
+    public Animator _anim;
     private Queue<string> _dialoguesQueue;
     private Queue<Sprite> _avatarsQueue;
     private Queue<Sprite> _dBoxQueue;
@@ -36,7 +36,6 @@ public class DialogueController : MonoBehaviour
 
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
         _dialoguesQueue = new Queue<string>();
         _avatarsQueue = new Queue<Sprite>();
         _dBoxQueue = new Queue<Sprite>();
