@@ -72,10 +72,8 @@ public class SpectrumEvent : MonoBehaviour
         UIManager.Instance.NextButtonActivation(true);
         _playerInput.SwitchCurrentActionMap("Dialogues");
 
-        while (!_dialogues._finishedEvent)
-        {
-            yield return new WaitForEndOfFrame();
-        }
+            yield return new WaitForSeconds(5f);
+
         _spectrum.GetComponentInChildren<Animator>().enabled = true;
     }
 }

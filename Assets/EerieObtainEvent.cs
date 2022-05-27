@@ -20,18 +20,19 @@ public class EerieObtainEvent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (!_eventTrigger.enabled)
-        {
-           
-        }
 
-        if (GetComponent<InteractableObject>()._finishedEvent)
-        {
-            GameManager.Instance.eerieObtention();
-            _eerie.GetComponent<EerieController>().StopTerrified();
-            _eerie.GetComponent<AudioSource>().Stop();
-        }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+   public IEnumerator EerieEvent()
+    {
+
+        yield return new WaitForSeconds(4f);
+        GameManager.Instance.eerieObtention();
+        _eerie.GetComponent<EerieController>().StopTerrified();
+        _eerie.GetComponent<AudioSource>().Stop();
     }
 }

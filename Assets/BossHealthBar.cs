@@ -18,8 +18,16 @@ public class BossHealthBar : Healthbar
     void Update()
     {
         if (GameManager.Instance.InSubBossFight)
-        {     
-        actualHealth = _subBoss._health;
+        {
+            if (_subBoss == null)
+            {
+                try
+                {
+                    _subBoss = FindObjectOfType<SubBossController>();
+                }
+                catch { }
+            }           
+            actualHealth = _subBoss._health;
         healthbar.fillAmount = actualHealth / MaximHealth;
         }
     }
