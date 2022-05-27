@@ -11,6 +11,7 @@ public class ApagarLuz : MonoBehaviour
     public NormalDialogue _eventConversation;
     public BoxCollider _knockoutTriggerEvent;
     public GameObject _exitDoor;
+    private bool notTriggered =true;
     // Start is called before the first frame update
 
     private void Awake()
@@ -43,8 +44,9 @@ public class ApagarLuz : MonoBehaviour
 
         tiempo -= Time.deltaTime;
 
-        if (tiempo <= 0)
+        if (tiempo <= 0 && notTriggered)
         {
+            notTriggered = false;
             luces.SetActive(false);
             _eventConversation.activate();
             _knockoutTriggerEvent.enabled = true;

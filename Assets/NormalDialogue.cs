@@ -9,7 +9,7 @@ public class NormalDialogue : MonoBehaviour
 
     public void activate()
     {
-        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, this.gameObject);
+        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, false);
 
     }
 }

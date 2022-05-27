@@ -32,7 +32,7 @@ public class InteractableObject : MonoBehaviour
 
     public void activate()
     {
-        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, this.gameObject);
+        FindObjectOfType<DialogueController>().ActivateDialogue(_texts, _isMainEvent);
        
     }
 }

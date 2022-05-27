@@ -12,7 +12,7 @@ public class DialogueController : MonoBehaviour
     private Queue<Sprite> _avatarsQueue;
     private Queue<Sprite> _dBoxQueue;
 
-    private PlayerInput _playerInput;
+    public PlayerInput _playerInput;
     private InputAction _next;
     private InputAction _skipAll;
 
@@ -40,9 +40,7 @@ public class DialogueController : MonoBehaviour
         _avatarsQueue = new Queue<Sprite>();
         _dBoxQueue = new Queue<Sprite>();
 
-        _playerInput = FindObjectOfType<PlayerInput>();
-        _next = _playerInput.actions["Next"];
-        _skipAll = _playerInput.actions["SkipAll"];
+
         _transparentSprite = Resources.Load<Sprite>("Sprites/TransparentSprite");
 
         _avatarInScreen = GameObject.Find("CharacterImage").GetComponent<Image>();
@@ -55,11 +53,26 @@ public class DialogueController : MonoBehaviour
         _sprNextButton = _nextButton.sprite;
         _sprHoldNextButton = _holdNextButton.sprite;
 
+        _anim = GetComponent<Animator>();
+
         CleanDialoguePanel();
+    }
+
+    private void Start()
+    {
+        _playerInput = FindObjectOfType<PlayerInput>();
+        _next = _playerInput.actions["Next"];
+        _skipAll = _playerInput.actions["SkipAll"];
     }
 
     private void Update()
     {
+
+        if (_playerInput == null)
+        {
+            _playerInput = FindObjectOfType<PlayerInput>();
+        }
+
         if (_skipAll.WasPerformedThisFrame())
         {
             CloseDialogue();
@@ -73,19 +86,11 @@ public class DialogueController : MonoBehaviour
         }     
     }
 
-    public void ActivateDialogue( TextsDictionary objectText, GameObject _event)
+    public void ActivateDialogue( TextsDictionary objectText, bool mainEvent)
   {
        _anim.SetBool(_animEnableBool, true);
         _text = objectText;
-        try
-        {
-            currentEvent = _event;
-            _movementBlock = currentEvent.GetComponent<InteractableObject>()._isMainEvent;
-        }
-        catch
-        {
-        }
-        
+       _movementBlock = mainEvent;
     }
 
     public void ActivateText()
@@ -184,8 +189,6 @@ public class DialogueController : MonoBehaviour
         {
 
         }      
-        CleanDialoguePanel();
-        
     }
 
 
