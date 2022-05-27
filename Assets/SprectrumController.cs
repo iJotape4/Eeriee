@@ -24,12 +24,18 @@ public class SprectrumController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         capsuleCollider.enabled = false;
         _anim = GetComponent<Animator>();
+        _anim.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.EerieObtained && _anim.enabled)
+        if (GameManager.Instance.EerieObtained)
+        {
+            _anim.enabled = true;
+        }
+
+        if (_anim.enabled)
         {
             capsuleCollider.enabled = true;
 

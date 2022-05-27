@@ -6,9 +6,7 @@ using StarterAssets;
 public class EerieObtainEvent : MonoBehaviour
 {
     public BoxCollider _eventTrigger;
-    public FirstPersonController _player;
     public GameObject _eerie;
-    private bool _isLookingEerie = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +24,6 @@ public class EerieObtainEvent : MonoBehaviour
     {
         if (!_eventTrigger.enabled)
         {
-            if (!_isLookingEerie)
-            {
-               // _player.transform.LookAt(_eerie.transform);
-                _isLookingEerie = true;
-            }
            
         }
 

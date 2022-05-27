@@ -23,6 +23,7 @@ public class FirstTutorialEvent : MonoBehaviour
         _textInScreen = UIManager.Instance._textinScreen;
         _dc = FindObjectOfType<DialogueController>();
         _nextButton = UIManager.Instance._nextButton;
+        _playerInput = _player.GetComponent<PlayerInput>();
     }
 
     private void OnTriggerEnter(Collider other)

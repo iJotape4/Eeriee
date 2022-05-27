@@ -27,7 +27,7 @@ public class KnockutAnimationEvents : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         }
-        GameManager.Instance.LoadEScene("Jpruebas 2.0");
+        GameManager.Instance.LoadEScene("Prision");
     }
 
 }

@@ -11,13 +11,7 @@ public class PlayerPusher : MonoBehaviour
     public float additionalDmg;
     public FirstPersonController _playerRB;
     public Transform _playerDirection;
-
-    private void Start()
-    {
-        _playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController>();
-        _playerDirection = GameObject.FindGameObjectWithTag("Arms").GetComponent<Transform>();
-    }
-    
+  
 
     private void OnTriggerEnter(Collider other)
     {
