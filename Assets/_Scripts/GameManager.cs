@@ -139,4 +139,16 @@ public class GameManager : MonoBehaviour
        // InteractableObject._crossMark.transform.parent = InteractableObject._eventsList[_actualEvent].transform;
         //InteractableObject._crossMark.transform.localPosition = (new Vector3(0f, 9f, 0f));
     }
+
+    public void ResetGameManager()
+    {
+        _isGameOver = false;
+        _EerieObtained = false;
+        _inSubBossFight = false;
+        _pinkCard = false;
+        _yellowCard = false;
+        _cellDoorsOpened = false;
+        _healthCount = 100;
+        Time.timeScale = 1;
+    }
 }

@@ -21,6 +21,16 @@ public class HoldButtonUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_playerInput == null)
+        {
+            try
+            {
+                _playerInput = FindObjectOfType<PlayerInput>();
+            }
+            catch { }
+
+        }
+
         fullfill();
     }
 

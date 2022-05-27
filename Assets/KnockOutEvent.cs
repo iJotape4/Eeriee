@@ -24,6 +24,18 @@ public class KnockOutEvent : MonoBehaviour
         _io = GetComponentInParent<NormalDialogue>();
     }
 
+    public void Update()
+    {
+        if (playerInput == null)
+        {
+            try
+            {
+                playerInput = FindObjectOfType<PlayerInput>();
+            }
+            catch { }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         playerInput.SwitchCurrentActionMap("Tutorial");
