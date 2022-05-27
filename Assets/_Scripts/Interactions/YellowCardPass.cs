@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class YellowCardPass : Pickable
 {
+    public Light[] _classroomLights;
+
     public override void Interact()
     {
         base.Interact();
         GameManager.Instance.YellowCardObtention(true);
         GetComponent<AudioSource>().Play();
 
-        //apagar luces
+        foreach(Light light in _classroomLights)
+        {
+            light.enabled = false;
+        }
 
         GameManager.Instance.NextEvent();
     }
