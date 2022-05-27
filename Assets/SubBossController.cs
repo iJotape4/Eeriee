@@ -26,7 +26,7 @@ public class SubBossController : ZombieController
 
     protected void Pursuit()
     {
-        if (!_player.Grounded || !_canPursuit)
+        if (!_player.Grounded || !_canPursuit || _stunned)
             return;
 
         base.PursuitPlayer();
