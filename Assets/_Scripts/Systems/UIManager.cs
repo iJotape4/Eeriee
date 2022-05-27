@@ -53,7 +53,6 @@ public class UIManager : MonoBehaviour
     #endregion
     private void Awake()
     {
- 
         if (UIManager.Instance == null)
         {
             UIManager.Instance = this.GetComponent<UIManager>();
@@ -66,7 +65,6 @@ public class UIManager : MonoBehaviour
 
         }
         DontDestroyOnLoad(this);
-        
     }
 
     private void Start()
@@ -253,19 +251,6 @@ public class UIManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         yield return null;
-    }
-
-    public void ResetUIManager()
-    {
-        _thanks4PlayingPanel.SetActive(false);
-        _gameOverPanel.gameObject.SetActive(false);
-        _bossHealthBar.SetActive(false);
-        _dmgImage.SetActive(false);
-        _smartWatch.enabled = false;
-        _eUIcon.enabled = false;
-        _blueEye.enabled = false;
-        UiConsStart();
-        UpdateHealth(100f);
     }
 
 }

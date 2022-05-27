@@ -172,21 +172,14 @@ public class DialogueController : MonoBehaviour
         if (_playerInput.currentActionMap.name == ("Dialogues")) { 
             _playerInput.SwitchCurrentActionMap("Player");
         }
-        try
-        {
+
             currentEvent.GetComponent<InteractableObject>()._finishedEvent = true;
 
             if (currentEvent.GetComponent<InteractableObject>()._isMainEvent)
             {
                 GameManager.Instance.NextEvent();
             }
-        }
-        catch
-        {
-
-        }      
-        CleanDialoguePanel();
-        
+  
     }
 
 
@@ -196,7 +189,7 @@ public class DialogueController : MonoBehaviour
         foreach (char character in textToShow.ToCharArray())
         {
             _textInScreen.text += character;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         _finisedText = true;

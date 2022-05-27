@@ -228,13 +228,6 @@ public class UIManagerTech : MonoBehaviour
 
 		textSpeakers.text = speakers[speakersDefault];
 		textSubtitleLanguage.text = subtitleLanguage[subtitleLanguageDefault];
-
-        try { 
-		GameManager.Instance.ResetGameManager();
-		UIManager.Instance.ResetUIManager();
-		AudioManager.Instance.muteSounds();
-		}
-        catch { }
 	}
 
 	public void IncreaseIndex(int i){

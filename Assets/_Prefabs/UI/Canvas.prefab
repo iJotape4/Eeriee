@@ -5547,7 +5547,6 @@ GameObject:
   - component: {fileID: 6330732560101881723}
   - component: {fileID: 6330732560101881722}
   - component: {fileID: 6330732560101881725}
-  - component: {fileID: 8797134258079197374}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5579,6 +5578,7 @@ RectTransform:
   - {fileID: 6330732559262851415}
   - {fileID: 3462597348206853069}
   - {fileID: 3766191788527784413}
+  - {fileID: 3293363222675226217}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5648,44 +5648,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8797134258079197374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6330732560101881724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9b2e81e5e6735458804bd42dd252b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _smartWatchAnim: {fileID: 0}
-  _animEnableBool: 
-  _textinScreen: {fileID: 4328915047430400291}
-  _nextButton: {fileID: 6907509539955276822}
-  _holdNextButton: {fileID: 118475899733778622}
-  _smartWatchPanel: {fileID: 6330732559351390398}
-  _gameOverPanel: {fileID: 6330732559262851414}
-  _thanks4PlayingPanel: {fileID: 5248028457137802207}
-  _eUIcon: {fileID: 4260939392795206813}
-  _eUIconAllow: {fileID: 21300000, guid: fb12eeed374fabe4f99cea6c3aabc79b, type: 3}
-  _eUIconForbbidden: {fileID: 21300000, guid: 4cdf2fd85c52c944caca0b19fa933b06, type: 3}
-  _blueEye: {fileID: 1418428556464245275}
-  _blueEyeAllow: {fileID: 21300000, guid: d14619a6c2679e245b2f21ab081e9758, type: 3}
-  _blueEyeForbbidden: {fileID: 21300000, guid: 49f8f7d39215ac64c94149aa8bd396be, type: 3}
-  _smartWatch: {fileID: 1383423221107284415}
-  _selectionCircle: {fileID: 1447514538917458969}
-  _Uicons:
-  - {fileID: 2466418411823847763}
-  - {fileID: 8987897438961337845}
-  - {fileID: 3326118456934009450}
-  _healthbar: {fileID: 2177770087974658342}
-  _bossHealthBar: {fileID: 1266742746732441963}
-  _dmgImage: {fileID: 6330732559350482176}
-  _knockImage:
-  - {fileID: 8309737718051965484}
-  - {fileID: 458077345560954941}
 --- !u!1 &6330732560146511475
 GameObject:
   m_ObjectHideFlags: 0
@@ -8105,6 +8067,152 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &206575190156489941
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6330732560101881720}
+    m_Modifications:
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776318, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: m_Name
+      value: UImanager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _eUIcon
+      value: 
+      objectReference: {fileID: 4260939392795206813}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _blueEye
+      value: 
+      objectReference: {fileID: 1418428556464245275}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _dmgImage
+      value: 
+      objectReference: {fileID: 6330732559350482176}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _healthbar
+      value: 
+      objectReference: {fileID: 2177770087974658342}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _nextButton
+      value: 
+      objectReference: {fileID: 6907509539955276822}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _smartWatch
+      value: 
+      objectReference: {fileID: 1383423221107284415}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _textinScreen
+      value: 
+      objectReference: {fileID: 4328915047430400291}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _bossHealthBar
+      value: 
+      objectReference: {fileID: 1266742746732441963}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _gameOverPanel
+      value: 
+      objectReference: {fileID: 6330732559262851414}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _holdNextButton
+      value: 
+      objectReference: {fileID: 118475899733778622}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _selectionCircle
+      value: 
+      objectReference: {fileID: 1447514538917458969}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _smartWatchPanel
+      value: 
+      objectReference: {fileID: 6330732559351390398}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _thanks4PlayingPanel
+      value: 
+      objectReference: {fileID: 5248028457137802207}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _Uicons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2466418411823847763}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _Uicons.Array.data[1]
+      value: 
+      objectReference: {fileID: 8987897438961337845}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _Uicons.Array.data[2]
+      value: 
+      objectReference: {fileID: 3326118456934009450}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _knockImage.Array.data[0]
+      value: 
+      objectReference: {fileID: 8309737718051965484}
+    - target: {fileID: 3416410692801776319, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+      propertyPath: _knockImage.Array.data[1]
+      value: 
+      objectReference: {fileID: 458077345560954941}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+--- !u!4 &3293363222675226217 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3416410692801776316, guid: a9285064e536c3a49a0cf9f34a56e6ff, type: 3}
+  m_PrefabInstance: {fileID: 206575190156489941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5339987134740627138
 PrefabInstance:
   m_ObjectHideFlags: 0
