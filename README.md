@@ -1,2 +1,2 @@
 # EERIE
-Proyecto de Tesis de Grado 2022
+Eerie is a 3D Survival horror game developed as a graduation project 
